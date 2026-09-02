@@ -28,7 +28,7 @@ const ORCID = "https://orcid.org/0009-0006-0556-5520"; // paste your ORCID URL o
    Paste ONLY the XXXX part below, rebuild, push, then click Verify.
    Bing Webmaster Tools works the same way (or just import from Google). */
 const GOOGLE_SITE_VERIFICATION = "B2QqojRW1LKfEUjStZuc9L0hT_cprjbRgYsFQrWjpzM";
-const BING_SITE_VERIFICATION = "";
+const BING_SITE_VERIFICATION = "AF2042ABB00E720DFEB8D8479C84F0A4";
 
 /* ---- Load data.js as the single source of truth ----------- */
 const src = fs.readFileSync(path.join(__dirname, "assets", "data.js"), "utf8");
