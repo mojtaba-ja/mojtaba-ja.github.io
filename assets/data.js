@@ -11,15 +11,12 @@ const profile = {
   bio: `I am a PhD candidate and Graduate Research Assistant at
         <strong>Florida Atlantic University</strong>, working in the
         <a href="https://www.fau.edu/smart/" target="_blank" rel="noopener">I-SENSE Lab</a>
-        with Prof. Jinwoo Jang. I hold an M.Sc. in Civil Engineering from the
-        University of New Brunswick and an M.Sc. in Earthquake Engineering from the
-        Iran University of Science and Technology.`,
-  research: `My research applies deep learning to intelligent transportation systems —
-        Transformer-based multi-agent trajectory prediction for pedestrians, vehicles, and
-        cyclists from real-world LiDAR data, spatial graph neural networks for mobility flow,
-        and urban digital twins for city-scale wind simulation. My work is funded by the
-        <strong>NSF</strong> (Center for Smart Streetscapes, EEC-2133516) and the
-        <strong>NIH</strong> (R01AG068472).`,
+        with Prof. Jinwoo Jang.`,
+  research: `My research applies deep learning to intelligent transportation systems:
+        Transformer-based multi-agent trajectory prediction from real-world LiDAR data,
+        spatial graph neural networks for mobility flow, and urban digital twins for
+        city-scale wind simulation. Funded by the <strong>NSF</strong> and the
+        <strong>NIH</strong>.`,
 };
 
 const links = [
