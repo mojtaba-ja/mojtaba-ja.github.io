@@ -30,6 +30,24 @@ const ORCID = "https://orcid.org/0009-0006-0556-5520"; // paste your ORCID URL o
 const GOOGLE_SITE_VERIFICATION = "B2QqojRW1LKfEUjStZuc9L0hT_cprjbRgYsFQrWjpzM";
 const BING_SITE_VERIFICATION = "AF2042ABB00E720DFEB8D8479C84F0A4";
 
+/* ---- Cache busting ----------------------------------------
+   Browsers cache CSS and JS hard. Without this, editing style.css and
+   pushing leaves visitors — and you — looking at the old design until the
+   cache expires. Appending a hash of the file's own contents means the URL
+   changes only when the file changes, so updates appear immediately and
+   unchanged files stay cached. */
+const crypto = require("crypto");
+const assetHash = (rel) => {
+  try {
+    const buf = fs.readFileSync(path.join(__dirname, rel));
+    return crypto.createHash("sha1").update(buf).digest("hex").slice(0, 8);
+  } catch {
+    return "0";
+  }
+};
+const CSS_V = assetHash("assets/style.css");
+const JS_V = assetHash("assets/site.js");
+
 /* ---- Load data.js as the single source of truth ----------- */
 const src = fs.readFileSync(path.join(__dirname, "assets", "data.js"), "utf8");
 const load = new Function(
@@ -299,7 +317,7 @@ ${
     <meta name="twitter:image" content="${SITE_URL}/${D.profile.image}" />
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚦</text></svg>" />
-    <link rel="stylesheet" href="${base}assets/style.css" />
+    <link rel="stylesheet" href="${base}assets/style.css?v=${CSS_V}" />
 
     <script type="application/ld+json">
 ${jsonLd}
@@ -325,7 +343,7 @@ ${jsonLd}
     <main class="container">
 ${body}
     </main>
-    <script src="${base}assets/site.js"></script>
+    <script src="${base}assets/site.js?v=${JS_V}"></script>
   </body>
 </html>
 `;
