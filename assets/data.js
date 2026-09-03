@@ -72,6 +72,7 @@ const publications = [
     links: [
       { label: "DOI", url: "https://doi.org/10.1109/OJITS.2025.3640002" },
       { label: "IEEE Xplore", url: "https://ieeexplore.ieee.org/document/11277286/" },
+      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:Tyk-4Ss8FVUC" },
     ],
     // Verbatim published abstract. Open access (CC BY).
     abstract: `With the rise of intelligent systems in urban transportation, the ability to predict
@@ -108,6 +109,7 @@ const publications = [
     links: [
       { label: "SSRN", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5801889" },
       { label: "DOI", url: "https://doi.org/10.2139/ssrn.5801889" },
+      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:IjCSPb-OGe4C" },
     ],
     // SSRN blocks automated retrieval, so the abstract could not be verified.
     // Copy it from your own SSRN listing and paste it here.
@@ -129,7 +131,10 @@ const publications = [
     authors: "A. Zare Hosseinzadeh, G. Ghodrati Amiri, <strong>M. Jafarian Abyaneh</strong>, A. Ghadimi Hamzehkolaei",
     venues: ["Engineering Optimization, Vol. 52, No. 4 — 2020"],
     status: "published",
-    links: [{ label: "DOI", url: "https://doi.org/10.1080/0305215X.2019.1593400" }],
+    links: [
+      { label: "DOI", url: "https://doi.org/10.1080/0305215X.2019.1593400" },
+      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:u-x6o8ySG0sC" },
+    ],
     // Verbatim published abstract.
     abstract: `This article presents two effective optimization-based model-updating approaches for
       structural damage identification using the modal residual force (MRF) concept. The first
@@ -155,7 +160,9 @@ const publications = [
     authors: "<strong>M. Jafarian Abyaneh</strong>",
     venues: ["M.Sc. Thesis, University of New Brunswick — 2020"],
     status: "published",
-    links: [],
+    links: [
+      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:UeHWp8X0CEIC" },
+    ],
     // Thesis abstract not retrievable from the UNB repository. Paste your own here.
     abstract: null,
   },
@@ -165,7 +172,10 @@ const publications = [
     authors: "G. Ghodrati Amiri, <strong>M. Jafarian Abyaneh</strong>, A. Zare Hosseinzadeh",
     venues: ["Int. J. of Civil, Environmental, Structural, Construction and Architectural Engineering, Vol. 10, No. 8 — 2016"],
     status: "published",
-    links: [{ label: "DOI", url: "https://doi.org/10.5281/zenodo.1125800" }],
+    links: [
+      { label: "DOI", url: "https://doi.org/10.5281/zenodo.1125800" },
+      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:u5HHmVD_uO8C" },
+    ],
     // Verbatim published abstract.
     abstract: `This paper presents an effective model updating strategy for damage localization and
       quantification in frames by defining damage detection problem as an optimization issue. A
@@ -191,7 +201,10 @@ const publications = [
     status: "published",
     // The DOI (10.22075/jrce.2016.369) still resolves to the journal's own
     // server, which is offline. DOAJ hosts a stable open-access record instead.
-    links: [{ label: "DOAJ", url: "https://doaj.org/article/7dff699120cd4ba3ba2336eb9725b1a9" }],
+    links: [
+      { label: "DOAJ", url: "https://doaj.org/article/7dff699120cd4ba3ba2336eb9725b1a9" },
+      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:d1gkVwhDpl0C" },
+    ],
     // Verbatim published abstract. Open access (DOAJ).
     abstract: `The main objective of this paper is concentrated on presenting a new two-stage method for
       damage localization and quantification in the linear-shaped structures. A linear-shaped
