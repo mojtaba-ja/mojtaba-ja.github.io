@@ -311,7 +311,7 @@ const awards = [
 
 const funding = [
   "<strong>NSF</strong> Engineering Research Center for Smart Streetscapes (CS3), Award No. EEC-2133516 — Graduate Researcher",
-  "<strong>NIH</strong> In-Vehicle Sensors to Detect Cognitive Change in Older Drivers, Award No. 1R01AG068472-01 — Graduate Researcher",
+  "<strong>NIH</strong> In-Vehicle Sensors to Detect Cognitive Change in Older Drivers, Award No. R01AG068472 — Graduate Researcher",
   "<strong>FAU</strong> Vertically Integrated Projects: Smart Sensors and AI for Coastal Destination Resilience — Graduate Research Mentor",
 ];
 
