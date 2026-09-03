@@ -52,7 +52,7 @@ Sorts newest-first on its own.
 
 ```powershell
 Copy-Item "..\cv-typst\cv-typst.pdf" "assets\cv.pdf" -Force
-Copy-Item "..\resume-typst\resume-typst_AVTech.pdf" "assets\resume.pdf" -Force
+Copy-Item "..\resume-typst\resume-typst_Consulting_DOT.pdf" "assets\resume.pdf" -Force
 ```
 
 ---
