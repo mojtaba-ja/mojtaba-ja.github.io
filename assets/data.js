@@ -66,6 +66,13 @@ const publications = [
     slug: "lidar-transformer-ojits",
     title: "Transformer-Based Trajectory Prediction Using LiDAR Data for Situational Awareness in Complex Urban Environments",
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    // YEAR: 2026 is correct here — do not "fix" it to 2025.
+    // IEEE's official BibTeX gives year={2026} (the Volume 7 issue year), which
+    // is what appears in reference lists when people cite this paper.
+    // Google Scholar shows 2025/12/3 because it always uses the date an article
+    // first went online. Both are right; they measure different things.
+    // Do NOT edit the year in your Scholar profile to match — Scholar disables
+    // automatic citation updates for any article you manually edit.
     venues: ["IEEE Open Journal of Intelligent Transportation Systems, Vol. 7, pp. 16–28 — 2026"],
     status: "published",
     note: "Impact Factor: 6.007",
