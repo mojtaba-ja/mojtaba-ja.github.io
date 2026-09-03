@@ -11,7 +11,7 @@ const profile = {
   bio: `I am a PhD candidate and Graduate Research Assistant at
         <strong>Florida Atlantic University</strong>, working in the
         <a href="https://www.fau.edu/smart/" target="_blank" rel="noopener">I-SENSE Lab</a>
-        with Prof. Jinwoo Jang.`,
+        with Dr. Jinwoo Jang.`,
   research: `My research applies deep learning to intelligent transportation systems:
         Transformer-based multi-agent trajectory prediction from real-world LiDAR data,
         spatial graph neural networks for mobility flow, and urban digital twins for
