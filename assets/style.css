@@ -64,7 +64,7 @@ body {
    at 17px that column runs ~100 characters per line, and comfortable prose
    is 65–75. So running text gets its own narrower measure while the page
    keeps its width. */
-:root { --measure: 36rem; }   /* rem, so it is the same width everywhere */
+:root { --measure: 32rem; }   /* rem, so it is the same width everywhere */
 
 .abstract p,
 .entry ul li,
