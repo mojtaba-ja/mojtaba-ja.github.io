@@ -204,7 +204,7 @@ const publications = [
     slug: "grey-system-two-stage",
     title: "A new two-stage method for damage identification in linear-shaped structures via Grey System Theory and optimization algorithm",
     authors: "G. Ghodrati Amiri, A. Zare Hosseinzadeh, <strong>M. Jafarian Abyaneh</strong>",
-    venues: ["Journal of Rehabilitation in Civil Engineering, Vol. 3, No. 2, pp. 36–50 — 2015"],
+    venues: ["Journal of Rehabilitation in Civil Engineering, Vol. 3, No. 2, pp. 45–58 — 2015"],
     status: "published",
     // The DOI (10.22075/jrce.2016.369) still resolves to the journal's own
     // server, which is offline. DOAJ hosts a stable open-access record instead.
