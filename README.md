@@ -50,10 +50,23 @@ Sorts newest-first on its own.
 
 ## New CV or resume PDF
 
-```powershell
-Copy-Item "..\cv-typst\cv-typst.pdf" "assets\cv.pdf" -Force
-Copy-Item "..\resume-typst\resume-typst_Consulting_DOT.pdf" "assets\resume.pdf" -Force
+Edit the `.typ` file, then from `G:\My Drive\CV and Resume`:
+
 ```
+bash publish.sh
+```
+
+Or double-click **PUBLISH.cmd**. It recompiles whatever changed, copies the PDFs
+into the site, rebuilds, and pushes every repo that changed. Safe to run any time —
+if nothing changed, it does nothing.
+
+| Flag | Effect |
+|---|---|
+| `--dry` | show what it would do, change nothing |
+| `--check` | also test every link (slower, needs network) |
+
+To switch which resume the site serves, edit `SITE_RESUME` at the top of
+`publish.sh`.
 
 ---
 
