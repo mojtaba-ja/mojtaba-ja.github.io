@@ -100,8 +100,8 @@ header.masthead {
 }
 
 header.masthead img.avatar {
-  width: 280px;
-  height: 420px;         /* 2:3, the source photo's own ratio */
+  width: 240px;
+  height: 360px;         /* 2:3, the source photo's own ratio */
   object-fit: cover;
   object-position: 50% 22%;
   border-radius: 8px;
