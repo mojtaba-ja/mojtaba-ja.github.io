@@ -73,6 +73,15 @@ Talks live in their own `presentations` list, kept out of the paper list:
 
 `talkSections` names those two sections the same way `pubSections` does.
 
+## Page order and the jump nav
+
+`homeSections()` in `build.js` is the whole page: one line per section, in the
+order they appear. The row of jump links under the photo is generated from that
+same list, so a section can never be missing from the nav, and an empty section
+(no data) prints neither a heading nor a link. To move a section, move its line;
+to rename it, change the title there; the anchor (`#working-papers`) follows the
+short nav label automatically.
+
 ## Add a news item
 
 ```js
@@ -93,8 +102,16 @@ Or double-click **PUBLISH.cmd**. It recompiles whatever changed, copies the PDFs
 into the site, rebuilds, and pushes every repo that changed. Safe to run any time —
 if nothing changed, it does nothing.
 
+Give it a commit message and every repo it pushes uses that message instead of the
+dated default:
+
+```
+bash publish.sh "Group papers the way the CV does"
+```
+
 | Flag | Effect |
 |---|---|
+| `"message"` or `-m "message"` | commit message for this run (default: `Update site (date)`) |
 | `--dry` | show what it would do, change nothing |
 | `--check` | also test every link (slower, needs network) |
 

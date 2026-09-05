@@ -250,8 +250,8 @@ const publications = [
 /* The publication sections, in the order they appear on the page.
    Same split, same names as the CV. */
 const pubSections = [
-  { key: "peer-reviewed", title: "Publications" },
-  { key: "working", title: "Working Papers &amp; Under Review" },
+  { key: "peer-reviewed", title: "Publications", short: "Publications" },
+  { key: "working", title: "Working Papers &amp; Under Review", short: "Working Papers" },
 ];
 
 /* Talks and posters — kept apart from the publication list, as in the CV.
@@ -316,8 +316,8 @@ const presentations = [
 ];
 
 const talkSections = [
-  { key: "conference", title: "Conference Presentations" },
-  { key: "workshop", title: "Workshop Presentations" },
+  { key: "conference", title: "Conference Presentations", short: "Conference" },
+  { key: "workshop", title: "Workshop Presentations", short: "Workshop" },
 ];
 
 const news = [
@@ -402,11 +402,33 @@ const funding = [
   "<strong>FAU</strong> Vertically Integrated Projects: Smart Sensors and AI for Coastal Destination Resilience — Graduate Research Mentor",
 ];
 
+/* Undergraduates I mentor, grouped by the program that funds the work —
+   the same split the CV uses. For the VIP teams the "name" is the team and the
+   detail is its roster, which keeps eleven students to two readable lines. */
 const mentoring = [
-  { name: "Dana K. Smith", detail: "Civil Eng., FAU — voxelization &amp; CFD-ready digital twin pipelines" },
-  { name: "Jonathan Lalla", detail: "CS, FAU — voxelization &amp; CFD-ready digital twin pipelines" },
-  { name: "Cyrus Khan", detail: "CS, UC Riverside (NSF REU) — GPS-to-behavior-metric pipeline, Fast Map Matching" },
-  { name: "Vedant Sundriyal", detail: `CS, Lehman College (NSF REU) — QuASAR: watertight 3D city reconstruction (<a href="https://github.com/Vedant-Sundriyal/quasar-urban-geometry-reconstruction" target="_blank" rel="noopener">GitHub</a>)` },
+  {
+    program: "NSF CS3 (EEC-2133516) — Digital Twins for Smart Streetscapes, FAU",
+    dates: "Jan. 2026 – Present",
+    entries: [
+      { name: "Dana K. Smith", detail: "Civil Eng., FAU — voxelization &amp; CFD-ready digital twin pipelines" },
+      { name: "Jonathan Lalla", detail: "CS, FAU — voxelization &amp; CFD-ready digital twin pipelines" },
+      { name: "Cyrus Khan", detail: "CS, UC Riverside (NSF REU) — GPS-to-behavior-metric pipeline, Fast Map Matching" },
+      { name: "Vedant Sundriyal", detail: `CS, Lehman College (NSF REU) — QuASAR: watertight 3D city reconstruction (<a href="https://github.com/Vedant-Sundriyal/quasar-urban-geometry-reconstruction" target="_blank" rel="noopener">GitHub</a>)` },
+    ],
+  },
+  {
+    program: "FAU VIP Program — Smart Sensors and AI for Coastal Destination Resilience",
+    dates: "Jan. 2026 – Present",
+    entries: [
+      { name: "Environment &amp; Sustainability", detail: "Dana K. Smith, Iris York, Felicia Phan, James Kane, Dana Urbano Prieto, Sammie Chamberlain (FAU)" },
+      { name: "Safety &amp; Security", detail: "Jonathan Lalla, Mykyta Garkusha, Mohammed Mered, Howard Lowe, Nicolette Madrazo (FAU)" },
+    ],
+  },
+];
+
+const affiliations = [
+  "Institute of Electrical and Electronics Engineers (IEEE), Member",
+  "American Society of Civil Engineers (ASCE), Member",
 ];
 
 const skills = [

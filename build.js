@@ -53,7 +53,7 @@ const src = fs.readFileSync(path.join(__dirname, "assets", "data.js"), "utf8");
 const load = new Function(
   src +
     "\nreturn {profile,links,interests,publications,pubSections,presentations,talkSections," +
-    "news,experience,education,awards,funding,mentoring,skills};"
+    "news,experience,education,awards,funding,mentoring,affiliations,skills};"
 );
 const D = load();
 
@@ -123,11 +123,11 @@ function masthead(base) {
     </header>`;
 }
 
-const interests = () => `
-    <section>
-      <h2>Research Interests</h2>
-      <div class="tags">${D.interests.map((i) => `<span class="tag">${i}</span>`).join("")}</div>
-    </section>`;
+/* Each renderer below returns only what goes INSIDE a section. The section
+   wrapper, its id and its <h2> are added once, in homeSections(), so the jump
+   nav and the page can never drift apart. */
+const interests = () =>
+  `<div class="tags">${D.interests.map((i) => `<span class="tag">${i}</span>`).join("")}</div>`;
 
 /* A paper gets its own page only when it has a real abstract to show. */
 const hasPage = (p) => Boolean(p.abstract && String(p.abstract).trim());
@@ -160,32 +160,21 @@ function pubItem(p, base) {
         </li>`;
 }
 
-/* One section per group, in the order pubSections lists them, so the page
-   reads the way the CV does instead of as one undifferentiated pile.
-   An empty group prints nothing. */
-function publications(base) {
-  return D.pubSections
-    .map((g) => {
-      const items = D.publications.filter((p) => p.group === g.key);
-      if (!items.length) return "";
-      return `<section><h2>${g.title}</h2><ul class="pubs">${items
-        .map((p) => pubItem(p, base))
-        .join("")}</ul></section>`;
-    })
-    .filter(Boolean)
-    .join("\n");
-}
+/* One list per group, in the order pubSections gives them, so the page reads
+   the way the CV does instead of as one undifferentiated pile. */
+const pubList = (key, base) => {
+  const items = D.publications.filter((p) => p.group === key);
+  return items.length ? `<ul class="pubs">${items.map((p) => pubItem(p, base)).join("")}</ul>` : "";
+};
 
-/* Talks and posters. Same list shape as the papers, minus links and badges —
+/* Talks and posters. Same shape as the papers, minus links and badges —
    these are events, not artifacts anyone can download. */
-function presentations() {
-  return D.talkSections
-    .map((g) => {
-      const items = D.presentations.filter((t) => t.type === g.key);
-      if (!items.length) return "";
-      const li = items
-        .map(
-          (t) => `
+const talkList = (key) => {
+  const items = D.presentations.filter((t) => t.type === key);
+  if (!items.length) return "";
+  const li = items
+    .map(
+      (t) => `
         <li>
           <div class="pub-title">${t.title}</div>
           <div class="pub-authors">${t.authors}</div>
@@ -193,13 +182,10 @@ function presentations() {
             t.note ? ` <span class="muted">(${t.note})</span>` : ""
           }</div>
         </li>`
-        )
-        .join("");
-      return `<section><h2>${g.title}</h2><ul class="pubs">${li}</ul></section>`;
-    })
-    .filter(Boolean)
-    .join("\n");
-}
+    )
+    .join("");
+  return `<ul class="pubs">${li}</ul>`;
+};
 
 const news = () => {
   const items = [...D.news]
@@ -209,11 +195,11 @@ const news = () => {
         `<li><span class="when">${fmtDate(n.date)}</span><span class="what">${n.text}</span></li>`
     )
     .join("");
-  return `<section><h2>News</h2><ul class="news">${items}</ul></section>`;
+  return `<ul class="news">${items}</ul>`;
 };
 
-const experience = () => {
-  const items = D.experience
+const experience = () =>
+  D.experience
     .map(
       (e) => `
       <div class="entry">
@@ -226,11 +212,9 @@ const experience = () => {
       </div>`
     )
     .join("");
-  return `<section><h2>Experience</h2>${items}</section>`;
-};
 
-const education = () => {
-  const items = D.education
+const education = () =>
+  D.education
     .map(
       (e) => `
       <div class="entry">
@@ -242,26 +226,75 @@ const education = () => {
       </div>`
     )
     .join("");
-  return `<section><h2>Education</h2>${items}</section>`;
-};
 
+/* Mentees grouped under the program that funds them, so a reader can tell the
+   NSF REU students from the VIP teams at a glance. */
 const mentoring = () =>
-  `<section><h2>Mentoring</h2><ul>${D.mentoring
-    .map((m) => `<li><strong>${m.name}</strong> &mdash; ${m.detail}</li>`)
-    .join("")}</ul></section>`;
+  D.mentoring
+    .map(
+      (g) => `
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-role">${g.program}</span>
+          <span class="entry-when">${g.dates}</span>
+        </div>
+        <ul>${g.entries
+          .map((m) => `<li><strong>${m.name}</strong> &mdash; ${m.detail}</li>`)
+          .join("")}</ul>
+      </div>`
+    )
+    .join("");
 
-const funding = () =>
-  `<section><h2>Research Funding</h2><ul>${D.funding
-    .map((f) => `<li>${f}</li>`)
-    .join("")}</ul></section>`;
-
-const awards = () =>
-  `<section><h2>Awards</h2><ul>${D.awards.map((a) => `<li>${a}</li>`).join("")}</ul></section>`;
+const list = (arr) => `<ul>${arr.map((x) => `<li>${x}</li>`).join("")}</ul>`;
 
 const skills = () =>
-  `<section><h2>Technical Skills</h2>${D.skills
-    .map((s) => `<div class="skill-row"><span class="skill-group">${s.group}:</span> ${s.items}</div>`)
-    .join("")}</section>`;
+  D.skills
+    .map(
+      (s) =>
+        `<div class="skill-row"><span class="skill-group">${s.group}:</span> ${s.items}</div>`
+    )
+    .join("");
+
+/* Section ids come from the nav label, so the URL of an anchor reads the way
+   the link does: #working-papers, not #working. */
+const slugId = (label) =>
+  collapse(label).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+/* ---- The page, as one ordered list of sections -------------
+   Order follows the CV, with one deliberate change: News sits at the top,
+   because a visitor's first question about a personal site is "what is this
+   person doing now?" — and papers come before the biography, because that is
+   what people arrive for. `short` is the label used in the jump nav. */
+function homeSections(base) {
+  const out = [];
+  const add = (id, title, inner, short) => {
+    if (inner) out.push({ id, title, inner, short: short || title });
+  };
+
+  add("news", "News", news());
+  add("interests", "Research Interests", interests(), "Interests");
+  D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
+  D.talkSections.forEach((g) => add(slugId(g.short), g.title, talkList(g.key), g.short));
+  add("education", "Education", education());
+  add("experience", "Experience", experience());
+  add("funding", "Research Funding", list(D.funding), "Funding");
+  add("mentoring", "Mentoring", mentoring());
+  add("awards", "Awards", list(D.awards));
+  add("affiliations", "Professional Affiliations", list(D.affiliations), "Affiliations");
+  add("skills", "Technical Skills", skills(), "Skills");
+
+  return out;
+}
+
+/* One row of jump links. The page is long enough now that landing on it with
+   no map is a worse experience than the extra row costs. */
+const sectionNav = (sections) =>
+  `<nav class="sectionnav" aria-label="Sections">${sections
+    .map((x) => `<a href="#${x.id}">${x.short}</a>`)
+    .join(`<span class="sep"> &middot; </span>`)}</nav>`;
+
+const sectionHtml = (x) =>
+  `<section id="${x.id}"><h2>${x.title}</h2>${x.inner}</section>`;
 
 const footer = () =>
   `<footer>&copy; ${new Date().getFullYear()} ${D.profile.name}. Built with plain HTML, CSS, and JavaScript.</footer>`;
@@ -397,20 +430,12 @@ fs.writeFileSync(
     canonical: SITE_URL + "/",
     base: "",
     jsonLd: personJsonLd(),
-    body: [
-      masthead(""),
-      interests(),
-      publications(""),
-      presentations(),
-      news(),
-      experience(),
-      education(),
-      mentoring(),
-      funding(),
-      awards(),
-      skills(),
-      footer(),
-    ].join("\n"),
+    body: (() => {
+      const sections = homeSections("");
+      return [masthead(""), sectionNav(sections), ...sections.map(sectionHtml), footer()].join(
+        "\n"
+      );
+    })(),
   })
 );
 
