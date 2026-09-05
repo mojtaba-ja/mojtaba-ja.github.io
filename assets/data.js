@@ -411,9 +411,7 @@ const research = [
       "Same Miami high-rise corridor, two geometries, Category 5 forcing.",
       "Flat blocks fire sharp corner jets; the detailed geometry spreads them out — and how much that matters depends on the inflow profile.",
     ],
-    links: [
-      { label: "FluidX3D guide", url: "https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide" },
-    ],
+    links: [],
   },
 ];
 
