@@ -39,3 +39,18 @@
 
   label();
 })();
+
+/* A looping demo is motion the visitor did not ask for. If their system says
+   they would rather not have it, stop it and hand them the controls instead. */
+(function () {
+  try {
+    if (!window.matchMedia) return;
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var vids = document.querySelectorAll("video[autoplay]");
+    for (var i = 0; i < vids.length; i++) {
+      vids[i].removeAttribute("autoplay");
+      vids[i].setAttribute("controls", "");
+      vids[i].pause();
+    }
+  } catch (e) {}
+})();

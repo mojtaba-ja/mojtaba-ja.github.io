@@ -82,7 +82,7 @@ h1, h2, h3, h4 { color: var(--text); font-weight: 700; }
 h2 {
   font-size: 1.25rem;
   border-bottom: 1px solid var(--rule);
-  margin-top: 2rem;
+  margin-top: 2.6rem;
   margin-bottom: .5rem;
   padding-bottom: 3px;
 }
@@ -291,6 +291,28 @@ ul.points li {
 }
 .stat-value { font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
 .stat-label { color: var(--muted); font-size: .82rem; margin-top: .15rem; }
+
+/* A hairline between research entries. Sections already announce themselves
+   with a ruled h2 — a second rule between them would make the page look like a
+   spreadsheet — but two projects in a row are long blocks with nothing between
+   them but air, and that is where a reader loses the boundary. */
+.project + .project {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.6rem;
+}
+
+/* The featured tool: the video is the argument, the text is the caption. */
+.tool { margin: .75rem 0 1.6rem; }
+.tool .pub-title { font-size: 1.02rem; margin-top: .1rem; }
+.tool .hook { margin: .2rem 0 .15rem; }
+video.demo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--card);
+}
 
 /* ---------- Code ---------- */
 ul.repos { list-style: none; padding-left: 0; }

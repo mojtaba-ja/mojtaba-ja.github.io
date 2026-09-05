@@ -325,18 +325,46 @@ const researchList = (base) =>
     })
     .join("");
 
-/* Public repositories. Kept terse: a name, what it is, what it is written in. */
-const codeList = () =>
-  `<ul class="repos">${D.code
-    .map(
-      (c) => `
+/* Public repositories. One may carry a demo and lead the section; the rest stay
+   terse — a name, what it is, what it is written in. */
+const featuredTool = (f, base) => {
+  const v = f.video;
+  return `
+      <article class="tool">
+        <figure class="fig">
+          <video class="demo" src="${base}${v.src}" poster="${base}${v.poster}"
+            width="${v.width}" height="${v.height}" aria-label="${attr(v.alt)}"
+            autoplay muted loop playsinline preload="metadata"></video>
+        </figure>
+        <div class="pub-title">${f.title}</div>
+        <p class="hook">${tidy(f.hook)}</p>
+        <div class="pub-venue">${f.meta}</div>
+        <div class="pub-links">${f.links
+          .map(
+            (l) =>
+              `<a href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`
+          )
+          .join(`<span class="sep"> &middot; </span>`)}</div>
+      </article>`;
+};
+
+const codeList = (base) => {
+  const lead = D.code.find((c) => c.featured);
+  const rest = D.code.filter((c) => !c.featured);
+  return (
+    (lead ? featuredTool(lead.featured, base) : "") +
+    `<ul class="repos">${rest
+      .map(
+        (c) => `
         <li>
           <div class="pub-title"><a href="${c.url}" target="_blank" rel="noopener noreferrer">${c.name}</a></div>
           <div class="pub-authors">${c.detail}</div>
           <div class="pub-venue">${c.lang}</div>
         </li>`
-    )
-    .join("")}</ul>`;
+      )
+      .join("")}</ul>`
+  );
+};
 
 /* ---- The page, as one ordered list of sections -------------
    Ordered for a stranger arriving from a search, not for a CV reader: what is
@@ -366,7 +394,7 @@ const homeSections = (base) =>
   collect((add) => {
     add("research", "Selected Research", researchList(base), "Research");
     D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
-    add("code", "Code", codeList());
+    add("code", "Code", codeList(base));
     add("news", "News", news());
     add("education", "Education", education());
     // Compact: roles and dates only. The bullets are on the CV page.
@@ -386,7 +414,7 @@ const cvSections = (base) =>
     add("mentoring", "Mentoring", mentoring());
     add("awards", "Awards", list(D.awards));
     add("affiliations", "Professional Affiliations", list(D.affiliations), "Affiliations");
-    add("code", "Code", codeList());
+    add("code", "Code", codeList(base));
     add("skills", "Technical Skills", skills(), "Skills");
   });
 
