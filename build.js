@@ -314,12 +314,12 @@ const researchList = (base) =>
       return `
       <article class="project">
         <h3>${r.title}${badge(r.status)}</h3>
-        ${fig}
         <p class="hook">${tidy(r.hook)}</p>
         <ul class="points">${(r.points || [])
           .map((p) => `<li>${tidy(p)}</li>`)
           .join("")}</ul>
         ${r.stats ? statRow(r.stats) : ""}
+        ${fig}
         ${researchLinks(r, base)}
       </article>`;
     })
@@ -331,15 +331,15 @@ const featuredTool = (f, base) => {
   const v = f.video;
   return `
       <article class="tool">
+        <h3>${f.title}</h3>
+        <p class="hook">${tidy(f.hook)}</p>
+        ${f.note ? `<div class="tool-note">${tidy(f.note)}</div>` : ""}
+        <div class="pub-venue">${f.meta}</div>
         <figure class="fig">
           <video class="demo" src="${base}${v.src}" poster="${base}${v.poster}"
             width="${v.width}" height="${v.height}" aria-label="${attr(v.alt)}"
             autoplay muted loop playsinline preload="metadata"></video>
         </figure>
-        <div class="pub-title">${f.title}</div>
-        <p class="hook">${tidy(f.hook)}</p>
-        ${f.note ? `<div class="tool-note">${tidy(f.note)}</div>` : ""}
-        <div class="pub-venue">${f.meta}</div>
         <div class="pub-links">${f.links
           .map(
             (l) =>
