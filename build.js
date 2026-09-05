@@ -52,7 +52,8 @@ const JS_V = assetHash("assets/site.js");
 const src = fs.readFileSync(path.join(__dirname, "assets", "data.js"), "utf8");
 const load = new Function(
   src +
-    "\nreturn {profile,links,interests,publications,news,experience,education,awards,funding,mentoring,skills};"
+    "\nreturn {profile,links,interests,publications,pubSections,presentations,talkSections," +
+    "news,experience,education,awards,funding,mentoring,skills};"
 );
 const D = load();
 
@@ -131,37 +132,73 @@ const interests = () => `
 /* A paper gets its own page only when it has a real abstract to show. */
 const hasPage = (p) => Boolean(p.abstract && String(p.abstract).trim());
 
-function publications(base) {
-  const items = D.publications
-    .map((p) => {
-      const href = `${base}pub/${p.slug}/`;
-      const parts = (p.links || []).map(
-        (l) => `<a href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`
-      );
-      if (hasPage(p)) parts.push(`<a href="${href}">Abstract</a>`);
+function pubItem(p, base) {
+  const href = `${base}pub/${p.slug}/`;
+  const parts = (p.links || []).map(
+    (l) => `<a href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`
+  );
+  if (hasPage(p)) parts.push(`<a href="${href}">Abstract</a>`);
 
-      // Only link the title somewhere real: our page, else the first external link.
-      const titleHtml = hasPage(p)
-        ? `<a href="${href}">${p.title}</a>`
-        : p.links && p.links.length
-        ? `<a href="${p.links[0].url}" target="_blank" rel="noopener noreferrer">${p.title}</a>`
-        : p.title;
+  // Only link the title somewhere real: our page, else the first external link.
+  const titleHtml = hasPage(p)
+    ? `<a href="${href}">${p.title}</a>`
+    : p.links && p.links.length
+    ? `<a href="${p.links[0].url}" target="_blank" rel="noopener noreferrer">${p.title}</a>`
+    : p.title;
 
-      const note = p.note ? ` <span class="muted">(${p.note})</span>` : "";
-      const linkLine = parts.length
-        ? `<div class="pub-links">${parts.join(`<span class="sep"> &middot; </span>`)}</div>`
-        : "";
+  const note = p.note ? ` <span class="muted">(${p.note})</span>` : "";
+  const linkLine = parts.length
+    ? `<div class="pub-links">${parts.join(`<span class="sep"> &middot; </span>`)}</div>`
+    : "";
 
-      return `
+  return `
         <li>
           <div class="pub-title">${titleHtml}${badge(p.status)}</div>
           <div class="pub-authors">${p.authors}</div>
           <div class="pub-venue">${p.venues.join(" &middot; ")}${note}</div>
           ${linkLine}
         </li>`;
+}
+
+/* One section per group, in the order pubSections lists them, so the page
+   reads the way the CV does instead of as one undifferentiated pile.
+   An empty group prints nothing. */
+function publications(base) {
+  return D.pubSections
+    .map((g) => {
+      const items = D.publications.filter((p) => p.group === g.key);
+      if (!items.length) return "";
+      return `<section><h2>${g.title}</h2><ul class="pubs">${items
+        .map((p) => pubItem(p, base))
+        .join("")}</ul></section>`;
     })
-    .join("");
-  return `<section><h2>Publications</h2><ul class="pubs">${items}</ul></section>`;
+    .filter(Boolean)
+    .join("\n");
+}
+
+/* Talks and posters. Same list shape as the papers, minus links and badges —
+   these are events, not artifacts anyone can download. */
+function presentations() {
+  return D.talkSections
+    .map((g) => {
+      const items = D.presentations.filter((t) => t.type === g.key);
+      if (!items.length) return "";
+      const li = items
+        .map(
+          (t) => `
+        <li>
+          <div class="pub-title">${t.title}</div>
+          <div class="pub-authors">${t.authors}</div>
+          <div class="pub-venue">${t.venue} &middot; ${t.date}${
+            t.note ? ` <span class="muted">(${t.note})</span>` : ""
+          }</div>
+        </li>`
+        )
+        .join("");
+      return `<section><h2>${g.title}</h2><ul class="pubs">${li}</ul></section>`;
+    })
+    .filter(Boolean)
+    .join("\n");
 }
 
 const news = () => {
@@ -364,6 +401,7 @@ fs.writeFileSync(
       masthead(""),
       interests(),
       publications(""),
+      presentations(),
       news(),
       experience(),
       education(),

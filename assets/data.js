@@ -40,27 +40,22 @@ const interests = [
 ];
 
 /* Publications.
+   group         -> which section the entry appears under, keyed to pubSections
+                    below. Mirrors the CV: peer-reviewed archival work first,
+                    then anything not yet through review.
    status        -> colored badge: "published" | "review" | "preprint" | "prep"
    slug          -> the permalink, e.g. /pub/sipt-multi-agent/
    abstract      -> VERBATIM published abstract, or null.
                     null means no detail page is generated for this paper.
                     NEVER paraphrase here — paste the real text or leave it null.
-   abstractSource-> where the abstract text came from, shown as attribution.   */
+   abstractSource-> where the abstract text came from, shown as attribution.
+
+   Order matters: entries render in the order written, so keep each group
+   reverse-chronological, exactly as the CV lists them.                      */
 const publications = [
   {
-    slug: "sipt-multi-agent",
-    title: "Spatial Interaction Pooling Transformer (SIPT) for Multi-Agent Trajectory Prediction in Urban Streetscapes",
-    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, A. W. Smyth, M. K. Turkcan",
-    venues: ["IEEE Transactions on Intelligent Transportation Systems — 2026"],
-    status: "review",
-    links: [],
-    // Under review — no public abstract exists yet. Paste your manuscript's own
-    // abstract here (in backticks) once you're comfortable sharing it, and a page
-    // will be generated automatically on the next `node build.js`.
-    abstract: null,
-  },
-  {
     slug: "lidar-transformer-ojits",
+    group: "peer-reviewed",
     title: "Transformer-Based Trajectory Prediction Using LiDAR Data for Situational Awareness in Complex Urban Environments",
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
     // YEAR: 2026 is correct here — do not "fix" it to 2025.
@@ -105,32 +100,8 @@ const publications = [
     },
   },
   {
-    slug: "bike-sharing-gcn",
-    title: "Spatial Graph Convolutional Network for Predicting Bike-Sharing Origin–Destination Spatiotemporal Flows",
-    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, E. I. Kaisar",
-    venues: ["SSRN Working Paper No. 5801889 — 2025"],
-    status: "preprint",
-    links: [
-      { label: "SSRN", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5801889" },
-      { label: "DOI", url: "https://doi.org/10.2139/ssrn.5801889" },
-      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:IjCSPb-OGe4C" },
-    ],
-    // SSRN blocks automated retrieval, so the abstract could not be verified.
-    // Copy it from your own SSRN listing and paste it here.
-    abstract: null,
-  },
-  {
-    slug: "hurricane-wind-voxel",
-    title: "What Simplified City Models Miss: Hurricane Pedestrian Wind Hazard from Voxelized Photorealistic Urban Geometry",
-    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
-    venues: ["In preparation — 2026"],
-    status: "prep",
-    links: [],
-    // In preparation — nothing published to quote yet.
-    abstract: null,
-  },
-  {
     slug: "modal-residual-gwo",
+    group: "peer-reviewed",
     title: "Baseline updating method for structural damage identification using modal residual force and grey wolf optimization",
     authors: "A. Zare Hosseinzadeh, G. Ghodrati Amiri, <strong>M. Jafarian Abyaneh</strong>, A. Ghadimi Hamzehkolaei",
     venues: ["Engineering Optimization, Vol. 52, No. 4 — 2020"],
@@ -160,6 +131,7 @@ const publications = [
   },
   {
     slug: "unb-vibration-thesis",
+    group: "peer-reviewed",
     title: "Vibration testing of cracked reinforced concrete beams under sustained load",
     authors: "<strong>M. Jafarian Abyaneh</strong>",
     venues: ["M.Sc. Thesis, University of New Brunswick — 2020"],
@@ -172,6 +144,7 @@ const publications = [
   },
   {
     slug: "model-updating-frames",
+    group: "peer-reviewed",
     title: "Model Updating-Based Approach for Damage Prognosis in Frames via Modal Residual Force",
     authors: "G. Ghodrati Amiri, <strong>M. Jafarian Abyaneh</strong>, A. Zare Hosseinzadeh",
     venues: ["Int. J. of Civil, Environmental, Structural, Construction and Architectural Engineering, Vol. 10, No. 8 — 2016"],
@@ -199,6 +172,7 @@ const publications = [
   },
   {
     slug: "grey-system-two-stage",
+    group: "peer-reviewed",
     title: "A new two-stage method for damage identification in linear-shaped structures via Grey System Theory and optimization algorithm",
     authors: "G. Ghodrati Amiri, A. Zare Hosseinzadeh, <strong>M. Jafarian Abyaneh</strong>",
     venues: ["Journal of Rehabilitation in Civil Engineering, Vol. 3, No. 2, pp. 45–58 — 2015"],
@@ -231,6 +205,119 @@ const publications = [
       url: "https://doaj.org/article/7dff699120cd4ba3ba2336eb9725b1a9",
     },
   },
+  {
+    slug: "sipt-multi-agent",
+    group: "working",
+    title: "Spatial Interaction Pooling Transformer (SIPT) for Multi-Agent Trajectory Prediction in Urban Streetscapes",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, A. W. Smyth, M. K. Turkcan",
+    venues: ["IEEE Transactions on Intelligent Transportation Systems — 2026"],
+    status: "review",
+    links: [],
+    // Under review — no public abstract exists yet. Paste your manuscript's own
+    // abstract here (in backticks) once you're comfortable sharing it, and a page
+    // will be generated automatically on the next `node build.js`.
+    abstract: null,
+  },
+  {
+    slug: "bike-sharing-gcn",
+    group: "working",
+    title: "Spatial Graph Convolutional Network for Predicting Bike-Sharing Origin–Destination Spatiotemporal Flows",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, E. I. Kaisar",
+    venues: ["SSRN Working Paper No. 5801889 — 2025"],
+    status: "preprint",
+    links: [
+      { label: "SSRN", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5801889" },
+      { label: "DOI", url: "https://doi.org/10.2139/ssrn.5801889" },
+      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:IjCSPb-OGe4C" },
+    ],
+    // SSRN blocks automated retrieval, so the abstract could not be verified.
+    // Copy it from your own SSRN listing and paste it here.
+    abstract: null,
+  },
+  {
+    slug: "hurricane-wind-voxel",
+    group: "working",
+    title: "What Simplified City Models Miss: Hurricane Pedestrian Wind Hazard from Voxelized Photorealistic Urban Geometry",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    venues: ["In preparation — 2026"],
+    status: "prep",
+    links: [],
+    // In preparation — nothing published to quote yet.
+    abstract: null,
+  },
+];
+
+/* The publication sections, in the order they appear on the page.
+   Same split, same names as the CV. */
+const pubSections = [
+  { key: "peer-reviewed", title: "Publications" },
+  { key: "working", title: "Working Papers &amp; Under Review" },
+];
+
+/* Talks and posters — kept apart from the publication list, as in the CV.
+   type -> which section it belongs to, keyed to talkSections below.         */
+const presentations = [
+  {
+    type: "conference",
+    title: "Spatial Graph Convolutional Network for Predicting Bike-Sharing Origin–Destination Spatiotemporal Flows",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, E. I. Kaisar",
+    venue: "105th Transportation Research Board (TRB) Annual Meeting, Washington, DC",
+    date: "Jan. 2026",
+    note: "Poster presentation",
+  },
+  {
+    type: "workshop",
+    title: "Predicting the Crowd: Spatially-Informed Transformers for Urban Traffic Agents",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    venue: "CS3 NSF Renewal Site Visit, Columbia Engineering Innovation Hub — CS3 HQ, New York, NY",
+    date: "May 2026",
+    note: "Poster presentation",
+  },
+  {
+    type: "workshop",
+    title: "Voxelized High-Fidelity 3D Models for City-scale Wind Simulations",
+    authors: "D. K. Smith, <strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    venue: "CS3 NSF Renewal Site Visit, Columbia Engineering Innovation Hub — CS3 HQ, New York, NY",
+    date: "May 2026",
+    note: "Poster presentation",
+  },
+  {
+    type: "workshop",
+    title: "Context-Aware Deep Learning for Predicting Pedestrian and Vehicle Movement Patterns in Urban Traffic Scenarios",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    venue: "8th Annual Celebration of Academic Excellence, College of Engineering and Computer Science, Florida Atlantic University, Boca Raton, FL",
+    date: "Mar. 2026",
+    note: "Poster presentation",
+  },
+  {
+    type: "workshop",
+    title: "Testing the Accuracy of Urban 3D Models With Airflow Simulations",
+    authors: "D. K. Smith, <strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    venue: "Florida Undergraduate Research Conference (FURC), University of North Florida, Jacksonville, FL",
+    date: "Mar. 2026",
+    note: "Poster presentation",
+  },
+  {
+    type: "workshop",
+    title: "Spatial Interaction Pooling Transformer (SIPT) for Multi-Agent Trajectory Prediction",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    venue: "CS3 Innovation Summit, Columbia University, New York, NY",
+    date: "Feb. 2026",
+    note: "Perfect Pitch Competition, 90-second research talk &amp; poster presentation",
+  },
+  {
+    type: "workshop",
+    title: "Automated Voxelization Pipeline for High-Fidelity Urban Digital Twins",
+    authors: "D. K. Smith, J. Lalla, <strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    venue: "CS3 Innovation Summit, Columbia University, New York, NY",
+    date: "Feb. 2026",
+    note: "Poster presentation",
+  },
+];
+
+const talkSections = [
+  { key: "conference", title: "Conference Presentations" },
+  { key: "workshop", title: "Workshop Presentations" },
 ];
 
 const news = [
