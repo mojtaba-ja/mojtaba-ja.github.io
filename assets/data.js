@@ -327,7 +327,8 @@ const news = [
 
 /* ---- Selected research -------------------------------------------------
    The part of the page a stranger actually looks at. One entry per line of
-   work, in plain language, with a picture where there is one to show.
+   work: a one-line hook, then bullets — nobody reads a paragraph on a personal
+   site. Keep each bullet to one line at reading width.
 
    RULE FOR FIGURES: a figure goes here only if the paper it comes from is
    already public — published open access, or posted as a preprint. Nothing
@@ -338,12 +339,12 @@ const research = [
     id: "lidar-transformer",
     title: "Predicting where people and cars go next, from raw LiDAR",
     status: "published",
-    body: `A Transformer trained on 12,390+ real trajectories — vehicles, pedestrians and
-      cyclists — recorded with an Ouster OS1 LiDAR at a busy intersection in West Palm Beach.
-      It forecasts each agent's next positions 15.24% more accurately than an LSTM baseline
-      and converges faster. The whole pipeline runs from point cloud to geo-referenced
-      prediction: object detection, curation of reflections and near-stationary tracks,
-      then the sequence model.`,
+    hook: "Where is that pedestrian about to step? A Transformer answers it from raw LiDAR.",
+    points: [
+      "12,390+ real trajectories — vehicles, pedestrians, cyclists — from an Ouster OS1 sensor at one West Palm Beach intersection.",
+      "<strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.",
+      "Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.",
+    ],
     image: {
       src: "assets/img/lidar-trajectory-prediction.jpg",
       width: 1200,
@@ -363,11 +364,12 @@ const research = [
     id: "sipt",
     title: "SIPT: giving a Transformer a sense of the crowd",
     status: "revision",
-    body: `Multi-agent prediction has to model how road users react to one another, not just
-      where each of them has been. SIPT pools the neighbours inside a learned spatial radius
-      before attention, so every forecast is conditioned on the crowd immediately around that
-      agent. Evaluated on 64,000+ trajectories from the COSMOS instrumented intersection in
-      New York.`,
+    hook: "Road users react to each other. Most models still predict each one alone.",
+    points: [
+      "SIPT pools an agent's neighbours inside a <em>learned</em> spatial radius, before attention.",
+      "Every forecast is conditioned on the crowd immediately around that agent.",
+      "Evaluated on the COSMOS instrumented intersection in New York.",
+    ],
     // Not public yet — no figures until the paper is out.
     stats: [
       { value: "0.76 m", label: "Average displacement error" },
@@ -380,12 +382,12 @@ const research = [
     id: "bike-od",
     title: "Forecasting bike-share demand a year ahead",
     status: "preprint",
-    body: `Cyclist risk concentrates where riding concentrates, but the exposure estimates that
-      would justify protective infrastructure usually arrive after the fact. This work predicts
-      station-to-station demand a year out with a spatial graph convolutional network, using
-      only public data — trip records, census, OpenStreetMap — so an agency without a data
-      budget can run it. Because predicted flow approximates exposure, the forecasts point to
-      the corridors and hours where protection would do the most good.`,
+    hook: "Cyclist risk concentrates where riding concentrates — but the numbers usually arrive after the crash.",
+    points: [
+      "Predicts station-to-station demand <strong>a year ahead</strong> with a spatial graph convolutional network.",
+      "Public data only — trip records, census, OpenStreetMap — so an agency with no data budget can run it.",
+      "Predicted flow approximates exposure: it points to the corridors and hours where protection pays off.",
+    ],
     image: {
       src: "assets/img/bikeshare-od-flows.jpg",
       width: 1200,
@@ -402,13 +404,12 @@ const research = [
     id: "urban-wind",
     title: "How much building detail does a hurricane wind map need?",
     status: "prep",
-    body: `City-scale pedestrian wind studies mostly use flat-topped OpenStreetMap blocks, because
-      that is the geometry that is easy to get. We built a pipeline that turns Google's
-      photogrammetric 3D city tiles — geometrically rich, but riddled with the holes and overlaps
-      typical of automated reconstruction — into watertight solids a CFD solver can use, then ran
-      both geometries over the same Miami high-rise corridor under Category 5 forcing. The simple
-      model concentrates fast air into sharp corner jets that the detailed geometry spreads out;
-      how much that changes the hazard map depends on the inflow profile you pair it with.`,
+    hook: "Wind studies model cities as flat blocks, because that geometry is easy to get. Does the shortcut change where the dangerous air goes?",
+    points: [
+      "A pipeline turns Google's photogrammetric 3D city tiles — full of holes and overlaps — into watertight solids a CFD solver can actually use.",
+      "Same Miami high-rise corridor, two geometries, Category 5 forcing.",
+      "Flat blocks fire sharp corner jets; the detailed geometry spreads them out — and how much that matters depends on the inflow profile.",
+    ],
     links: [
       { label: "FluidX3D guide", url: "https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide" },
     ],
