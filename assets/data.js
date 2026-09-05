@@ -27,7 +27,8 @@ const links = [
   { name: "Scholar",  url: "https://scholar.google.com/citations?user=VOvMEmIAAAAJ&hl=en" },
   { name: "GitHub",   url: "https://github.com/mojtaba-ja" },
   { name: "LinkedIn", url: "https://linkedin.com/in/mojjafarian" },
-  { name: "CV",       url: "assets/cv.pdf" },
+  // The CV link goes to the web page; the PDF is linked from the top of it.
+  { name: "CV",       url: "cv/" },
   { name: "Resume",   url: "assets/resume.pdf" },
 ];
 

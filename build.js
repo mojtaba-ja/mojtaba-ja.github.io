@@ -107,10 +107,11 @@ const paragraphs = (text) =>
 function masthead(base) {
   const linkHtml = D.links
     .map((l, i) => {
-      const isFile = l.url.startsWith("assets/");
-      const url = isFile ? base + l.url : l.url;
-      const external = !l.url.startsWith("mailto:") && !isFile;
-      const attrs = external ? ` target="_blank" rel="noopener noreferrer"` : "";
+      const absolute = /^https?:/.test(l.url);
+      const mail = l.url.startsWith("mailto:");
+      // Anything else — assets/cv.pdf, cv/ — is ours, so it takes the page's base.
+      const url = absolute || mail ? l.url : base + l.url;
+      const attrs = absolute ? ` target="_blank" rel="noopener noreferrer"` : "";
       const sep = i < D.links.length - 1 ? `<span class="sep"> &middot; </span>` : "";
       return `<a href="${url}"${attrs}>${l.name}</a>${sep}`;
     })
@@ -206,8 +207,10 @@ const news = () => {
   return `<ul class="news">${items}</ul>`;
 };
 
-/* Dated role blocks — Experience and Teaching are the same shape. */
-const roles = (items) =>
+/* Dated role blocks — Experience and Teaching are the same shape.
+   compact: heading line only. The homepage wants the trajectory at a glance;
+   the CV page wants the bullets. */
+const roles = (items, compact) =>
   items
     .map(
       (e) => `
@@ -217,12 +220,12 @@ const roles = (items) =>
           <span class="entry-when">${e.dates}</span>
         </div>
         <div class="entry-org">${e.org} &middot; ${e.location}</div>
-        <ul>${e.points.map((p) => `<li>${p}</li>`).join("")}</ul>
+        ${compact ? "" : `<ul>${e.points.map((p) => `<li>${p}</li>`).join("")}</ul>`}
       </div>`
     )
     .join("");
 
-const experience = () => roles(D.experience);
+const experience = (compact) => roles(D.experience, compact);
 const teaching = () => roles(D.teaching);
 
 const education = () =>
@@ -341,36 +344,51 @@ const codeList = () =>
    (Education, Experience) and the supporting record. Talks sit below Experience
    on purpose — one TRB paper and six posters should not outrank the papers.
    `short` is the label used in the jump nav. */
-function homeSections(base) {
+function collect(fn) {
   const out = [];
-  const add = (id, title, inner, short) => {
+  fn((id, title, inner, short) => {
     if (inner) out.push({ id, title, inner, short: short || title });
-  };
-
-  add("news", "News", news());
-  add("interests", "Research Interests", interests(), "Interests");
-  add("research", "Selected Research", researchList(base), "Research");
-  D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
-  add("code", "Code", codeList());
-  add("education", "Education", education());
-  add("experience", "Experience", experience());
-  add("teaching", "Teaching", teaching());
-  D.talkSections.forEach((g) => add(slugId(g.short), g.title, talkList(g.key), g.short));
-  add("funding", "Research Funding", list(D.funding), "Funding");
-  add("mentoring", "Mentoring", mentoring());
-  add("awards", "Awards", list(D.awards));
-  add("affiliations", "Professional Affiliations", list(D.affiliations), "Affiliations");
-  add("skills", "Technical Skills", skills(), "Skills");
-
+  });
   return out;
 }
 
+/* The homepage: what someone who just found you needs, and nothing else.
+   Everything that is record-keeping rather than persuasion lives on /cv/. */
+const homeSections = (base) =>
+  collect((add) => {
+    add("news", "News", news());
+    add("research", "Selected Research", researchList(base), "Research");
+    D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
+    add("code", "Code", codeList());
+    add("education", "Education", education());
+    // Compact: roles and dates only. The bullets are on the CV page.
+    add("experience", "Experience", experience(true));
+  });
+
+/* The CV page: the complete record, in the CV's own order. */
+const cvSections = (base) =>
+  collect((add) => {
+    add("interests", "Research Interests", interests(), "Interests");
+    add("education", "Education", education());
+    add("experience", "Experience", experience(false));
+    add("teaching", "Teaching", teaching());
+    D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
+    D.talkSections.forEach((g) => add(slugId(g.short), g.title, talkList(g.key), g.short));
+    add("funding", "Research Funding", list(D.funding), "Funding");
+    add("mentoring", "Mentoring", mentoring());
+    add("awards", "Awards", list(D.awards));
+    add("affiliations", "Professional Affiliations", list(D.affiliations), "Affiliations");
+    add("code", "Code", codeList());
+    add("skills", "Technical Skills", skills(), "Skills");
+  });
+
 /* One row of jump links. The page is long enough now that landing on it with
    no map is a worse experience than the extra row costs. */
-const sectionNav = (sections) =>
-  `<nav class="sectionnav" aria-label="Sections">${sections
-    .map((x) => `<a href="#${x.id}">${x.short}</a>`)
-    .join(`<span class="sep"> &middot; </span>`)}</nav>`;
+const sectionNav = (sections, extra) =>
+  `<nav class="sectionnav" aria-label="Sections">${[
+    ...sections.map((x) => `<a href="#${x.id}">${x.short}</a>`),
+    ...(extra || []),
+  ].join(`<span class="sep"> &middot; </span>`)}</nav>`;
 
 const sectionHtml = (x) =>
   `<section id="${x.id}"><h2>${x.title}</h2>${x.inner}</section>`;
@@ -516,9 +534,45 @@ fs.writeFileSync(
     jsonLd: personJsonLd(),
     body: (() => {
       const sections = homeSections("");
-      return [masthead(""), sectionNav(sections), ...sections.map(sectionHtml), footer()].join(
-        "\n"
-      );
+      const cta = `
+    <p class="cta"><a href="cv/">Full CV &mdash; teaching, talks, funding, mentoring,
+      awards and technical skills &rarr;</a></p>`;
+      return [
+        masthead(""),
+        sectionNav(sections, ['<a class="navcv" href="cv/">Full CV &rarr;</a>']),
+        ...sections.map(sectionHtml),
+        cta,
+        footer(),
+      ].join("\n");
+    })(),
+  })
+);
+
+/* ---- Write the CV page -------------------------------------
+   The complete record, in the CV's own order. The homepage links here rather
+   than carrying all of it, and the PDF is one click from the top of it. */
+const cvDir = path.join(__dirname, "cv");
+fs.mkdirSync(cvDir, { recursive: true });
+
+fs.writeFileSync(
+  path.join(cvDir, "index.html"),
+  page({
+    title: `CV — ${D.profile.name}`,
+    description: `Full curriculum vitae of ${D.profile.name}: education, research and teaching experience, publications, presentations, funding, mentoring and awards.`,
+    canonical: SITE_URL + "/cv/",
+    base: "../",
+    jsonLd: personJsonLd(),
+    body: (() => {
+      const sections = cvSections("../");
+      const head = `
+    <header class="cvhead">
+      <p class="paper-back"><a href="../">&larr; ${D.profile.name}</a></p>
+      <h1>Curriculum Vitae</h1>
+      <p class="muted">${D.profile.title}${
+        D.profile.location ? " &middot; " + D.profile.location : ""
+      } &middot; <a href="../assets/cv.pdf">Download as PDF</a></p>
+    </header>`;
+      return [head, sectionNav(sections), ...sections.map(sectionHtml), footer()].join("\n");
     })(),
   })
 );
@@ -576,7 +630,7 @@ paged.forEach((p) => {
 
 /* ---- sitemap.xml + robots.txt ------------------------------ */
 const today = new Date().toISOString().slice(0, 10);
-const urls = [`${SITE_URL}/`].concat(
+const urls = [`${SITE_URL}/`, `${SITE_URL}/cv/`].concat(
   paged.map((p) => `${SITE_URL}/pub/${p.slug}/`)
 );
 
@@ -607,6 +661,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 console.log(`Built for ${SITE_URL}`);
 console.log(`  index.html`);
+console.log(`  cv/index.html`);
 console.log(`  pub/<slug>/index.html   x${paged.length} of ${D.publications.length} (only papers with a real abstract)`);
 console.log(`  sitemap.xml             ${urls.length} URLs`);
 console.log(`  robots.txt`);
