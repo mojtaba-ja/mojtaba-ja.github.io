@@ -7,6 +7,9 @@
 const profile = {
   name: "Mojtaba Jafarian Abyaneh",
   title: "PhD Candidate, Transportation Engineering",
+  // Shown beside the title and handed to search engines. Someone reading a
+  // search result wants to know where you are before almost anything else.
+  location: "Boca Raton, Florida",
   image: "assets/profile.jpg",
   bio: `I am a PhD candidate and Graduate Research Assistant at
         <strong>Florida Atlantic University</strong>, working in the

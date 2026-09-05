@@ -116,7 +116,9 @@ function masthead(base) {
       <img class="avatar" src="${base}${D.profile.image}" alt="${attr(D.profile.name)}" width="240" height="360">
       <div class="identity">
         <h1>${D.profile.name}</h1>
-        <div class="subtitle">${D.profile.title}</div>
+        <div class="subtitle">${D.profile.title}${
+          D.profile.location ? ` <span class="sep">&middot;</span> ${D.profile.location}` : ""
+        }</div>
         <p>${D.profile.bio}</p>
         <p>${D.profile.research}</p>
         <div class="linkrow">${linkHtml}</div>
@@ -384,6 +386,9 @@ function personJsonLd() {
       url: SITE_URL + "/",
       image: SITE_URL + "/" + D.profile.image,
       jobTitle: D.profile.title,
+      ...(D.profile.location
+        ? { homeLocation: { "@type": "Place", name: D.profile.location } }
+        : {}),
       description: collapse(D.profile.bio),
       affiliation: {
         "@type": "CollegeOrUniversity",
