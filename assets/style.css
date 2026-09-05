@@ -121,6 +121,27 @@ header.masthead h1 {
 .linkrow { margin-top: .9rem; font-size: .95rem; }
 .linkrow .sep { color: var(--sep); }
 
+/* ---------- Section jump nav ----------
+   Deliberately muted: this row is a map of the page, not part of the content.
+   The masthead's links sit directly above it in the accent color, so two rows
+   of dot-separated links never read as the same kind of thing. */
+.sectionnav {
+  margin-top: 1.75rem;
+  padding: .55rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: .88rem;
+  line-height: 1.9;
+}
+.sectionnav a { color: var(--muted); }
+.sectionnav a:hover { color: var(--link); }
+.sectionnav .sep { color: var(--sep); }
+
+/* Jumping to a section should not park its heading flush against the edge. */
+section[id] { scroll-margin-top: 1rem; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
 /* ---------- Theme toggle ----------
    The button carries BOTH labels; CSS shows whichever matches the current
    theme. That way the right words are on screen before any JavaScript runs,
