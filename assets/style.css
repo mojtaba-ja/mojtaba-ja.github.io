@@ -303,6 +303,18 @@ ul.points li {
 
 /* The featured tool: the video is the argument, the text is the caption. */
 .tool { margin: .75rem 0 1.6rem; }
+/* A rule between the animation and the words about it: the video already has a
+   border of its own, so this sits a clear gap below it and reads as a divider
+   rather than a doubled edge. */
+.tool figure.fig {
+  margin-bottom: .8rem;
+  padding-bottom: .85rem;
+  border-bottom: 1px solid var(--rule);
+}
+.tool-note { font-size: .95rem; margin: .1rem 0 .15rem; }
+/* Same hairline logic as the research entries: two demo blocks in a row need a
+   boundary, the first one does not. */
+.tool + .tool { border-top: 1px solid var(--rule); padding-top: 1.6rem; }
 .tool .pub-title { font-size: 1.02rem; margin-top: .1rem; }
 .tool .hook { margin: .2rem 0 .15rem; }
 video.demo {
