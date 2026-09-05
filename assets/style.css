@@ -220,12 +220,14 @@ ul.pubs > li { margin: 0 0 1.1rem 0; }
    green 9.7:1, amber 11.4:1, blue 6.3:1 — all well past AA. */
 .badge-published { color: #4ade80; }
 .badge-review    { color: #fbbf24; }
+.badge-revision  { color: #fbbf24; }
 .badge-preprint  { color: #60a5fa; }
 .badge-prep      { color: var(--muted); }
 
 /* Deep inks on white. Contrast: green 4.9:1, amber 4.6:1, blue 6.9:1. */
 :root[data-theme="light"] .badge-published { color: #15803d; }
 :root[data-theme="light"] .badge-review    { color: #92620a; }
+:root[data-theme="light"] .badge-revision  { color: #92620a; }
 :root[data-theme="light"] .badge-preprint  { color: #1d4ed8; }
 
 /* ---------- Selected research ----------

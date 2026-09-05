@@ -75,6 +75,7 @@ const attr = (s) =>
 const BADGE_LABEL = {
   published: "Published",
   review: "Under Review",
+  revision: "In Revision",
   preprint: "Preprint",
   prep: "In Prep",
 };
@@ -372,7 +373,9 @@ const footer = () =>
 
 /* ---- Structured data: tells Google you are a person -------- */
 function personJsonLd() {
-  // De-duplicated: ORCID appears both in the links row and in the constant.
+  // ORCID is not in the visible link row — almost nobody clicks it — but it
+  // still belongs here: this is how a search engine ties your name to your
+  // publication record. Machines read sameAs; people read the link row.
   const sameAs = [
     ...new Set([...D.links.filter((l) => /^https?:/.test(l.url)).map((l) => l.url), ORCID]),
   ].filter(Boolean);

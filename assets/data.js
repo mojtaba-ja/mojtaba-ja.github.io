@@ -25,7 +25,6 @@ const profile = {
 const links = [
   { name: "Email",    url: "mailto:mjafarianaby2023@fau.edu" },
   { name: "Scholar",  url: "https://scholar.google.com/citations?user=VOvMEmIAAAAJ&hl=en" },
-  { name: "ORCID",    url: "https://orcid.org/0009-0006-0556-5520" },
   { name: "GitHub",   url: "https://github.com/mojtaba-ja" },
   { name: "LinkedIn", url: "https://linkedin.com/in/mojjafarian" },
   { name: "CV",       url: "assets/cv.pdf" },
@@ -203,7 +202,9 @@ const publications = [
     title: "Spatial Interaction Pooling Transformer (SIPT) for Multi-Agent Trajectory Prediction in Urban Streetscapes",
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, A. W. Smyth, M. K. Turkcan",
     venues: ["IEEE Transactions on Intelligent Transportation Systems — 2026"],
-    status: "review",
+    // "revision" while the manuscript is with us between submissions;
+    // switch back to "review" on the day it goes back to the editor.
+    status: "revision",
     links: [],
     // Under review — no public abstract exists yet. Paste your manuscript's own
     // abstract here (in backticks) once you're comfortable sharing it, and a page
@@ -361,13 +362,13 @@ const research = [
   {
     id: "sipt",
     title: "SIPT: giving a Transformer a sense of the crowd",
-    status: "review",
+    status: "revision",
     body: `Multi-agent prediction has to model how road users react to one another, not just
       where each of them has been. SIPT pools the neighbours inside a learned spatial radius
       before attention, so every forecast is conditioned on the crowd immediately around that
       agent. Evaluated on 64,000+ trajectories from the COSMOS instrumented intersection in
       New York.`,
-    // Under review at IEEE T-ITS — no figures until the paper is public.
+    // Not public yet — no figures until the paper is out.
     stats: [
       { value: "0.76 m", label: "Average displacement error" },
       { value: "26.2%", label: "Better than Social LSTM" },
