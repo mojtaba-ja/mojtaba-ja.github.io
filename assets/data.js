@@ -448,6 +448,24 @@ const code = [
     url: "https://github.com/mojtaba-ja/interactive-2d-beam-solver",
     lang: "JavaScript",
     detail: "Shear, moment and deflection diagrams for beams, in one dependency-free HTML file.",
+    // One repo gets to lead the section with a demo. Keep the copy to two lines:
+    // the video is the argument, the words are just the caption.
+    featured: {
+      title: "Interactive 2D Beam Solver",
+      hook: "Drag supports and loads onto a beam. Shear, moment and deflection update live.",
+      meta: "One HTML file &middot; no dependencies &middot; works offline",
+      video: {
+        src: "assets/img/beam-solver-demo.mp4",
+        poster: "assets/img/beam-solver-poster.jpg",
+        width: 900,
+        height: 740,
+        alt: "Screen recording: a support is dragged along a beam to create an overhang, a point load is dropped on, and a section marker sweeps across the shear, moment and deflection diagrams as they update.",
+      },
+      links: [
+        { label: "Try it", url: "https://mojtaba-ja.github.io/interactive-2d-beam-solver/" },
+        { label: "GitHub", url: "https://github.com/mojtaba-ja/interactive-2d-beam-solver" },
+      ],
+    },
   },
 ];
 
