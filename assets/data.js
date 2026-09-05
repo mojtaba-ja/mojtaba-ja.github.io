@@ -331,10 +331,13 @@ const news = [
    work: a one-line hook, then bullets — nobody reads a paragraph on a personal
    site. Keep each bullet to one line at reading width.
 
-   RULE FOR FIGURES: a figure goes here only if the paper it comes from is
-   already public — published open access, or posted as a preprint. Nothing
-   from a manuscript under review or in preparation, however good it looks.
-   When one of those becomes public, add its `image` block and rebuild.       */
+   RULE: an entry appears here only if the work behind it is already public —
+   published open access, or posted as a preprint. That covers the figures AND
+   the description: these cards explain how the method works, and that is not
+   something to put on an indexed page before the paper is out.
+
+   Entries for unpublished work stay in this file with `hidden: true`, written
+   and ready. Delete that one line on the day the paper appears.               */
 const research = [
   {
     id: "lidar-transformer",
@@ -363,6 +366,9 @@ const research = [
   },
   {
     id: "sipt",
+    // HIDDEN until the paper is published — the bullets below describe the
+    // contribution. Remove this line then; everything else is ready to go.
+    hidden: true,
     title: "SIPT: giving a Transformer a sense of the crowd",
     status: "revision",
     hook: "Road users react to each other. Most models still predict each one alone.",
@@ -403,6 +409,8 @@ const research = [
   },
   {
     id: "urban-wind",
+    // HIDDEN until the paper is public. See the note on SIPT above.
+    hidden: true,
     title: "How much building detail does a hurricane wind map need?",
     status: "prep",
     hook: "Wind studies model cities as flat blocks, because that geometry is easy to get. Does the shortcut change where the dangerous air goes?",

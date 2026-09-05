@@ -303,6 +303,7 @@ const statRow = (stats) =>
 
 const researchList = (base) =>
   D.research
+    .filter((r) => !r.hidden)
     .map((r) => {
       const fig = r.image
         ? `<figure class="fig">
