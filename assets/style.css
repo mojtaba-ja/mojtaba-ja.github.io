@@ -337,6 +337,23 @@ ul.news .what { flex: 1; }
 .paper .abstract p { margin: .8rem 0; }
 .abstract-source { font-size: .85rem; margin-top: 1.25rem; }
 
+/* ---------- CV page ---------- */
+.cvhead { margin-bottom: 1.25rem; }
+.cvhead h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+.cvhead .muted { font-size: .95rem; }
+
+/* The hand-off at the foot of the homepage. It is the one link on the page
+   that has to be found, so it gets a rule above it and no company. */
+p.cta {
+  margin-top: 2.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 1rem;
+}
+
+/* In the jump nav, the only link that leaves the page is the only coloured one. */
+.sectionnav .navcv { color: var(--link); }
+
 /* ---------- Footer ---------- */
 footer {
   margin-top: 3rem;
