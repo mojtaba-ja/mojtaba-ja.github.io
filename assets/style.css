@@ -68,7 +68,7 @@ body {
 
 .abstract p,
 .entry ul li,
-section > ul:not(.pubs):not(.news) li,
+section > ul:not(.pubs):not(.news):not(.repos) li,
 .skill-row {
   max-width: var(--measure);
 }
