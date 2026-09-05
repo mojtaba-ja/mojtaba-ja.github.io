@@ -242,7 +242,6 @@ ul.pubs > li { margin: 0 0 1.1rem 0; }
   line-height: 1.35;
 }
 
-.project > p { max-width: var(--measure); }
 
 figure.fig { margin: 0 0 .7rem; }
 figure.fig img {
@@ -258,7 +257,6 @@ figure.fig figcaption {
   font-size: .85rem;
   line-height: 1.45;
   margin-top: .4rem;
-  max-width: var(--measure);
 }
 
 /* The hook is the one line that has to land; the bullets carry the detail.
@@ -266,7 +264,6 @@ figure.fig figcaption {
 .project .hook {
   font-size: 1.02rem;
   margin: 0 0 .5rem;
-  max-width: var(--measure);
 }
 ul.points {
   margin: .35rem 0 .2rem;
@@ -275,7 +272,6 @@ ul.points {
 ul.points li {
   font-size: .95rem;
   margin: .25rem 0;
-  max-width: var(--measure);
 }
 
 /* Headline numbers for work whose figures are not public yet. Text tokens
@@ -299,7 +295,6 @@ ul.points li {
 /* ---------- Code ---------- */
 ul.repos { list-style: none; padding-left: 0; }
 ul.repos > li { margin: 0 0 .9rem 0; }
-ul.repos .pub-authors { max-width: var(--measure); }
 
 /* ---------- News ---------- */
 ul.news { list-style: none; padding-left: 0; }
