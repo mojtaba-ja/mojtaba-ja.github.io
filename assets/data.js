@@ -67,7 +67,9 @@ const publications = [
     // automatic citation updates for any article you manually edit.
     venues: ["IEEE Open Journal of Intelligent Transportation Systems, Vol. 7, pp. 16–28 — 2026"],
     status: "published",
-    note: "Impact Factor: 6.007",
+    // The journal's impact factor deliberately does NOT appear here. On a CV it
+    // is normal; on a personal site it reads as selling, and the people who
+    // matter already know the venue.
     links: [
       { label: "DOI", url: "https://doi.org/10.1109/OJITS.2025.3640002" },
       { label: "IEEE Xplore", url: "https://ieeexplore.ieee.org/document/11277286/" },
@@ -128,19 +130,6 @@ const publications = [
       label: "Engineering Optimization",
       url: "https://doi.org/10.1080/0305215X.2019.1593400",
     },
-  },
-  {
-    slug: "unb-vibration-thesis",
-    group: "peer-reviewed",
-    title: "Vibration testing of cracked reinforced concrete beams under sustained load",
-    authors: "<strong>M. Jafarian Abyaneh</strong>",
-    venues: ["M.Sc. Thesis, University of New Brunswick — 2020"],
-    status: "published",
-    links: [
-      { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:UeHWp8X0CEIC" },
-    ],
-    // Thesis abstract not retrievable from the UNB repository. Paste your own here.
-    abstract: null,
   },
   {
     slug: "model-updating-frames",
@@ -320,15 +309,134 @@ const talkSections = [
   { key: "workshop", title: "Workshop Presentations", short: "Workshop" },
 ];
 
+/* News is for things that are not already listed elsewhere on the page, or that
+   a reader would want dated. Poster sessions live under Presentations; repeating
+   them here only pushed the papers further down the page. */
 const news = [
-  { date: "2026-05-01", text: `Presented <em>Predicting the Crowd: Spatially-Informed Transformers for Urban Traffic Agents</em> at the <strong>CS3 NSF Renewal Site Visit</strong>, Columbia Engineering Innovation Hub, New York, NY.` },
-  { date: "2026-03-01", text: `Presented at the <strong>8th Annual Celebration of Academic Excellence</strong>, FAU College of Engineering and Computer Science.` },
   { date: "2026-02-01", text: `Competed in the <strong>Perfect Pitch Competition</strong> and presented SIPT at the <strong>CS3 Innovation Summit</strong>, Columbia University.` },
   { date: "2026-01-15", text: `Began mentoring 12 undergraduates across two groups in FAU's <strong>Vertically Integrated Projects</strong> program.` },
   { date: "2026-01-10", text: `Presented bike-sharing O–D flow prediction at the <strong>TRB 105th Annual Meeting</strong>, Washington, DC.` },
   { date: "2026-01-05", text: `Awarded the <strong>ASCE Palm Beach Branch Scholarship</strong>.` },
   { date: "2025-12-01", text: `Paper <em>Transformer-Based Trajectory Prediction Using LiDAR Data</em> published in <strong>IEEE OJ-ITS</strong>.` },
   { date: "2024-08-01", text: `Started my PhD at <strong>Florida Atlantic University</strong> in the I-SENSE Lab.` },
+];
+
+/* ---- Selected research -------------------------------------------------
+   The part of the page a stranger actually looks at. One entry per line of
+   work, in plain language, with a picture where there is one to show.
+
+   RULE FOR FIGURES: a figure goes here only if the paper it comes from is
+   already public — published open access, or posted as a preprint. Nothing
+   from a manuscript under review or in preparation, however good it looks.
+   When one of those becomes public, add its `image` block and rebuild.       */
+const research = [
+  {
+    id: "lidar-transformer",
+    title: "Predicting where people and cars go next, from raw LiDAR",
+    status: "published",
+    body: `A Transformer trained on 12,390+ real trajectories — vehicles, pedestrians and
+      cyclists — recorded with an Ouster OS1 LiDAR at a busy intersection in West Palm Beach.
+      It forecasts each agent's next positions 15.24% more accurately than an LSTM baseline
+      and converges faster. The whole pipeline runs from point cloud to geo-referenced
+      prediction: object detection, curation of reflections and near-stationary tracks,
+      then the sequence model.`,
+    image: {
+      src: "assets/img/lidar-trajectory-prediction.jpg",
+      width: 1200,
+      height: 618,
+      alt: "Aerial map of Clematis Street, West Palm Beach, with a pedestrian's observed path, the ground-truth continuation, and the Transformer and LSTM predicted paths drawn as coloured tracks.",
+      caption: `Observed path, ground truth, and Transformer vs. LSTM predictions for one
+        pedestrian outside the Mandel Public Library. Figure from the paper, published open
+        access in <em>IEEE OJ-ITS</em> (CC BY).`,
+    },
+    links: [
+      { label: "Paper", url: "https://doi.org/10.1109/OJITS.2025.3640002" },
+      { label: "Code", url: "https://github.com/mojtaba-ja/transformer-eth-wpbl" },
+      { label: "Abstract", url: "pub/lidar-transformer-ojits/" },
+    ],
+  },
+  {
+    id: "sipt",
+    title: "SIPT: giving a Transformer a sense of the crowd",
+    status: "review",
+    body: `Multi-agent prediction has to model how road users react to one another, not just
+      where each of them has been. SIPT pools the neighbours inside a learned spatial radius
+      before attention, so every forecast is conditioned on the crowd immediately around that
+      agent. Evaluated on 64,000+ trajectories from the COSMOS instrumented intersection in
+      New York.`,
+    // Under review at IEEE T-ITS — no figures until the paper is public.
+    stats: [
+      { value: "0.76 m", label: "Average displacement error" },
+      { value: "26.2%", label: "Better than Social LSTM" },
+      { value: "64,000+", label: "Trajectories evaluated" },
+    ],
+    links: [],
+  },
+  {
+    id: "bike-od",
+    title: "Forecasting bike-share demand a year ahead",
+    status: "preprint",
+    body: `Cyclist risk concentrates where riding concentrates, but the exposure estimates that
+      would justify protective infrastructure usually arrive after the fact. This work predicts
+      station-to-station demand a year out with a spatial graph convolutional network, using
+      only public data — trip records, census, OpenStreetMap — so an agency without a data
+      budget can run it. Because predicted flow approximates exposure, the forecasts point to
+      the corridors and hours where protection would do the most good.`,
+    image: {
+      src: "assets/img/bikeshare-od-flows.jpg",
+      width: 1200,
+      height: 854,
+      alt: "Map of Jersey City and Hoboken with curved lines between bike-share stations, thickness and colour showing the strength of morning-peak origin–destination flows.",
+      caption: `Morning-peak origin–destination flows across the Jersey City Citi Bike network,
+        with stations coloured by land-use zone.`,
+    },
+    links: [
+      { label: "SSRN preprint", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5801889" },
+    ],
+  },
+  {
+    id: "urban-wind",
+    title: "How much building detail does a hurricane wind map need?",
+    status: "prep",
+    body: `City-scale pedestrian wind studies mostly use flat-topped OpenStreetMap blocks, because
+      that is the geometry that is easy to get. We built a pipeline that turns Google's
+      photogrammetric 3D city tiles — geometrically rich, but riddled with the holes and overlaps
+      typical of automated reconstruction — into watertight solids a CFD solver can use, then ran
+      both geometries over the same Miami high-rise corridor under Category 5 forcing. The simple
+      model concentrates fast air into sharp corner jets that the detailed geometry spreads out;
+      how much that changes the hazard map depends on the inflow profile you pair it with.`,
+    links: [
+      { label: "FluidX3D guide", url: "https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide" },
+    ],
+  },
+];
+
+/* Public repositories worth a stranger's click. */
+const code = [
+  {
+    name: "transformer-eth-wpbl",
+    url: "https://github.com/mojtaba-ja/transformer-eth-wpbl",
+    lang: "Python",
+    detail: "PyTorch framework comparing LSTM and Transformer models for multi-agent trajectory prediction on LiDAR data and the ETH/UCY benchmarks — the code behind the IEEE OJ-ITS paper.",
+  },
+  {
+    name: "fluidx3d-wind-simulation-guide",
+    url: "https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide",
+    lang: "Typst",
+    detail: "A practical guide to running FluidX3D lattice-Boltzmann wind simulations over urban geometry.",
+  },
+  {
+    name: "beam-segmentation-dataset-pipeline",
+    url: "https://github.com/mojtaba-ja/beam-segmentation-dataset-pipeline",
+    lang: "Python",
+    detail: "Computer-vision pipeline that turns structural beam experiment photos into annotated ML datasets — calibration, segmentation export, perspective correction.",
+  },
+  {
+    name: "interactive-2d-beam-solver",
+    url: "https://github.com/mojtaba-ja/interactive-2d-beam-solver",
+    lang: "JavaScript",
+    detail: "Shear, moment and deflection diagrams for beams, in one dependency-free HTML file.",
+  },
 ];
 
 const experience = [
@@ -363,13 +471,13 @@ const experience = [
     ],
   },
   {
-    role: "Graduate Research &amp; Teaching Assistant",
+    role: "Graduate Research Assistant",
     org: "University of New Brunswick",
     location: "Fredericton, NB, Canada",
     dates: "Sep. 2018 – Oct. 2020",
     points: [
-      "Modeled reinforced concrete beams under sustained and cyclic loading in ABAQUS; conducted accelerometer-based vibration testing.",
-      "Taught the Mechanics of Materials Experimental Lab and the Statics Computational Lab.",
+      "Modeled reinforced concrete beams under sustained and cyclic loading in ABAQUS (concrete damage plasticity); conducted accelerometer-based vibration testing.",
+      "Evaluated long-term deflection, natural frequencies and mode shapes against ACI 318-19 and CSA A23.3 effective moment of inertia formulations.",
     ],
   },
   {
@@ -385,7 +493,7 @@ const experience = [
 
 const education = [
   { degree: "Ph.D. in Transportation and Environmental Engineering", school: "Florida Atlantic University", dates: "2024 – Present", note: "GPA 4.0/4.0 · Advisor: Dr. Jinwoo Jang" },
-  { degree: "M.Sc. in Civil Engineering", school: "University of New Brunswick", dates: "2018 – 2020", note: "Thesis: Vibration testing of cracked reinforced concrete beams under sustained load" },
+  { degree: "M.Sc. in Civil Engineering", school: "University of New Brunswick", dates: "2018 – 2020", note: `Thesis: <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:UeHWp8X0CEIC" target="_blank" rel="noopener">Vibration testing of cracked reinforced concrete beams under sustained load</a>` },
   { degree: "M.Sc. in Civil/Earthquake Engineering", school: "Iran University of Science and Technology", dates: "2014 – 2017", note: "Thesis: Structural damage detection via finite element model updating" },
   { degree: "B.Sc. in Civil Engineering", school: "Iran University of Science and Technology", dates: "2010 – 2014", note: "" },
 ];
@@ -426,6 +534,25 @@ const mentoring = [
   },
 ];
 
+/* Teaching gets its own section rather than a bullet inside Experience: for a
+   faculty reader it is a category they look for, and it is invisible when it is
+   folded into a research role's job title. */
+const teaching = [
+  {
+    role: "Graduate Teaching Assistant",
+    org: "University of New Brunswick",
+    location: "Fredericton, NB, Canada",
+    dates: "Jan. 2019 – Apr. 2020",
+    points: [
+      "<strong>Mechanics of Materials Experimental Lab</strong> (Jan.–Apr. 2019; Sep.–Dec. 2019) — ran lab sections on tensile, compression and torsion testing; responsible for lab safety and for the quality of the data students collected.",
+      "<strong>Statics Computational Lab</strong> (Jan.–Apr. 2020) — taught computational methods for force analysis, moment calculation and structural equilibrium.",
+    ],
+  },
+];
+
+/* Kept short on purpose. Membership is a small signal, but it is the expected
+   one on the licensure track, and ASCE is where the Palm Beach Branch
+   scholarship came from. */
 const affiliations = [
   "Institute of Electrical and Electronics Engineers (IEEE), Member",
   "American Society of Civil Engineers (ASCE), Member",

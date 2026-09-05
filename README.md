@@ -56,6 +56,38 @@ Entries render in the order you write them, so keep each group
 reverse-chronological, exactly as the CV lists them. A group with nothing in it
 prints no heading at all.
 
+## Add a research project (the section with figures)
+
+Entries live in `research` in `assets/data.js`:
+
+```js
+{
+  id: "short-name",
+  title: "Plain-language title, not the paper title",
+  status: "published",                  // published | review | preprint | prep
+  body: `Two to four sentences a non-specialist can follow.`,
+  image: {                              // optional — see the rule below
+    src: "assets/img/my-figure.jpg", width: 1200, height: 618,
+    alt: "What the picture shows, for a screen reader.",
+    caption: `Caption, with attribution to the paper it came from.`,
+  },
+  stats: [{ value: "0.76 m", label: "Average displacement error" }],  // optional
+  links: [{ label: "Paper", url: "https://doi.org/..." }],
+},
+```
+
+**The figure rule:** a figure goes on this page only if the paper it comes from is
+already public — published open access, or posted as a preprint. Nothing from a
+manuscript under review or in preparation, however good it looks. When one of
+those becomes public, add its `image` block and rebuild. Entries with no figure
+fall back to `stats`, or to the paragraph alone.
+
+Prepare a figure for the web before adding it (roughly 1200px wide, JPEG):
+
+```
+python -c "from PIL import Image; im=Image.open(rSOURCE.png).convert(RGB); w,h=im.size; im=im.resize((1200,round(h*1200/w))); im.save(assets/img/NAME.jpg,JPEG,quality=86,optimize=True,progressive=True)"
+```
+
 ## Add a talk or poster
 
 Talks live in their own `presentations` list, kept out of the paper list:
