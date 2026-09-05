@@ -53,7 +53,8 @@ const src = fs.readFileSync(path.join(__dirname, "assets", "data.js"), "utf8");
 const load = new Function(
   src +
     "\nreturn {profile,links,interests,publications,pubSections,presentations,talkSections," +
-    "news,experience,education,awards,funding,mentoring,affiliations,skills};"
+    "research,code,news,experience,teaching,education,awards,funding,mentoring," +
+    "affiliations,skills};"
 );
 const D = load();
 
@@ -198,8 +199,9 @@ const news = () => {
   return `<ul class="news">${items}</ul>`;
 };
 
-const experience = () =>
-  D.experience
+/* Dated role blocks — Experience and Teaching are the same shape. */
+const roles = (items) =>
+  items
     .map(
       (e) => `
       <div class="entry">
@@ -212,6 +214,9 @@ const experience = () =>
       </div>`
     )
     .join("");
+
+const experience = () => roles(D.experience);
+const teaching = () => roles(D.teaching);
 
 const education = () =>
   D.education
@@ -260,11 +265,72 @@ const skills = () =>
 const slugId = (label) =>
   collapse(label).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
+/* Selected research. Each entry is a figure (when the work is public), a short
+   plain-language paragraph, and links. Entries with neither figure nor stats
+   still read correctly — the figure block is simply absent. */
+const researchLinks = (r, base) =>
+  (r.links || []).length
+    ? `<div class="pub-links">${r.links
+        .map((l) => {
+          const internal = !/^https?:/.test(l.url);
+          const href = internal ? base + l.url : l.url;
+          const attrs = internal ? "" : ` target="_blank" rel="noopener noreferrer"`;
+          return `<a href="${href}"${attrs}>${l.label}</a>`;
+        })
+        .join(`<span class="sep"> &middot; </span>`)}</div>`
+    : "";
+
+/* Three headline numbers, for the project that has results but no public figure.
+   Plain text in the page's own ink — a number is not a series, so it gets no
+   colour of its own. */
+const statRow = (stats) =>
+  `<div class="stats">${stats
+    .map(
+      (t) =>
+        `<div class="stat"><div class="stat-value">${t.value}</div><div class="stat-label">${t.label}</div></div>`
+    )
+    .join("")}</div>`;
+
+const researchList = (base) =>
+  D.research
+    .map((r) => {
+      const fig = r.image
+        ? `<figure class="fig">
+          <img src="${base}${r.image.src}" alt="${attr(r.image.alt)}" width="${r.image.width}" height="${r.image.height}" loading="lazy" decoding="async">
+          <figcaption>${r.image.caption}</figcaption>
+        </figure>`
+        : "";
+      return `
+      <article class="project">
+        <h3>${r.title}${badge(r.status)}</h3>
+        ${fig}
+        <p>${collapse(r.body)}</p>
+        ${r.stats ? statRow(r.stats) : ""}
+        ${researchLinks(r, base)}
+      </article>`;
+    })
+    .join("");
+
+/* Public repositories. Kept terse: a name, what it is, what it is written in. */
+const codeList = () =>
+  `<ul class="repos">${D.code
+    .map(
+      (c) => `
+        <li>
+          <div class="pub-title"><a href="${c.url}" target="_blank" rel="noopener noreferrer">${c.name}</a></div>
+          <div class="pub-authors">${c.detail}</div>
+          <div class="pub-venue">${c.lang}</div>
+        </li>`
+    )
+    .join("")}</ul>`;
+
 /* ---- The page, as one ordered list of sections -------------
-   Order follows the CV, with one deliberate change: News sits at the top,
-   because a visitor's first question about a personal site is "what is this
-   person doing now?" — and papers come before the biography, because that is
-   what people arrive for. `short` is the label used in the jump nav. */
+   Ordered for a stranger arriving from a search, not for a CV reader: what is
+   he doing now (News), what does the work look like (Selected Research, with
+   figures), what has it produced (Publications, Code), and only then who he is
+   (Education, Experience) and the supporting record. Talks sit below Experience
+   on purpose — one TRB paper and six posters should not outrank the papers.
+   `short` is the label used in the jump nav. */
 function homeSections(base) {
   const out = [];
   const add = (id, title, inner, short) => {
@@ -273,10 +339,13 @@ function homeSections(base) {
 
   add("news", "News", news());
   add("interests", "Research Interests", interests(), "Interests");
+  add("research", "Selected Research", researchList(base), "Research");
   D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
-  D.talkSections.forEach((g) => add(slugId(g.short), g.title, talkList(g.key), g.short));
+  add("code", "Code", codeList());
   add("education", "Education", education());
   add("experience", "Experience", experience());
+  add("teaching", "Teaching", teaching());
+  D.talkSections.forEach((g) => add(slugId(g.short), g.title, talkList(g.key), g.short));
   add("funding", "Research Funding", list(D.funding), "Funding");
   add("mentoring", "Mentoring", mentoring());
   add("awards", "Awards", list(D.awards));
