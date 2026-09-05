@@ -353,13 +353,20 @@ function collect(fn) {
 }
 
 /* The homepage: what someone who just found you needs, and nothing else.
-   Everything that is record-keeping rather than persuasion lives on /cv/. */
+   Everything that is record-keeping rather than persuasion lives on /cv/.
+
+   The order is a funnel, not a filing cabinet: who he is (the masthead), then
+   what the work actually looks like — with pictures — then the proof it is
+   real, then that he can build, then that he is active, then the credentials,
+   then the door to the full record. News sits below the papers on purpose: a
+   list of dated one-liners is the weakest thing on the page and should not be
+   the first thing a stranger reads. */
 const homeSections = (base) =>
   collect((add) => {
-    add("news", "News", news());
     add("research", "Selected Research", researchList(base), "Research");
     D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
     add("code", "Code", codeList());
+    add("news", "News", news());
     add("education", "Education", education());
     // Compact: roles and dates only. The bullets are on the CV page.
     add("experience", "Experience", experience(true));
@@ -368,8 +375,8 @@ const homeSections = (base) =>
 /* The CV page: the complete record, in the CV's own order. */
 const cvSections = (base) =>
   collect((add) => {
-    add("interests", "Research Interests", interests(), "Interests");
     add("education", "Education", education());
+    add("interests", "Research Interests", interests(), "Interests");
     add("experience", "Experience", experience(false));
     add("teaching", "Teaching", teaching());
     D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));

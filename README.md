@@ -109,10 +109,25 @@ Talks live in their own `presentations` list, kept out of the paper list:
 
 `talkSections` names those two sections the same way `pubSections` does.
 
+## The site is three kinds of page
+
+| Page | Answers | Built from |
+|---|---|---|
+| `/` | "Who is this and is he any good?" — 30 seconds | `homeSections()` |
+| `/cv/` | "Give me the complete record." | `cvSections()` |
+| `/pub/<slug>/` | one paper, its abstract, where to read it | any publication with an `abstract` |
+
+The homepage is a funnel: masthead → Selected Research (pictures) → Publications
+→ Working Papers → Code → News → Education → Experience (compact) → a link to
+`/cv/`. News sits below the papers deliberately — dated one-liners are the
+weakest content on the page and should not be the first thing a stranger reads.
+Experience on the homepage shows roles and dates only; the bullets are on
+`/cv/`, driven by the same data and the same renderer.
+
 ## Page order and the jump nav
 
-`homeSections()` in `build.js` is the whole page: one line per section, in the
-order they appear. The row of jump links under the photo is generated from that
+`homeSections()` and `cvSections()` in `build.js` are the two pages: one line
+per section, in the order they appear. The row of jump links under the photo is generated from that
 same list, so a section can never be missing from the nav, and an empty section
 (no data) prints neither a heading nor a link. To move a section, move its line;
 to rename it, change the title there; the anchor (`#working-papers`) follows the
