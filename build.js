@@ -69,6 +69,10 @@ const unescapeHtml = (s) =>
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">");
 const collapse = (s) => unescapeHtml(stripTags(s)).replace(/\s+/g, " ").trim();
+// Same whitespace tidy-up, but for text that goes straight into the page and is
+// allowed to carry its own <strong>/<em>. collapse() is for plain-text slots
+// (JSON-LD, meta tags) and would strip that emphasis out.
+const tidy = (s) => String(s).replace(/\s+/g, " ").trim();
 const attr = (s) =>
   collapse(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
@@ -307,7 +311,10 @@ const researchList = (base) =>
       <article class="project">
         <h3>${r.title}${badge(r.status)}</h3>
         ${fig}
-        <p>${collapse(r.body)}</p>
+        <p class="hook">${tidy(r.hook)}</p>
+        <ul class="points">${(r.points || [])
+          .map((p) => `<li>${tidy(p)}</li>`)
+          .join("")}</ul>
         ${r.stats ? statRow(r.stats) : ""}
         ${researchLinks(r, base)}
       </article>`;

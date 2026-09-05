@@ -65,7 +65,11 @@ Entries live in `research` in `assets/data.js`:
   id: "short-name",
   title: "Plain-language title, not the paper title",
   status: "published",                  // published | review | preprint | prep
-  body: `Two to four sentences a non-specialist can follow.`,
+  hook: "One line that makes a stranger care. This is the sentence that has to land.",
+  points: [                             // two to four, one line each
+    "A fact with a number in it.",
+    "What is actually new about it.",
+  ],
   image: {                              // optional — see the rule below
     src: "assets/img/my-figure.jpg", width: 1200, height: 618,
     alt: "What the picture shows, for a screen reader.",

@@ -261,6 +261,23 @@ figure.fig figcaption {
   max-width: var(--measure);
 }
 
+/* The hook is the one line that has to land; the bullets carry the detail.
+   Both stay at reading width — a bullet that wraps stops being scannable. */
+.project .hook {
+  font-size: 1.02rem;
+  margin: 0 0 .5rem;
+  max-width: var(--measure);
+}
+ul.points {
+  margin: .35rem 0 .2rem;
+  padding-left: 1.15rem;
+}
+ul.points li {
+  font-size: .95rem;
+  margin: .25rem 0;
+  max-width: var(--measure);
+}
+
 /* Headline numbers for work whose figures are not public yet. Text tokens
    only — a number is not a data series and gets no colour of its own. */
 .stats {
