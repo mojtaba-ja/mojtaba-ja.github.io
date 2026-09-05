@@ -351,8 +351,8 @@ const research = [
     ],
     image: {
       src: "assets/img/lidar-trajectory-prediction.jpg",
-      width: 1200,
-      height: 618,
+      width: 1765,
+      height: 909,
       alt: "Aerial map of Clematis Street, West Palm Beach, with a pedestrian's observed path, the ground-truth continuation, and the Transformer and LSTM predicted paths drawn as coloured tracks.",
       caption: `Observed path, ground truth, and Transformer vs. LSTM predictions for one
         pedestrian outside the Mandel Public Library. Figure from the paper, published open
@@ -397,8 +397,8 @@ const research = [
     ],
     image: {
       src: "assets/img/bikeshare-od-flows.jpg",
-      width: 1200,
-      height: 854,
+      width: 1375,
+      height: 978,
       alt: "Map of Jersey City and Hoboken with curved lines between bike-share stations, thickness and colour showing the strength of morning-peak origin–destination flows.",
       caption: `Morning-peak origin–destination flows across the Jersey City Citi Bike network,
         with stations coloured by land-use zone.`,
@@ -441,8 +441,8 @@ const code = [
       video: {
         src: "assets/img/beam-solver-demo.mp4",
         poster: "assets/img/beam-solver-poster.jpg",
-        width: 900,
-        height: 740,
+        width: 1180,
+        height: 970,
         alt: "Screen recording: a support is dragged along a beam to create an overhang, a point load is dropped on, and a section marker sweeps across the shear, moment and deflection diagrams as they update.",
       },
       links: [
@@ -465,8 +465,8 @@ const code = [
       video: {
         src: "assets/img/urban-wind-demo.mp4",
         poster: "assets/img/urban-wind-poster.jpg",
-        width: 900,
-        height: 682,
+        width: 904,
+        height: 684,
         alt: "Simulated wind speed at pedestrian level around a building in West Palm Beach: fast flow at the edges of the domain, a slow wake trailing downwind of the block, with a colour bar from 0 to 70 metres per second.",
       },
       links: [
