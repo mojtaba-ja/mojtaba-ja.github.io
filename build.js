@@ -338,6 +338,7 @@ const featuredTool = (f, base) => {
         </figure>
         <div class="pub-title">${f.title}</div>
         <p class="hook">${tidy(f.hook)}</p>
+        ${f.note ? `<div class="tool-note">${tidy(f.note)}</div>` : ""}
         <div class="pub-venue">${f.meta}</div>
         <div class="pub-links">${f.links
           .map(
@@ -349,10 +350,10 @@ const featuredTool = (f, base) => {
 };
 
 const codeList = (base) => {
-  const lead = D.code.find((c) => c.featured);
+  const lead = D.code.filter((c) => c.featured);
   const rest = D.code.filter((c) => !c.featured);
   return (
-    (lead ? featuredTool(lead.featured, base) : "") +
+    lead.map((c) => featuredTool(c.featured, base)).join("") +
     `<ul class="repos">${rest
       .map(
         (c) => `

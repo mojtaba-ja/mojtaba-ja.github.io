@@ -426,24 +426,6 @@ const research = [
 /* Public repositories worth a stranger's click. */
 const code = [
   {
-    name: "transformer-eth-wpbl",
-    url: "https://github.com/mojtaba-ja/transformer-eth-wpbl",
-    lang: "Python",
-    detail: "PyTorch framework comparing LSTM and Transformer models for multi-agent trajectory prediction on LiDAR data and the ETH/UCY benchmarks — the code behind the IEEE OJ-ITS paper.",
-  },
-  {
-    name: "fluidx3d-wind-simulation-guide",
-    url: "https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide",
-    lang: "Typst",
-    detail: "A practical guide to running FluidX3D lattice-Boltzmann wind simulations over urban geometry.",
-  },
-  {
-    name: "beam-segmentation-dataset-pipeline",
-    url: "https://github.com/mojtaba-ja/beam-segmentation-dataset-pipeline",
-    lang: "Python",
-    detail: "Computer-vision pipeline that turns structural beam experiment photos into annotated ML datasets — calibration, segmentation export, perspective correction.",
-  },
-  {
     name: "interactive-2d-beam-solver",
     url: "https://github.com/mojtaba-ja/interactive-2d-beam-solver",
     lang: "JavaScript",
@@ -453,6 +435,8 @@ const code = [
     featured: {
       title: "Interactive 2D Beam Solver",
       hook: "Drag supports and loads onto a beam. Shear, moment and deflection update live.",
+      // Three lines, three jobs: what it does, who it is for, how it ships.
+      note: "A teaching tool for structural analysis — indeterminate beams, 7 support types, 14 worked examples.",
       meta: "One HTML file &middot; no dependencies &middot; works offline",
       video: {
         src: "assets/img/beam-solver-demo.mp4",
@@ -466,6 +450,41 @@ const code = [
         { label: "GitHub", url: "https://github.com/mojtaba-ja/interactive-2d-beam-solver" },
       ],
     },
+  },
+  {
+    name: "fluidx3d-wind-simulation-guide",
+    url: "https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide",
+    lang: "Typst",
+    detail: "A practical guide to running FluidX3D lattice-Boltzmann wind simulations over urban geometry.",
+    featured: {
+      title: "FluidX3D Urban Wind Simulation Guide",
+      hook: "GPU lattice-Boltzmann wind flow over real city geometry, start to finish.",
+      note: "Written so the next person can reproduce the run — setup, physics defines, ParaView.",
+      meta: "Workflow guide + two reference docs &middot; C++/OpenCL &middot; ParaView",
+      // The animation is the one already published in the repo's own README.
+      video: {
+        src: "assets/img/urban-wind-demo.mp4",
+        poster: "assets/img/urban-wind-poster.jpg",
+        width: 900,
+        height: 682,
+        alt: "Simulated wind speed at pedestrian level around a building in West Palm Beach: fast flow at the edges of the domain, a slow wake trailing downwind of the block, with a colour bar from 0 to 70 metres per second.",
+      },
+      links: [
+        { label: "GitHub", url: "https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide" },
+      ],
+    },
+  },
+  {
+    name: "transformer-eth-wpbl",
+    url: "https://github.com/mojtaba-ja/transformer-eth-wpbl",
+    lang: "Python",
+    detail: "PyTorch framework comparing LSTM and Transformer models for multi-agent trajectory prediction on LiDAR data and the ETH/UCY benchmarks — the code behind the IEEE OJ-ITS paper.",
+  },
+  {
+    name: "beam-segmentation-dataset-pipeline",
+    url: "https://github.com/mojtaba-ja/beam-segmentation-dataset-pipeline",
+    lang: "Python",
+    detail: "Computer-vision pipeline that turns structural beam experiment photos into annotated ML datasets — calibration, segmentation export, perspective correction.",
   },
 ];
 
