@@ -24,11 +24,13 @@ Live in about a minute.
 
 ## Add a paper
 
-Paste at the top of the `publications` list in `assets/data.js`:
+Paste into the `publications` list in `assets/data.js`, at the top of its own
+group:
 
 ```js
 {
   slug: "short-name",                    // the URL: /pub/short-name/
+  group: "peer-reviewed",                // peer-reviewed | working
   title: "Full Paper Title",
   authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
   venues: ["Journal Name — 2026"],
@@ -39,6 +41,37 @@ Paste at the top of the `publications` list in `assets/data.js`:
 ```
 
 `abstract: null` means no detail page is generated for that paper.
+
+### How papers are grouped
+
+The site mirrors the CV's sections instead of showing one flat list. `group`
+picks the section; `pubSections` names them and sets their order:
+
+| `group` | Section on the page |
+|---|---|
+| `peer-reviewed` | Publications — journal articles and the thesis |
+| `working` | Working Papers & Under Review — under review, preprints, in prep |
+
+Entries render in the order you write them, so keep each group
+reverse-chronological, exactly as the CV lists them. A group with nothing in it
+prints no heading at all.
+
+## Add a talk or poster
+
+Talks live in their own `presentations` list, kept out of the paper list:
+
+```js
+{
+  type: "conference",                    // conference | workshop
+  title: "Talk Title",
+  authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+  venue: "Meeting Name, City, ST",
+  date: "Jan. 2026",
+  note: "Poster presentation",
+},
+```
+
+`talkSections` names those two sections the same way `pubSections` does.
 
 ## Add a news item
 
