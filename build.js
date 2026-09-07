@@ -151,22 +151,21 @@ function masthead(base) {
 const interests = () =>
   `<div class="tags">${D.interests.map((i) => `<span class="tag">${i}</span>`).join("")}</div>`;
 
-/* A paper gets its own page only when it has a real abstract to show. */
-const hasPage = (p) => Boolean(p.abstract && String(p.abstract).trim());
+/* Papers link out — DOI, IEEE Xplore, SSRN, Scholar. We used to mirror each
+   abstract on a local /pub/<slug>/ page; that duplicated text the publisher
+   already hosts at a canonical URL, which is the definition of thin content,
+   and it asked a reader to take a detour to a copy instead of going to the
+   source. The abstracts stay in data.js as a record; nothing renders them. */
 
 function pubItem(p, base) {
-  const href = `${base}pub/${p.slug}/`;
   const parts = (p.links || []).map(
     (l) => `<a href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`
   );
-  if (hasPage(p)) parts.push(`<a href="${href}">Abstract</a>`);
-
-  // Only link the title somewhere real: our page, else the first external link.
-  const titleHtml = hasPage(p)
-    ? `<a href="${href}">${p.title}</a>`
-    : p.links && p.links.length
-    ? `<a href="${p.links[0].url}" target="_blank" rel="noopener noreferrer">${p.title}</a>`
-    : p.title;
+  // Link the title to the paper itself, when there is somewhere to send them.
+  const titleHtml =
+    p.links && p.links.length
+      ? `<a href="${p.links[0].url}" target="_blank" rel="noopener noreferrer">${p.title}</a>`
+      : p.title;
 
   const note = p.note ? ` <span class="muted">(${p.note})</span>` : "";
   const linkLine = parts.length
@@ -493,24 +492,6 @@ function personJsonLd() {
   );
 }
 
-function articleJsonLd(p) {
-  return JSON.stringify(
-    {
-      "@context": "https://schema.org",
-      "@type": "ScholarlyArticle",
-      headline: collapse(p.title),
-      author: collapse(p.authors)
-        .split(",")
-        .map((a) => ({ "@type": "Person", name: a.trim() })),
-      publisher: collapse(p.venues[0]),
-      abstract: collapse(p.abstract).slice(0, 500),
-      url: `${SITE_URL}/pub/${p.slug}/`,
-      ...(p.links && p.links[0] ? { sameAs: p.links[0].url } : {}),
-    },
-    null,
-    2
-  );
-}
 
 /* ---- Page shell ------------------------------------------- */
 function page({ title, description, canonical, body, base, jsonLd, ogType }) {
@@ -660,62 +641,9 @@ fs.writeFileSync(
 `
 );
 
-/* ---- Write one page per publication ----------------------- */
-const pubDir = path.join(__dirname, "pub");
-fs.rmSync(pubDir, { recursive: true, force: true });
-
-const paged = D.publications.filter(hasPage);
-
-paged.forEach((p) => {
-  const dir = path.join(pubDir, p.slug);
-  fs.mkdirSync(dir, { recursive: true });
-
-  const base = "../../";
-  const linkHtml = (p.links || [])
-    .map(
-      (l) =>
-        `<p><a href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label} &rarr;</a></p>`
-    )
-    .join("");
-
-  const body = `
-    <article class="paper">
-      <p class="paper-back"><a href="${base}">&larr; ${D.profile.name}</a></p>
-      <h1>${p.title}${badge(p.status)}</h1>
-      <div class="pub-authors">${p.authors}</div>
-      <div class="pub-venue" style="margin-bottom:.75rem">${p.venues.join(" &middot; ")}${
-    p.note ? ` <span class="muted">(${p.note})</span>` : ""
-  }</div>
-      ${linkHtml}
-      <h2>Abstract</h2>
-      <div class="abstract">${paragraphs(p.abstract)}</div>
-      ${
-        p.abstractSource
-          ? `<p class="abstract-source muted">Abstract as published in <a href="${p.abstractSource.url}" target="_blank" rel="noopener noreferrer">${p.abstractSource.label}</a>.</p>`
-          : ""
-      }
-      ${footer()}
-    </article>`;
-
-  fs.writeFileSync(
-    path.join(dir, "index.html"),
-    page({
-      title: `${collapse(p.title)} — ${D.profile.name}`,
-      description: collapse(p.abstract).slice(0, 300),
-      canonical: `${SITE_URL}/pub/${p.slug}/`,
-      base,
-      jsonLd: articleJsonLd(p),
-      ogType: "article",
-      body,
-    })
-  );
-});
-
 /* ---- sitemap.xml + robots.txt ------------------------------ */
 const today = new Date().toISOString().slice(0, 10);
-const urls = [`${SITE_URL}/`, `${SITE_URL}/projects/`].concat(
-  paged.map((p) => `${SITE_URL}/pub/${p.slug}/`)
-);
+const urls = [`${SITE_URL}/`, `${SITE_URL}/projects/`];
 
 fs.writeFileSync(
   path.join(__dirname, "sitemap.xml"),
@@ -746,6 +674,5 @@ console.log(`Built for ${SITE_URL}`);
 console.log(`  index.html`);
 console.log(`  projects/index.html`);
 console.log(`  cv/index.html        (redirect to /)`);
-console.log(`  pub/<slug>/index.html   x${paged.length} of ${D.publications.length} (only papers with a real abstract)`);
 console.log(`  sitemap.xml             ${urls.length} URLs`);
 console.log(`  robots.txt`);

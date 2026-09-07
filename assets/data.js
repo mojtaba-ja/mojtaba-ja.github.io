@@ -70,10 +70,10 @@ const interests = [
                     then anything not yet through review.
    status        -> colored badge: "published" | "review" | "preprint" | "prep"
    slug          -> the permalink, e.g. /pub/sipt-multi-agent/
-   abstract      -> VERBATIM published abstract, or null.
-                    null means no detail page is generated for this paper.
-                    NEVER paraphrase here — paste the real text or leave it null.
-   abstractSource-> where the abstract text came from, shown as attribution.
+   abstract      -> VERBATIM published abstract, or null. Kept as a record only:
+                    nothing renders it since the per-paper pages were removed
+                    2026-09-07. Readers go to the DOI, which is where the
+                    publisher already hosts this text.
 
    Order matters: entries render in the order written, so keep each group
    reverse-chronological, exactly as the CV lists them.                      */
@@ -384,7 +384,6 @@ const research = [
     links: [
       { label: "Paper", url: "https://doi.org/10.1109/OJITS.2025.3640002" },
       { label: "Code", url: "https://github.com/mojtaba-ja/transformer-eth-wpbl" },
-      { label: "Abstract", url: "pub/lidar-transformer-ojits/" },
     ],
   },
   {
