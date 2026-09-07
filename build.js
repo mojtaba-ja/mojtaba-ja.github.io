@@ -266,7 +266,7 @@ const mentoring = () =>
           <span class="entry-role">${g.program}</span>
           <span class="entry-when">${g.dates}</span>
         </div>
-        <ul>${g.entries
+        <ul class="roster">${g.entries
           .map((m) => `<li><strong>${m.name}</strong> &mdash; ${m.detail}</li>`)
           .join("")}</ul>
       </div>`
@@ -424,7 +424,9 @@ const homeSections = (base) =>
     add("funding", "Research Funding", list(D.funding), "Funding");
     add("mentoring", "Mentoring", mentoring());
     add("awards", "Awards", list(D.awards));
-    add("affiliations", "Professional Affiliations", list(D.affiliations), "Affiliations");
+    // Affiliations are on the CV (PDF), not here — see the note in data.js.
+    // To restore: add("affiliations", "Professional Affiliations",
+    //                 list(D.affiliations), "Affiliations");
     add("skills", "Technical Skills", skills(), "Skills");
   });
 

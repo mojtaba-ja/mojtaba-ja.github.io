@@ -623,9 +623,10 @@ const teaching = [
   },
 ];
 
-/* Kept short on purpose. Membership is a small signal, but it is the expected
-   one on the licensure track, and ASCE is where the Palm Beach Branch
-   scholarship came from. */
+/* Still exported, but no longer rendered as a section — a heading over two
+   paid memberships promised more than it delivered, and it was taking a slot
+   in a fourteen-item nav row. It stays on the CV (PDF), where a complete
+   record is the point. Restore the add() call in build.js to bring it back. */
 const affiliations = [
   "Institute of Electrical and Electronics Engineers (IEEE), Member",
   "American Society of Civil Engineers (ASCE), Member",
