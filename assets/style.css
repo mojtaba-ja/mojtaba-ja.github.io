@@ -73,25 +73,23 @@ body {
 
 /* THE WIDTH RULE, and there are only two tiers.
 
-   SENTENCES take the reading measure (~72 characters). They are read left to
-   right, line after line, and past about 75 characters the eye stops reliably
-   finding the start of the next line.
+   PARAGRAPHS take the reading measure (~72 characters) — the bio, an abstract,
+   a figure caption. Read line after line, past about 75 characters the eye
+   stops reliably finding the start of the next line, so the cap earns its keep.
+   There are only three of them, and two sit under or beside an image, where a
+   narrower text block is the normal convention anyway.
 
-   RECORDS take the full column. An award, a grant, a publication entry, a
-   skills line, a roster name — these are scanned for a keyword, not read as
-   prose, and capping them wraps one short record onto two lines with half the
-   column standing empty beside it. That is what made Awards and Research
-   Funding look narrower than the Publications and Skills around them.
+   EVERYTHING ELSE takes the full column: awards, grants, publication entries,
+   skills lines, roster names, news items, and the experience and teaching
+   bullets. Once those bullets were tightened to a line each, capping them only
+   forced a wrap that was not there — a one-line entry has no return sweep to
+   protect, and the short second line left the column visibly ragged against
+   the full-width heading above it.
 
-   If you add a section, ask which of the two it is. Sentences: add it here.
-   Records: add nothing, the column is the default. */
+   If you add a section: is it a paragraph someone reads through? Add it above.
+   Anything else, add nothing — the column is the default. */
 .abstract p,
-.entry ul:not(.roster) li,
-.project .hook,
-ul.points li,
-figure.fig figcaption,
-ul.repos .pub-authors,
-ul.news .what {
+figure.fig figcaption {
   max-width: var(--measure);
 }
 
