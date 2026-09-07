@@ -73,7 +73,16 @@ body {
 
 .abstract p,
 .entry ul li,
-section > ul:not(.pubs):not(.news):not(.repos) li {
+section > ul:not(.pubs):not(.news):not(.repos) li,
+/* Everything below is PROSE — read line by line, so it takes the reading
+   measure. These were running at 96-128 characters, roughly double what an eye
+   can track back to the start of the next line. Figures and videos stay full
+   column: an image is looked at, not read. */
+.project .hook,
+ul.points li,
+figure.fig figcaption,
+ul.repos .pub-authors,
+ul.news .what {
   max-width: var(--measure);
 }
 
