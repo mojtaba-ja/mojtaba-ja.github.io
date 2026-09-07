@@ -630,9 +630,12 @@ const affiliations = [
   "American Society of Civil Engineers (ASCE), Member",
 ];
 
+/* Tools only. Methods and research areas were removed 2026-09-07 — they are
+   named in Research Interests above and demonstrated in Publications, and
+   repeating them here made the actual tools carry less weight. */
 const skills = [
   { group: "Programming &amp; Tools", items: "Python, MATLAB, LaTeX, Typst, Git, Tableau" },
-  { group: "AI &amp; Machine Learning", items: "PyTorch, TensorFlow, Keras, Transformers, Spatial GNNs, Computer Vision, LiDAR Processing" },
-  { group: "Data Science", items: "Pandas, NumPy, Scikit-learn, ArcGIS, GeoPandas, Statistical Analysis" },
-  { group: "Engineering Software", items: "OpenFOAM (HPC), ABAQUS, ParaView, SAP2000, ETABS, Civil 3D, Synchro, AutoCAD" },
+  { group: "AI &amp; Machine Learning", items: "PyTorch, TensorFlow, Keras" },
+  { group: "Data Science", items: "Pandas, NumPy, Scikit-learn, GeoPandas, ArcGIS" },
+  { group: "Engineering Software", items: "ABAQUS, OpenFOAM (HPC), ParaView, SAP2000, ETABS, SAFE, Synchro, Civil 3D, MicroStation, AutoCAD" },
 ];
