@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Projects — Mojtaba Jafarian Abyaneh</title>
+    <meta name="description" content="Research projects and open-source tools by Mojtaba Jafarian Abyaneh: trajectory prediction from LiDAR, bike-share demand forecasting, urban wind simulation, and an interactive structural analysis solver." />
+    <meta name="author" content="Mojtaba Jafarian Abyaneh" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://mojtaba-ja.github.io/projects/" />
+    <meta name="google-site-verification" content="B2QqojRW1LKfEUjStZuc9L0hT_cprjbRgYsFQrWjpzM" />
+    <meta name="msvalidate.01" content="AF2042ABB00E720DFEB8D8479C84F0A4" />
+
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mojtaba Jafarian Abyaneh" />
+    <meta property="og:title" content="Projects — Mojtaba Jafarian Abyaneh" />
+    <meta property="og:description" content="Research projects and open-source tools by Mojtaba Jafarian Abyaneh: trajectory prediction from LiDAR, bike-share demand forecasting, urban wind simulation, and an interactive structural analysis solver." />
+    <meta property="og:url" content="https://mojtaba-ja.github.io/projects/" />
+    <meta property="og:image" content="https://mojtaba-ja.github.io/assets/profile.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Projects — Mojtaba Jafarian Abyaneh" />
+    <meta name="twitter:description" content="Research projects and open-source tools by Mojtaba Jafarian Abyaneh: trajectory prediction from LiDAR, bike-share demand forecasting, urban wind simulation, and an interactive structural analysis solver." />
+    <meta name="twitter:image" content="https://mojtaba-ja.github.io/assets/profile.jpg" />
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚦</text></svg>" />
+    <link rel="stylesheet" href="../assets/style.css?v=bdb434cc" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mojtaba Jafarian Abyaneh",
+  "alternateName": [
+    "Mojtaba Jafarian",
+    "M. Jafarian Abyaneh"
+  ],
+  "url": "https://mojtaba-ja.github.io/",
+  "image": "https://mojtaba-ja.github.io/assets/profile.jpg",
+  "jobTitle": "PhD Candidate, Transportation Engineering",
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Boca Raton, Florida"
+  },
+  "description": "I am a PhD candidate and Graduate Research Assistant at Florida Atlantic University, working in the I-SENSE Lab with Dr. Jinwoo Jang. My work is funded by the NSF and the NIH.",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Florida Atlantic University",
+    "url": "https://www.fau.edu/"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of New Brunswick"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Iran University of Science and Technology"
+    }
+  ],
+  "knowsAbout": [
+    "Deep Learning for Intelligent Transportation Systems",
+    "Multi-Agent Trajectory Prediction",
+    "Spatial Graph Neural Networks",
+    "Computer Vision & LiDAR Processing",
+    "Urban Transportation Safety Modeling",
+    "Urban Digital Twins & CFD Simulation",
+    "Spatiotemporal Flow Prediction"
+  ],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=VOvMEmIAAAAJ&hl=en",
+    "https://github.com/mojtaba-ja",
+    "https://linkedin.com/in/mojjafarian",
+    "https://orcid.org/0009-0006-0556-5520"
+  ]
+}
+    </script>
+
+    <script>
+      // Apply the saved theme before first paint, so the page never flashes.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "light" || t === "dark")
+            document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+
+  <body>
+    <button id="theme-toggle" type="button">
+      <span class="when-dark">&#9728;&#65038; Light Mode</span>
+      <span class="when-light">&#9789; Dark Mode</span>
+    </button>
+    <main class="container">
+
+    <header class="pagehead">
+      <p class="paper-back"><a href="../">&larr; Mojtaba Jafarian Abyaneh</a></p>
+      <h1>Projects</h1>
+      <p class="muted">Research and tools, with the figures and demos that the
+        <a href="../">main page</a> deliberately leaves out.</p>
+    </header>
+<nav class="sectionnav" aria-label="Sections"><a href="#research">Research</a><span class="sep"> &middot; </span><a href="#code">Code</a></nav>
+<section id="research"><h2>Selected Research</h2>
+      <article class="project">
+        <h3>Predicting where people and cars go next, from raw LiDAR<span class="badge badge-published">Published</span></h3>
+        <p class="hook">Where is that pedestrian about to step? A Transformer answers it from raw LiDAR.</p>
+        <ul class="points"><li>12,390+ real trajectories — vehicles, pedestrians, cyclists — from an Ouster OS1 sensor at one West Palm Beach intersection.</li><li><strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.</li><li>Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.</li></ul>
+        
+        <figure class="fig">
+          <img src="../assets/img/lidar-trajectory-prediction.jpg" alt="Aerial map of Clematis Street, West Palm Beach, with a pedestrian's observed path, the ground-truth continuation, and the Transformer and LSTM predicted paths drawn as coloured tracks." width="1765" height="909" loading="lazy" decoding="async">
+          <figcaption>Observed path, ground truth, and Transformer vs. LSTM predictions for one
+        pedestrian outside the Mandel Public Library. Figure from the paper, published open
+        access in <em>IEEE OJ-ITS</em> (CC BY).</figcaption>
+        </figure>
+        <div class="pub-links"><a href="https://doi.org/10.1109/OJITS.2025.3640002" target="_blank" rel="noopener noreferrer">Paper</a><span class="sep"> &middot; </span><a href="https://github.com/mojtaba-ja/transformer-eth-wpbl" target="_blank" rel="noopener noreferrer">Code</a><span class="sep"> &middot; </span><a href="../pub/lidar-transformer-ojits/">Abstract</a></div>
+      </article>
+      <article class="project">
+        <h3>Forecasting bike-share demand a year ahead<span class="badge badge-preprint">Preprint</span></h3>
+        <p class="hook">Cyclist risk concentrates where riding concentrates — but the numbers usually arrive after the crash.</p>
+        <ul class="points"><li>Predicts station-to-station demand <strong>a year ahead</strong> with a spatial graph convolutional network.</li><li>Public data only — trip records, census, OpenStreetMap — so an agency with no data budget can run it.</li><li>Predicted flow approximates exposure: it points to the corridors and hours where protection pays off.</li></ul>
+        
+        <figure class="fig">
+          <img src="../assets/img/bikeshare-od-flows.jpg" alt="Map of Jersey City and Hoboken with curved lines between bike-share stations, thickness and colour showing the strength of morning-peak origin–destination flows." width="1375" height="978" loading="lazy" decoding="async">
+          <figcaption>Morning-peak origin–destination flows across the Jersey City Citi Bike network,
+        with stations coloured by land-use zone.</figcaption>
+        </figure>
+        <div class="pub-links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5801889" target="_blank" rel="noopener noreferrer">SSRN preprint</a></div>
+      </article></section>
+<section id="code"><h2>Code</h2>
+      <article class="tool">
+        <h3>Interactive 2D Beam Solver</h3>
+        <p class="hook">Drag supports and loads onto a beam. Shear, moment and deflection update live.</p>
+        <div class="tool-note">A teaching tool for structural analysis — indeterminate beams, 7 support types, 14 worked examples.</div>
+        <div class="pub-venue">One HTML file &middot; no dependencies &middot; works offline</div>
+        <figure class="fig">
+          <video class="demo" src="../assets/img/beam-solver-demo.mp4" poster="../assets/img/beam-solver-poster.jpg"
+            width="1180" height="970" aria-label="Screen recording: a support is dragged along a beam to create an overhang, a point load is dropped on, and a section marker sweeps across the shear, moment and deflection diagrams as they update."
+            autoplay muted loop playsinline preload="metadata"></video>
+        </figure>
+        <div class="pub-links"><a href="https://mojtaba-ja.github.io/interactive-2d-beam-solver/" target="_blank" rel="noopener noreferrer">Try it</a><span class="sep"> &middot; </span><a href="https://github.com/mojtaba-ja/interactive-2d-beam-solver" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </article>
+      <article class="tool">
+        <h3>FluidX3D Urban Wind Simulation Guide</h3>
+        <p class="hook">GPU lattice-Boltzmann wind flow over real city geometry, start to finish.</p>
+        <div class="tool-note">Written so the next person can reproduce the run — setup, physics defines, ParaView.</div>
+        <div class="pub-venue">Workflow guide + two reference docs &middot; C++/OpenCL &middot; ParaView</div>
+        <figure class="fig">
+          <video class="demo" src="../assets/img/urban-wind-demo.mp4" poster="../assets/img/urban-wind-poster.jpg"
+            width="904" height="684" aria-label="Simulated wind speed at pedestrian level around a building in West Palm Beach: fast flow at the edges of the domain, a slow wake trailing downwind of the block, with a colour bar from 0 to 70 metres per second."
+            autoplay muted loop playsinline preload="metadata"></video>
+        </figure>
+        <div class="pub-links"><a href="https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </article><ul class="repos">
+        <li>
+          <div class="pub-title"><a href="https://github.com/mojtaba-ja/transformer-eth-wpbl" target="_blank" rel="noopener noreferrer">transformer-eth-wpbl</a></div>
+          <div class="pub-authors">PyTorch framework comparing LSTM and Transformer models for multi-agent trajectory prediction on LiDAR data and the ETH/UCY benchmarks — the code behind the IEEE OJ-ITS paper.</div>
+          <div class="pub-venue">Python</div>
+        </li>
+        <li>
+          <div class="pub-title"><a href="https://github.com/mojtaba-ja/beam-segmentation-dataset-pipeline" target="_blank" rel="noopener noreferrer">beam-segmentation-dataset-pipeline</a></div>
+          <div class="pub-authors">Computer-vision pipeline that turns structural beam experiment photos into annotated ML datasets — calibration, segmentation export, perspective correction.</div>
+          <div class="pub-venue">Python</div>
+        </li></ul></section>
+<footer>&copy; 2026 Mojtaba Jafarian Abyaneh. Built with plain HTML, CSS, and JavaScript.</footer>
+    </main>
+    <script src="../assets/site.js?v=24590b5b"></script>
+  </body>
+</html>
