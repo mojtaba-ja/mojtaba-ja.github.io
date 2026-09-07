@@ -331,10 +331,10 @@ ol.pubs > li::marker { color: var(--muted); font-size: .92rem; }
    which turns a supporting illustration into the whole screen. Every source is
    far larger than this (1180-1765px wide), so shrinking costs no sharpness —
    it just stops the media shouting over the text. */
-figure.fig {
-  max-width: 38rem;
-  margin: 1rem auto .8rem;
-}
+/* The figure fills the section. It used to be capped narrower and centred,
+   which made sense against a 1040px column; against the 40rem one it just left
+   a 17px inset that looks like a misalignment. */
+figure.fig { margin: 1rem 0 .8rem; }
 figure.fig img {
   display: block;
   width: 100%;
@@ -344,6 +344,7 @@ figure.fig img {
   background: var(--card);
 }
 figure.fig figcaption {
+  max-width: 34rem;
   color: var(--muted);
   font-size: .85rem;
   line-height: 1.45;
@@ -361,7 +362,7 @@ ul.points {
   padding-left: 1.15rem;
 }
 ul.points li {
-  font-size: .95rem;
+  font-size: 1rem;
   margin: .25rem 0;
 }
 
@@ -438,10 +439,10 @@ ul.news .what { flex: 1; }
 .entry-when { color: var(--muted); font-size: .92rem; white-space: nowrap; }
 .entry-org { color: var(--muted); font-size: .95rem; }
 .entry ul { margin-top: .35rem; }
-.entry ul li { font-size: .95rem; }
+.entry ul li { font-size: 1rem; }
 
 /* ---------- Skills ---------- */
-.skill-row { margin: .45rem 0; font-size: .95rem; }
+.skill-row { margin: .45rem 0; font-size: 1rem; }
 .skill-row .skill-group { font-weight: 600; }
 
 /* ---------- Paper detail page ----------
