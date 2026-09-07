@@ -319,7 +319,15 @@ ol.pubs > li::marker { color: var(--muted); font-size: .92rem; }
 }
 
 
-figure.fig { margin: .9rem 0 .7rem; }
+/* Figures and demos sit centred at 38rem (~646px), not the full column. At
+   full width the beam-solver recording alone filled most of a laptop viewport,
+   which turns a supporting illustration into the whole screen. Every source is
+   far larger than this (1180-1765px wide), so shrinking costs no sharpness —
+   it just stops the media shouting over the text. */
+figure.fig {
+  max-width: 38rem;
+  margin: 1rem auto .8rem;
+}
 figure.fig img {
   display: block;
   width: 100%;
