@@ -29,7 +29,6 @@ group:
 
 ```js
 {
-  slug: "short-name",                    // the URL: /pub/short-name/
   group: "peer-reviewed",                // peer-reviewed | working
   title: "Full Paper Title",
   authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
@@ -189,6 +188,6 @@ copy helps nobody. `publish.sh` carries the note on how to undo this.
 ## Notes
 
 - Repo is public because GitHub Pages only serves public repos on the free plan.
-- `index.html`, everything in `pub/`, `sitemap.xml` and `robots.txt` are generated.
+- `index.html`, `projects/`, `cv/`, `sitemap.xml` and `robots.txt` are generated.
   Don't hand-edit them; `node build.js` overwrites them.
 - Dark mode is the default. The button top-right switches to light.
