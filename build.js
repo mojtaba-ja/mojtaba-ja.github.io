@@ -186,7 +186,7 @@ function pubItem(p, base) {
    the way the CV does instead of as one undifferentiated pile. */
 const pubList = (key, base) => {
   const items = D.publications.filter((p) => p.group === key);
-  return items.length ? `<ul class="pubs">${items.map((p) => pubItem(p, base)).join("")}</ul>` : "";
+  return items.length ? `<ol class="pubs">${items.map((p) => pubItem(p, base)).join("")}</ol>` : "";
 };
 
 /* Talks and posters. Same shape as the papers, minus links and badges —
@@ -206,7 +206,7 @@ const talkList = (key) => {
         </li>`
     )
     .join("");
-  return `<ul class="pubs">${li}</ul>`;
+  return `<ol class="pubs">${li}</ol>`;
 };
 
 const news = () => {
