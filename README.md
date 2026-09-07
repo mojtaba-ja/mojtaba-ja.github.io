@@ -40,7 +40,9 @@ group:
 },
 ```
 
-`abstract: null` means no detail page is generated for that paper.
+`abstract` is kept as a record only — nothing renders it. Readers are sent to the
+DOI, IEEE Xplore, SSRN or Scholar links instead of a local copy of text the
+publisher already hosts.
 
 ### How papers are grouped
 
@@ -115,7 +117,6 @@ Talks live in their own `presentations` list, kept out of the paper list:
 |---|---|---|
 | `/` | "Who is this and is he any good?" — 30 seconds | `homeSections()` |
 | `/cv/` | "Give me the complete record." | `cvSections()` |
-| `/pub/<slug>/` | one paper, its abstract, where to read it | any publication with an `abstract` |
 
 The homepage is a funnel: masthead → Selected Research (pictures) → Publications
 → Working Papers → Code → News → Education → Experience (compact) → a link to
