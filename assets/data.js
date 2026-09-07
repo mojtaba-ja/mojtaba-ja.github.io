@@ -46,8 +46,10 @@ const links = [
   //
   // "Resume" used to sit beside it. Two links a reader treats as synonyms is a
   // decision you are making them make, and a resume is tailored per application
-  // — publishing one fixed version helps nobody. assets/resume.pdf is still
-  // built and still reachable by URL; it just is not offered here. To restore:
+  // — publishing one fixed version helps nobody. The resumes still compile in
+  // resume-typst/ (they are what you attach to an application); they are no
+  // longer copied into this site at all, so /assets/resume.pdf is now a 404.
+  // To restore: put back the copy_if_diff line in publish.sh, then add
   //   { name: "Resume", url: "assets/resume.pdf" },
   { name: "CV (PDF)", url: "assets/cv.pdf" },
 ];
