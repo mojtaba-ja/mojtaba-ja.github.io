@@ -177,7 +177,19 @@ header.masthead h1 {
 
 .subtitle { color: var(--muted); margin-bottom: .75rem; }
 
-.linkrow { margin-top: .9rem; font-size: .95rem; }
+/* A flex row so the space on each side of every dot is identical — the links
+   were reading as one run-on string because the gap between them was barely
+   wider than the gap between an icon and its own label. The horizontal gap is
+   .62rem against the .35em inside each link, so each icon now clearly belongs
+   to the word beside it. */
+.linkrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem .62rem;
+  margin-top: .9rem;
+  font-size: .95rem;
+}
 .linkrow .sep { color: var(--sep); }
 
 /* Icon beside its label, never instead of it. The icon gives the row shape at a

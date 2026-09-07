@@ -130,7 +130,10 @@ function masthead(base) {
       // is exactly that.
       const attrs =
         absolute || file ? ` target="_blank" rel="noopener noreferrer"` : "";
-      const sep = i < D.links.length - 1 ? `<span class="sep"> &middot; </span>` : "";
+      // No spaces inside the separator: .linkrow is a flex row, so its gap sets
+      // the spacing on BOTH sides of each dot. Literal spaces here would add to
+      // one side only and the rhythm would come out lopsided.
+      const sep = i < D.links.length - 1 ? `<span class="sep">&middot;</span>` : "";
       return `<a href="${url}"${attrs}>${ICONS[l.name] || ""}${l.name}</a>${sep}`;
     })
     .join("");
