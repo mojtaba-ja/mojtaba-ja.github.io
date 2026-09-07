@@ -71,35 +71,26 @@ body {
    keeps its width. */
 :root { --measure: 34rem; }   /* rem, so it is the same width everywhere */
 
-/* THE WIDTH RULE — the container is for LAYOUT, the cap is for READING.
+/* THE WIDTH RULE, and there are only two tiers.
 
-   Two different jobs, and conflating them is what broke this twice. The
-   container (1040px) exists so the masthead can put a 250px photo beside a
-   text block; squeeze that into one 80-character column and the text beside
-   the photo drops to ~48 characters and everything wraps.
+   PARAGRAPHS take the reading measure (~72 characters) — the bio, an abstract,
+   a figure caption. Read line after line, past about 75 characters the eye
+   stops reliably finding the start of the next line, so the cap earns its keep.
+   There are only three of them, and two sit under or beside an image, where a
+   narrower text block is the normal convention anyway.
 
-   The reading limit applies to a LINE OF TEXT, not to the page. So every
-   content block below the masthead is capped at 40rem — about 80 characters at
-   17px, the WCAG 2.1 SC 1.4.8 (AAA) ceiling, which exists for cognitive and
-   learning disabilities. The British Dyslexia Association asks for 60-70;
-   Baymard found text past 80 characters was SKIPPED 41% more often.
+   EVERYTHING ELSE takes the full column: awards, grants, publication entries,
+   skills lines, roster names, news items, and the experience and teaching
+   bullets. Once those bullets were tightened to a line each, capping them only
+   forced a wrap that was not there — a one-line entry has no return sweep to
+   protect, and the short second line left the column visibly ragged against
+   the full-width heading above it.
 
-   Capping the SECTION, not its parts, is what keeps this tidy: every heading,
-   entry, bullet, award and skills line ends at the same right edge, so nothing
-   looks ragged against anything else. Earlier versions capped some children
-   and not others, which is what made Awards look narrower than Skills. */
-section,
-p.cta,
-footer,
-.pagehead .muted {
-  max-width: 40rem;
-}
-
-/* The masthead is the one two-column block: its text sits beside the photo, so
-   it takes its own cap rather than the section one. */
-header.masthead .identity p,
-header.masthead .identity ul.lede-points {
-  max-width: 36rem;
+   If you add a section: is it a paragraph someone reads through? Add it above.
+   Anything else, add nothing — the column is the default. */
+.abstract p,
+figure.fig figcaption {
+  max-width: var(--measure);
 }
 
 /* A skills row is NOT prose. It is a labelled, comma-separated list that gets
@@ -148,6 +139,7 @@ header.masthead .identity { flex: 1 1 340px; }
    — just over it. At the old .4rem the masthead read as one undifferentiated
    mass. Raise the line-height and these must follow. */
 header.masthead .identity p {
+  max-width: 38rem;
   margin: 1.75rem 0;
   line-height: 1.62;
 }
@@ -167,6 +159,7 @@ header.masthead .identity .lede-title {
 header.masthead .identity .lede-title + ul.lede-points { margin-top: 0; }
 
 header.masthead .identity ul.lede-points {
+  max-width: 38rem;
   margin: 1.75rem 0;
   padding-left: 1.15rem;
   line-height: 1.62;
@@ -186,6 +179,24 @@ header.masthead h1 {
 
 .linkrow { margin-top: .9rem; font-size: .95rem; }
 .linkrow .sep { color: var(--sep); }
+
+/* Icon beside its label, never instead of it. The icon gives the row shape at a
+   glance; the word is what tells someone what they are clicking, which matters
+   most for the two marks nobody reliably recognises — Scholar and the CV. */
+.linkrow a {
+  display: inline-flex;
+  align-items: center;
+  gap: .35em;
+  white-space: nowrap;
+}
+.linkrow svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+  /* Optical centring: the cap-height of the label sits a little above the
+     mathematical middle of the line box. */
+  margin-top: -.08em;
+}
 
 /* ---------- Section jump nav ----------
    Deliberately muted: this row is a map of the page, not part of the content.
@@ -331,10 +342,10 @@ ol.pubs > li::marker { color: var(--muted); font-size: .92rem; }
    which turns a supporting illustration into the whole screen. Every source is
    far larger than this (1180-1765px wide), so shrinking costs no sharpness —
    it just stops the media shouting over the text. */
-/* The figure fills the section. It used to be capped narrower and centred,
-   which made sense against a 1040px column; against the 40rem one it just left
-   a 17px inset that looks like a misalignment. */
-figure.fig { margin: 1rem 0 .8rem; }
+figure.fig {
+  max-width: 38rem;
+  margin: 1rem auto .8rem;
+}
 figure.fig img {
   display: block;
   width: 100%;
@@ -344,7 +355,6 @@ figure.fig img {
   background: var(--card);
 }
 figure.fig figcaption {
-  max-width: 34rem;
   color: var(--muted);
   font-size: .85rem;
   line-height: 1.45;
@@ -362,7 +372,7 @@ ul.points {
   padding-left: 1.15rem;
 }
 ul.points li {
-  font-size: 1rem;
+  font-size: .95rem;
   margin: .25rem 0;
 }
 
@@ -439,10 +449,10 @@ ul.news .what { flex: 1; }
 .entry-when { color: var(--muted); font-size: .92rem; white-space: nowrap; }
 .entry-org { color: var(--muted); font-size: .95rem; }
 .entry ul { margin-top: .35rem; }
-.entry ul li { font-size: 1rem; }
+.entry ul li { font-size: .95rem; }
 
 /* ---------- Skills ---------- */
-.skill-row { margin: .45rem 0; font-size: 1rem; }
+.skill-row { margin: .45rem 0; font-size: .95rem; }
 .skill-row .skill-group { font-weight: 600; }
 
 /* ---------- Paper detail page ----------
@@ -450,7 +460,7 @@ ul.news .what { flex: 1; }
    reading measure — title, authors, venue, links and abstract all end at
    the same right edge. Capping only the abstract made it look narrower
    than the heading above it. */
-.paper { max-width: 40rem; }
+.paper { max-width: var(--measure); }
 .paper-back { margin-bottom: 1.5rem; }
 .paper h1 { font-size: 1.5rem; margin: 0 0 .35rem; }
 .paper .abstract p { margin: .8rem 0; }
@@ -459,7 +469,7 @@ ul.news .what { flex: 1; }
 /* ---------- CV page ---------- */
 .pagehead { margin-bottom: 1.25rem; }
 .pagehead h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
-.pagehead .muted { font-size: .95rem; }
+.pagehead .muted { font-size: .95rem; max-width: var(--measure); }
 
 /* The hand-off at the foot of the homepage. It is the one link on the page
    that has to be found, so it gets a rule above it and no company. */

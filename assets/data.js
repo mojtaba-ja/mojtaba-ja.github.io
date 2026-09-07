@@ -51,7 +51,10 @@ const links = [
   // longer copied into this site at all, so /assets/resume.pdf is now a 404.
   // To restore: put back the copy_if_diff line in publish.sh, then add
   //   { name: "Resume", url: "assets/resume.pdf" },
-  { name: "CV (PDF)", url: "assets/cv.pdf" },
+  // Just "CV". With a document icon beside it and no web CV page to confuse it
+  // with, "(PDF)" was spelling out something the icon and the context already
+  // say — and it was the only label on the row carrying a parenthesis.
+  { name: "CV", url: "assets/cv.pdf" },
 ];
 
 const interests = [
