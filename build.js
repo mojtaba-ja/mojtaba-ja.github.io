@@ -109,9 +109,14 @@ function masthead(base) {
     .map((l, i) => {
       const absolute = /^https?:/.test(l.url);
       const mail = l.url.startsWith("mailto:");
-      // Anything else — assets/cv.pdf, cv/ — is ours, so it takes the page's base.
+      const file = /\.(pdf|docx?)$/i.test(l.url);
+      // Anything not absolute and not mail is ours, so it takes the page's base.
       const url = absolute || mail ? l.url : base + l.url;
-      const attrs = absolute ? ` target="_blank" rel="noopener noreferrer"` : "";
+      // A PDF opens in its own tab: clicking it should never cost someone the
+      // page they were reading, and a browser's PDF viewer replacing the site
+      // is exactly that.
+      const attrs =
+        absolute || file ? ` target="_blank" rel="noopener noreferrer"` : "";
       const sep = i < D.links.length - 1 ? `<span class="sep"> &middot; </span>` : "";
       return `<a href="${url}"${attrs}>${l.name}</a>${sep}`;
     })
@@ -119,14 +124,22 @@ function masthead(base) {
 
   return `
     <header class="masthead">
-      <img class="avatar" src="${base}${D.profile.image}" alt="${attr(D.profile.name)}" width="240" height="360">
+      <img class="avatar" src="${base}${D.profile.image}" alt="${attr(D.profile.name)}" width="250" height="375">
       <div class="identity">
         <h1>${D.profile.name}</h1>
         <div class="subtitle">${D.profile.title}${
           D.profile.location ? ` <span class="sep">&middot;</span> ${D.profile.location}` : ""
         }</div>
         <p>${D.profile.bio}</p>
-        <p>${D.profile.research}</p>
+        ${D.profile.research ? `<p>${D.profile.research}</p>` : ""}
+        ${
+          (D.profile.researchPoints || []).length
+            ? `<div class="lede-title">${D.profile.researchTitle || "Current research"}</div>
+        <ul class="lede-points">${D.profile.researchPoints
+                .map((p) => `<li>${p}</li>`)
+                .join("")}</ul>`
+            : ""
+        }
         <div class="linkrow">${linkHtml}</div>
       </div>
     </header>`;
@@ -382,41 +395,47 @@ function collect(fn) {
   return out;
 }
 
-/* The homepage: what someone who just found you needs, and nothing else.
-   Everything that is record-keeping rather than persuasion lives on /cv/.
+/* THE HOME PAGE IS THE CV.
+   There is no second web copy of it. A visitor who wants the record reads this
+   page; a recruiter who wants a file clicks CV (PDF) in the masthead and gets
+   the file. Two web pages holding the same content was one page too many, and
+   it split the search ranking between them.
 
-   The order is a funnel, not a filing cabinet: who he is (the masthead), then
-   what the work actually looks like — with pictures — then the proof it is
-   real, then that he can build, then that he is active, then the credentials,
-   then the door to the full record. News sits below the papers on purpose: a
-   list of dated one-liners is the weakest thing on the page and should not be
-   the first thing a stranger reads. */
+   Order: what he studies, what is new, what he has published, what he has
+   said, where he has worked, what he was given, who he taught, what he can
+   use. It is the CV's own order, which is the order a reader of an academic
+   page already expects — the only thing gained by inventing a new one is that
+   nobody can find anything.
+
+   The work with pictures in it is NOT here. Figures and 27-second animations
+   below a biography make a page that scrolls forever and buries the record
+   under decoration; they live on /projects/, which is linked from the nav and
+   from the foot of this page, and which has room to grow as projects are
+   added. */
 const homeSections = (base) =>
   collect((add) => {
-    add("research", "Selected Research", researchList(base), "Research");
-    D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
-    add("code", "Code", codeList(base));
-    add("news", "News", news());
-    add("education", "Education", education());
-    // Compact: roles and dates only. The bullets are on the CV page.
-    add("experience", "Experience", experience(true));
-  });
-
-/* The CV page: the complete record, in the CV's own order. */
-const cvSections = (base) =>
-  collect((add) => {
-    add("education", "Education", education());
     add("interests", "Research Interests", interests(), "Interests");
-    add("experience", "Experience", experience(false));
-    add("teaching", "Teaching", teaching());
+    add("news", "News", news());
     D.pubSections.forEach((g) => add(slugId(g.short), g.title, pubList(g.key, base), g.short));
     D.talkSections.forEach((g) => add(slugId(g.short), g.title, talkList(g.key), g.short));
+    add("experience", "Experience", experience(false));
+    add("teaching", "Teaching", teaching());
+    add("education", "Education", education());
     add("funding", "Research Funding", list(D.funding), "Funding");
     add("mentoring", "Mentoring", mentoring());
     add("awards", "Awards", list(D.awards));
     add("affiliations", "Professional Affiliations", list(D.affiliations), "Affiliations");
-    add("code", "Code", codeList(base));
     add("skills", "Technical Skills", skills(), "Skills");
+  });
+
+/* The projects page: everything that earns its space by being looked at.
+   One page rather than one page per project — with four entries a per-project
+   page would be four near-empty pages, and this way a reader scrolls through
+   the whole body of work instead of navigating it. */
+const projectSections = (base) =>
+  collect((add) => {
+    add("research", "Selected Research", researchList(base), "Research");
+    add("code", "Code", codeList(base));
   });
 
 /* One row of jump links. The page is long enough now that landing on it with
@@ -572,11 +591,11 @@ fs.writeFileSync(
     body: (() => {
       const sections = homeSections("");
       const cta = `
-    <p class="cta"><a href="cv/">Full CV &mdash; teaching, talks, funding, mentoring,
-      awards and technical skills &rarr;</a></p>`;
+    <p class="cta"><a href="projects/">Projects &mdash; research write-ups, figures
+      and demos of the tools &rarr;</a></p>`;
       return [
         masthead(""),
-        sectionNav(sections, ['<a class="navcv" href="cv/">Full CV &rarr;</a>']),
+        sectionNav(sections, ['<a class="navcv" href="projects/">Projects &rarr;</a>']),
         ...sections.map(sectionHtml),
         cta,
         footer(),
@@ -585,33 +604,58 @@ fs.writeFileSync(
   })
 );
 
-/* ---- Write the CV page -------------------------------------
-   The complete record, in the CV's own order. The homepage links here rather
-   than carrying all of it, and the PDF is one click from the top of it. */
-const cvDir = path.join(__dirname, "cv");
-fs.mkdirSync(cvDir, { recursive: true });
+/* ---- Write the projects page -------------------------------
+   The work with pictures in it. Kept off the home page so the record stays
+   readable, and given its own URL so it can grow without pushing anything
+   down. */
+const projectsDir = path.join(__dirname, "projects");
+fs.mkdirSync(projectsDir, { recursive: true });
 
 fs.writeFileSync(
-  path.join(cvDir, "index.html"),
+  path.join(projectsDir, "index.html"),
   page({
-    title: `CV — ${D.profile.name}`,
-    description: `Full curriculum vitae of ${D.profile.name}: education, research and teaching experience, publications, presentations, funding, mentoring and awards.`,
-    canonical: SITE_URL + "/cv/",
+    title: `Projects — ${D.profile.name}`,
+    description: `Research projects and open-source tools by ${D.profile.name}: trajectory prediction from LiDAR, bike-share demand forecasting, urban wind simulation, and an interactive structural analysis solver.`,
+    canonical: SITE_URL + "/projects/",
     base: "../",
     jsonLd: personJsonLd(),
     body: (() => {
-      const sections = cvSections("../");
+      const sections = projectSections("../");
       const head = `
-    <header class="cvhead">
+    <header class="pagehead">
       <p class="paper-back"><a href="../">&larr; ${D.profile.name}</a></p>
-      <h1>Curriculum Vitae</h1>
-      <p class="muted">${D.profile.title}${
-        D.profile.location ? " &middot; " + D.profile.location : ""
-      } &middot; <a href="../assets/cv.pdf">Download as PDF</a></p>
+      <h1>Projects</h1>
+      <p class="muted">Research and tools, with the figures and demos that the
+        <a href="../">main page</a> deliberately leaves out.</p>
     </header>`;
       return [head, sectionNav(sections), ...sections.map(sectionHtml), footer()].join("\n");
     })(),
   })
+);
+
+/* ---- /cv/ keeps working, as a redirect ---------------------
+   The page that used to live here is now the home page. Anyone holding the old
+   link — in an application, an email, a search result — still lands somewhere
+   correct instead of on a 404. noindex so the two URLs never compete. */
+const cvDir = path.join(__dirname, "cv");
+fs.mkdirSync(cvDir, { recursive: true });
+fs.writeFileSync(
+  path.join(cvDir, "index.html"),
+  `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CV — ${D.profile.name}</title>
+    <link rel="canonical" href="${SITE_URL}/" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content="0; url=${SITE_URL}/" />
+  </head>
+  <body>
+    <p>The CV is on the <a href="${SITE_URL}/">home page</a>, and as a
+      <a href="${SITE_URL}/assets/cv.pdf">PDF</a>.</p>
+  </body>
+</html>
+`
 );
 
 /* ---- Write one page per publication ----------------------- */
@@ -667,7 +711,7 @@ paged.forEach((p) => {
 
 /* ---- sitemap.xml + robots.txt ------------------------------ */
 const today = new Date().toISOString().slice(0, 10);
-const urls = [`${SITE_URL}/`, `${SITE_URL}/cv/`].concat(
+const urls = [`${SITE_URL}/`, `${SITE_URL}/projects/`].concat(
   paged.map((p) => `${SITE_URL}/pub/${p.slug}/`)
 );
 
@@ -698,7 +742,8 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 console.log(`Built for ${SITE_URL}`);
 console.log(`  index.html`);
-console.log(`  cv/index.html`);
+console.log(`  projects/index.html`);
+console.log(`  cv/index.html        (redirect to /)`);
 console.log(`  pub/<slug>/index.html   x${paged.length} of ${D.publications.length} (only papers with a real abstract)`);
 console.log(`  sitemap.xml             ${urls.length} URLs`);
 console.log(`  robots.txt`);

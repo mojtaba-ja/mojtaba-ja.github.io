@@ -52,8 +52,13 @@ body {
   transition: background-color .15s ease, color .15s ease;
 }
 
+/* The page column. 1040px, not the full window: on a wide monitor an uncapped
+   line of 17px text runs past 200 characters and the eye loses its place
+   returning to the start of the next line. The margins are not waste — they are
+   what keeps the measure readable. 1040 is as wide as this layout goes before
+   the entry rows (role left, dates right) pull too far apart. */
 .container {
-  max-width: 780px;
+  max-width: 1040px;
   width: 100%;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
@@ -64,14 +69,18 @@ body {
    at 17px that column runs ~100 characters per line, and comfortable prose
    is 65–75. So running text gets its own narrower measure while the page
    keeps its width. */
-:root { --measure: 32rem; }   /* rem, so it is the same width everywhere */
+:root { --measure: 34rem; }   /* rem, so it is the same width everywhere */
 
 .abstract p,
 .entry ul li,
-section > ul:not(.pubs):not(.news):not(.repos) li,
-.skill-row {
+section > ul:not(.pubs):not(.news):not(.repos) li {
   max-width: var(--measure);
 }
+
+/* A skills row is NOT prose. It is a labelled, comma-separated list that gets
+   scanned, so the 65–75 character rule does not apply — and capping it made
+   lines wrap mid-list with half the column empty beside them. */
+.skill-row { max-width: none; }
 
 /* ---------- Typography ---------- */
 a { color: var(--link); text-decoration: none; }
@@ -100,15 +109,49 @@ header.masthead {
 }
 
 header.masthead img.avatar {
-  width: 240px;
-  height: 360px;         /* 2:3, the source photo's own ratio */
+  width: 250px;
+  height: 375px;         /* 2:3, the source photo's own ratio */
   object-fit: cover;
   object-position: 50% 22%;
   border-radius: 8px;
   flex-shrink: 0;
 }
 
-header.masthead .identity { flex: 1 1 300px; }
+header.masthead .identity { flex: 1 1 340px; }
+
+/* Line spacing here is 1.62 × 17px ≈ 28px, so block margins are 1.75rem (30px)
+   — just over it. At the old .4rem the masthead read as one undifferentiated
+   mass. Raise the line-height and these must follow. */
+header.masthead .identity p {
+  max-width: 38rem;
+  margin: 1.75rem 0;
+  line-height: 1.62;
+}
+
+/* Deliberately NOT bold: the bullets below open with bold labels, and a bold
+   heading over bold labels is four bold things with no hierarchy. Set apart by
+   KIND instead — muted, smaller, letter-spaced caps. */
+header.masthead .identity .lede-title {
+  margin: 1.75rem 0 .55rem;
+  font-weight: 400;
+  font-size: .78rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* A title belongs to what follows it: full gap above, small gap below. */
+header.masthead .identity .lede-title + ul.lede-points { margin-top: 0; }
+
+header.masthead .identity ul.lede-points {
+  max-width: 38rem;
+  margin: 1.75rem 0;
+  padding-left: 1.15rem;
+  line-height: 1.62;
+}
+/* Bullets sit closer to each other (.6rem) than the list does to its neighbours
+   (1.75rem). That difference is what makes them read as one group of three
+   rather than three loose lines. */
+header.masthead .identity ul.lede-points li { margin: .6rem 0; }
 
 header.masthead h1 {
   margin: 0 0 4px 0;
@@ -366,9 +409,9 @@ ul.news .what { flex: 1; }
 .abstract-source { font-size: .85rem; margin-top: 1.25rem; }
 
 /* ---------- CV page ---------- */
-.cvhead { margin-bottom: 1.25rem; }
-.cvhead h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
-.cvhead .muted { font-size: .95rem; }
+.pagehead { margin-bottom: 1.25rem; }
+.pagehead h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+.pagehead .muted { font-size: .95rem; max-width: var(--measure); }
 
 /* The hand-off at the foot of the homepage. It is the one link on the page
    that has to be found, so it gets a rule above it and no company. */

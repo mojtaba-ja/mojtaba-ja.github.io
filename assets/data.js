@@ -11,15 +11,27 @@ const profile = {
   // search result wants to know where you are before almost anything else.
   location: "Boca Raton, Florida",
   image: "assets/profile.jpg",
+  // No expected graduation date. A range ("2028–2029") reads as uncertainty
+  // about your own plan, and it is a forecast sitting in a paragraph that is
+  // otherwise all fact. Anyone who needs it asks; the Education entry carries
+  // the start date, which is what a reader actually scans for.
   bio: `I am a PhD candidate and Graduate Research Assistant at
         <strong>Florida Atlantic University</strong>, working in the
         <a href="https://www.fau.edu/smart/" target="_blank" rel="noopener">I-SENSE Lab</a>
-        with Dr. Jinwoo Jang. I expect to complete the PhD in <strong>2028–2029</strong>.`,
-  research: `My research applies deep learning to intelligent transportation systems:
-        Transformer-based multi-agent trajectory prediction from real-world LiDAR data,
-        spatial graph neural networks for mobility flow, and urban digital twins for
-        city-scale wind simulation. Funded by the <strong>NSF</strong> and the
-        <strong>NIH</strong>.`,
+        with Dr. Jinwoo Jang. My work is funded by the <strong>NSF</strong> and
+        the <strong>NIH</strong>.`,
+  // A paragraph here restated the Research Interests tags further down in
+  // longer words. Three labelled bullets do the same job in a third of the
+  // reading time: the label carries the activity, the text after the colon
+  // never repeats it. Keep each to ONE line at the 38rem masthead measure
+  // (~82 characters) — a bullet that wraps is a sentence wearing a dot.
+  research: ``,
+  researchTitle: `Current research`,
+  researchPoints: [
+    `<strong>Trajectory prediction:</strong> Transformer models for road users, from LiDAR`,
+    `<strong>Spatial graph networks:</strong> origin–destination flow in mobility networks`,
+    `<strong>Urban digital twins:</strong> city-scale CFD for hurricane pedestrian wind`,
+  ],
 };
 
 const links = [
@@ -27,9 +39,17 @@ const links = [
   { name: "Scholar",  url: "https://scholar.google.com/citations?user=VOvMEmIAAAAJ&hl=en" },
   { name: "GitHub",   url: "https://github.com/mojtaba-ja" },
   { name: "LinkedIn", url: "https://linkedin.com/in/mojjafarian" },
-  // The CV link goes to the web page; the PDF is linked from the top of it.
-  { name: "CV",       url: "cv/" },
-  { name: "Resume",   url: "assets/resume.pdf" },
+  // ONE document, and clicking it gives you that document. A recruiter
+  // clicking "CV" wants the file — to read, print or attach — not a web page
+  // they then have to find a download button on. The whole CV is on this page
+  // anyway, so a second web copy was the same content at a second URL.
+  //
+  // "Resume" used to sit beside it. Two links a reader treats as synonyms is a
+  // decision you are making them make, and a resume is tailored per application
+  // — publishing one fixed version helps nobody. assets/resume.pdf is still
+  // built and still reachable by URL; it just is not offered here. To restore:
+  //   { name: "Resume", url: "assets/resume.pdf" },
+  { name: "CV (PDF)", url: "assets/cv.pdf" },
 ];
 
 const interests = [
@@ -232,7 +252,8 @@ const publications = [
     slug: "hurricane-wind-voxel",
     group: "working",
     title: "What Simplified City Models Miss: Hurricane Pedestrian Wind Hazard from Voxelized Photorealistic Urban Geometry",
-    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    // Four authors — the two undergraduate researchers are on the manuscript.
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, D. Smith, J. Lalla",
     venues: ["In preparation — 2026"],
     status: "prep",
     links: [],
