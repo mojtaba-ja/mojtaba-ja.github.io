@@ -244,10 +244,13 @@ ul.plain { list-style: none; padding-left: 0; }
    begins. */
 ol.pubs {
   list-style: decimal;
-  padding-left: 2.1rem;
+  /* Same indent as every other list on the page (1.15rem) plus room for the
+     number. It was 2.1rem, which set the publications further in than anything
+     around them and made the section look like a quotation. */
+  padding-left: 1.5rem;
   margin: .5rem 0;
 }
-ol.pubs > li { margin: 0 0 1.1rem 0; padding-left: .2rem; }
+ol.pubs > li { margin: 0 0 1.1rem 0; }
 /* The number is scaffolding, not content: it sits back in the muted ink so it
    orders the list without competing with the titles. */
 ol.pubs > li::marker { color: var(--muted); font-size: .92rem; }

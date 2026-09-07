@@ -450,7 +450,7 @@ const sectionHtml = (x) =>
   `<section id="${x.id}"><h2>${x.title}</h2>${x.inner}</section>`;
 
 const footer = () =>
-  `<footer>&copy; ${new Date().getFullYear()} ${D.profile.name}. Built with plain HTML, CSS, and JavaScript.</footer>`;
+  `<footer>&copy; ${new Date().getFullYear()} ${D.profile.name}</footer>`;
 
 /* ---- Structured data: tells Google you are a person -------- */
 function personJsonLd() {
@@ -591,8 +591,8 @@ fs.writeFileSync(
     body: (() => {
       const sections = homeSections("");
       const cta = `
-    <p class="cta"><a href="projects/">Projects &mdash; research write-ups, figures
-      and demos of the tools &rarr;</a></p>`;
+    <p class="cta"><a href="projects/">Projects &mdash; selected research and
+      open-source tools &rarr;</a></p>`;
       return [
         masthead(""),
         sectionNav(sections, ['<a class="navcv" href="projects/">Projects &rarr;</a>']),
@@ -625,8 +625,8 @@ fs.writeFileSync(
     <header class="pagehead">
       <p class="paper-back"><a href="../">&larr; ${D.profile.name}</a></p>
       <h1>Projects</h1>
-      <p class="muted">Research and tools, with the figures and demos that the
-        <a href="../">main page</a> deliberately leaves out.</p>
+      <p class="muted">Deep learning for transportation, urban wind simulation,
+        and open-source engineering tools.</p>
     </header>`;
       return [head, sectionNav(sections), ...sections.map(sectionHtml), footer()].join("\n");
     })(),
