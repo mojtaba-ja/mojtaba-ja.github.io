@@ -235,9 +235,22 @@ ul.plain { list-style: none; padding-left: 0; }
   padding: .15rem .65rem;
 }
 
-/* ---------- Publications ---------- */
-ul.pubs { list-style: none; padding-left: 0; }
-ul.pubs > li { margin: 0 0 1.1rem 0; }
+/* ---------- Publications ----------
+   Numbered, because the CV numbers them and the two should read the same way —
+   and because a number gives each entry an anchor ("the third one") and tells a
+   reader how many there are without counting. The number also buys a hanging
+   indent for free: a title that wraps lines up under itself instead of running
+   back to the margin, so the eye can see where one entry stops and the next
+   begins. */
+ol.pubs {
+  list-style: decimal;
+  padding-left: 2.1rem;
+  margin: .5rem 0;
+}
+ol.pubs > li { margin: 0 0 1.1rem 0; padding-left: .2rem; }
+/* The number is scaffolding, not content: it sits back in the muted ink so it
+   orders the list without competing with the titles. */
+ol.pubs > li::marker { color: var(--muted); font-size: .92rem; }
 
 .pub-title { font-weight: 600; }
 .pub-title a { color: var(--text); }
