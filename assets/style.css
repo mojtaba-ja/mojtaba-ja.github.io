@@ -22,12 +22,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  /* 18px, not 17. The column is measured in rem, so raising the root font
-     widens the page and enlarges the type together — the line still holds the
-     same ~80 characters, it just occupies more of the screen. Widening in px
-     instead would have bought the extra width by pushing past the WCAG 1.4.8
-     character limit, which is the one thing not worth trading. */
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -63,7 +58,7 @@ body {
    what keeps the measure readable. 1040 is as wide as this layout goes before
    the entry rows (role left, dates right) pull too far apart. */
 .container {
-  max-width: 40rem;
+  max-width: 1040px;
   width: 100%;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
@@ -76,20 +71,36 @@ body {
    keeps its width. */
 :root { --measure: 34rem; }   /* rem, so it is the same width everywhere */
 
-/* THE WIDTH RULE — one column, and it is the reading measure.
+/* THE WIDTH RULE — the container is for LAYOUT, the cap is for READING.
 
-   WCAG 2.1 SC 1.4.8 (AAA) caps a line at 80 characters, and that criterion
-   exists for exactly this: cognitive, language and learning disabilities. The
-   British Dyslexia Association asks for 60-70. Baymard found text past 80
-   characters was SKIPPED 41% more often than text at 60-70 — so the width
-   matters for scanning too, not only for reading, which is why awards, skills
-   and publication entries get no exemption.
+   Two different jobs, and conflating them is what broke this twice. The
+   container (1040px) exists so the masthead can put a 250px photo beside a
+   text block; squeeze that into one 80-character column and the text beside
+   the photo drops to ~48 characters and everything wraps.
 
-   The column is 40rem. At 17px that is about 80 characters: at the ceiling,
-   which is the widest this page should ever be, and uniform, so nothing on the
-   page ends at a different right edge from anything else. Making one block
-   wider means putting it past a published accessibility limit; there is no
-   version of that worth the visual tidiness. */
+   The reading limit applies to a LINE OF TEXT, not to the page. So every
+   content block below the masthead is capped at 40rem — about 80 characters at
+   17px, the WCAG 2.1 SC 1.4.8 (AAA) ceiling, which exists for cognitive and
+   learning disabilities. The British Dyslexia Association asks for 60-70;
+   Baymard found text past 80 characters was SKIPPED 41% more often.
+
+   Capping the SECTION, not its parts, is what keeps this tidy: every heading,
+   entry, bullet, award and skills line ends at the same right edge, so nothing
+   looks ragged against anything else. Earlier versions capped some children
+   and not others, which is what made Awards look narrower than Skills. */
+section,
+p.cta,
+footer,
+.pagehead .muted {
+  max-width: 40rem;
+}
+
+/* The masthead is the one two-column block: its text sits beside the photo, so
+   it takes its own cap rather than the section one. */
+header.masthead .identity p,
+header.masthead .identity ul.lede-points {
+  max-width: 36rem;
+}
 
 /* A skills row is NOT prose. It is a labelled, comma-separated list that gets
    scanned, so the 65–75 character rule does not apply — and capping it made
@@ -123,8 +134,8 @@ header.masthead {
 }
 
 header.masthead img.avatar {
-  width: 200px;
-  height: 300px;         /* 2:3, the source photo's own ratio */
+  width: 250px;
+  height: 375px;         /* 2:3, the source photo's own ratio */
   object-fit: cover;
   object-position: 50% 22%;
   border-radius: 8px;
@@ -438,7 +449,7 @@ ul.news .what { flex: 1; }
    reading measure — title, authors, venue, links and abstract all end at
    the same right edge. Capping only the abstract made it look narrower
    than the heading above it. */
-.paper { max-width: 100%; }
+.paper { max-width: 40rem; }
 .paper-back { margin-bottom: 1.5rem; }
 .paper h1 { font-size: 1.5rem; margin: 0 0 .35rem; }
 .paper .abstract p { margin: .8rem 0; }
