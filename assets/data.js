@@ -368,7 +368,7 @@ const research = [
     status: "published",
     hook: "Where is that pedestrian about to step? A Transformer answers it from raw LiDAR.",
     points: [
-      "12,390+ real trajectories — vehicles, pedestrians, cyclists — from an Ouster OS1 sensor at one West Palm Beach intersection.",
+      "12,390+ real trajectories — vehicles, pedestrians, cyclists — from one Ouster OS1 LiDAR at a West Palm Beach intersection.",
       "<strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.",
       "Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.",
     ],
@@ -501,13 +501,13 @@ const code = [
     name: "transformer-eth-wpbl",
     url: "https://github.com/mojtaba-ja/transformer-eth-wpbl",
     lang: "Python",
-    detail: "PyTorch framework comparing LSTM and Transformer models for multi-agent trajectory prediction on LiDAR data and the ETH/UCY benchmarks — the code behind the IEEE OJ-ITS paper.",
+    detail: "LSTM vs. Transformer trajectory prediction on LiDAR and ETH/UCY — the code behind the IEEE OJ-ITS paper.",
   },
   {
     name: "beam-segmentation-dataset-pipeline",
     url: "https://github.com/mojtaba-ja/beam-segmentation-dataset-pipeline",
     lang: "Python",
-    detail: "Computer-vision pipeline that turns structural beam experiment photos into annotated ML datasets — calibration, segmentation export, perspective correction.",
+    detail: "Turns beam experiment photos into annotated ML datasets — calibration, segmentation, perspective correction.",
   },
 ];
 
@@ -518,10 +518,10 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Aug. 2024 – Present",
     points: [
-      "Developed <strong>SIPT</strong> for multi-agent trajectory prediction: ADE 0.76 m, 26.2% better than Social LSTM on 64,000+ COSMOS trajectories.",
-      "Built a Transformer model for LiDAR-based trajectory prediction with 15.24%/13.88% ADE gains over LSTM, published in <em>IEEE OJ-ITS</em>.",
-      "Manage the NIH longitudinal dataset (R01AG068472): multi-sensor data and cognitive assessments from 750 older drivers across 12 waves over 3 years.",
-      "Run OpenFOAM CFD simulations on HPC for hurricane wind-load analysis of downtown Miami, assessing pedestrian comfort and street-level wind conditions.",
+      "Developed <strong>SIPT</strong> for multi-agent trajectory prediction: ADE 0.76 m, 26.2% better than Social LSTM, 49% lower collision rate.",
+      "Transformer prediction on real-world LiDAR: 15.2% lower ADE than LSTM; published in <em>IEEE OJ-ITS</em>.",
+      "Manage the NIH longitudinal dataset (R01AG068472): 750 older drivers, 12 waves over 3 years.",
+      "Run OpenFOAM CFD on HPC: hurricane pedestrian wind hazard for downtown Miami.",
     ],
   },
   {
@@ -530,7 +530,7 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Jan. 2026 – Present",
     points: [
-      "Oversee 12 undergraduates across two groups (Environment &amp; Sustainability; Safety &amp; Security) on AI-driven smart sensor applications for coastal resilience.",
+      "Oversee 12 undergraduates in two groups building AI smart-sensor applications for coastal resilience.",
     ],
   },
   {
@@ -539,7 +539,8 @@ const experience = [
     location: "Fredericton, NB, Canada",
     dates: "Nov. 2022 – Jul. 2024",
     points: [
-      "Analyzed import/export data for trade compliance and logistics optimization; built import-volume forecasting models and Tableau dashboards for small and medium-sized businesses.",
+      "Analyzed import/export data for trade compliance and logistics optimization.",
+      "Built import-volume forecasting models and Tableau dashboards.",
     ],
   },
   {
@@ -548,8 +549,8 @@ const experience = [
     location: "Fredericton, NB, Canada",
     dates: "Sep. 2018 – Oct. 2020",
     points: [
-      "Modeled reinforced concrete beams under sustained and cyclic loading in ABAQUS (concrete damage plasticity); conducted accelerometer-based vibration testing.",
-      "Evaluated long-term deflection, natural frequencies and mode shapes against ACI 318-19 and CSA A23.3 effective moment of inertia formulations.",
+      "Modeled reinforced concrete beams under sustained and cyclic loading in ABAQUS; accelerometer vibration testing.",
+      "Evaluated deflection, natural frequencies and mode shapes against ACI 318-19 and CSA A23.3.",
     ],
   },
   {
@@ -558,7 +559,7 @@ const experience = [
     location: "Tehran, Iran",
     dates: "Sep. 2014 – Apr. 2017",
     points: [
-      "Investigated structural health monitoring and damage detection via optimization-based algorithms (grey wolf optimization, genetic algorithm) for civil infrastructure assessment.",
+      "Structural health monitoring and damage detection via optimization algorithms (grey wolf, genetic).",
     ],
   },
 ];
@@ -616,8 +617,8 @@ const teaching = [
     location: "Fredericton, NB, Canada",
     dates: "Jan. 2019 – Apr. 2020",
     points: [
-      "<strong>Mechanics of Materials Experimental Lab</strong> (Jan.–Apr. 2019; Sep.–Dec. 2019) — ran lab sections on tensile, compression and torsion testing; responsible for lab safety and for the quality of the data students collected.",
-      "<strong>Statics Computational Lab</strong> (Jan.–Apr. 2020) — taught computational methods for force analysis, moment calculation and structural equilibrium.",
+      "<strong>Mechanics of Materials Experimental Lab</strong> (2019) — tensile, compression and torsion testing; lab safety and data quality.",
+      "<strong>Statics Computational Lab</strong> (2020) — force analysis, moment calculation, structural equilibrium.",
     ],
   },
 ];

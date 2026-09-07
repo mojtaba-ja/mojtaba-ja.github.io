@@ -107,7 +107,7 @@
       <article class="project">
         <h3>Predicting where people and cars go next, from raw LiDAR<span class="badge badge-published">Published</span></h3>
         <p class="hook">Where is that pedestrian about to step? A Transformer answers it from raw LiDAR.</p>
-        <ul class="points"><li>12,390+ real trajectories — vehicles, pedestrians, cyclists — from an Ouster OS1 sensor at one West Palm Beach intersection.</li><li><strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.</li><li>Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.</li></ul>
+        <ul class="points"><li>12,390+ real trajectories — vehicles, pedestrians, cyclists — from one Ouster OS1 LiDAR at a West Palm Beach intersection.</li><li><strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.</li><li>Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.</li></ul>
         
         <figure class="fig">
           <img src="../assets/img/lidar-trajectory-prediction.jpg" alt="Aerial map of Clematis Street, West Palm Beach, with a pedestrian's observed path, the ground-truth continuation, and the Transformer and LSTM predicted paths drawn as coloured tracks." width="1765" height="909" loading="lazy" decoding="async">
@@ -156,12 +156,12 @@
       </article><ul class="repos">
         <li>
           <div class="pub-title"><a href="https://github.com/mojtaba-ja/transformer-eth-wpbl" target="_blank" rel="noopener noreferrer">transformer-eth-wpbl</a></div>
-          <div class="pub-authors">PyTorch framework comparing LSTM and Transformer models for multi-agent trajectory prediction on LiDAR data and the ETH/UCY benchmarks — the code behind the IEEE OJ-ITS paper.</div>
+          <div class="pub-authors">LSTM vs. Transformer trajectory prediction on LiDAR and ETH/UCY — the code behind the IEEE OJ-ITS paper.</div>
           <div class="pub-venue">Python</div>
         </li>
         <li>
           <div class="pub-title"><a href="https://github.com/mojtaba-ja/beam-segmentation-dataset-pipeline" target="_blank" rel="noopener noreferrer">beam-segmentation-dataset-pipeline</a></div>
-          <div class="pub-authors">Computer-vision pipeline that turns structural beam experiment photos into annotated ML datasets — calibration, segmentation export, perspective correction.</div>
+          <div class="pub-authors">Turns beam experiment photos into annotated ML datasets — calibration, segmentation, perspective correction.</div>
           <div class="pub-venue">Python</div>
         </li></ul></section>
 <footer>&copy; 2026 Mojtaba Jafarian Abyaneh</footer>
