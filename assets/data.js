@@ -209,10 +209,11 @@ const publications = [
     authors: "G. Ghodrati Amiri, A. Zare Hosseinzadeh, <strong>M. Jafarian Abyaneh</strong>",
     venues: ["Journal of Rehabilitation in Civil Engineering, Vol. 3, No. 2, pp. 45–58 — 2015"],
     status: "published",
-    // The DOI (10.22075/jrce.2016.369) still resolves to the journal's own
-    // server, which is offline. DOAJ hosts a stable open-access record instead.
+    // The journal server was offline when this entry was written, so DOAJ stood
+    // in. Rechecked 2026-09-10: the DOI resolves again, to the journal's own
+    // article page, so every paper on the site now carries a DOI and nothing else.
     links: [
-      { label: "DOAJ", url: "https://doaj.org/article/7dff699120cd4ba3ba2336eb9725b1a9" },
+      { label: "DOI", url: "https://doi.org/10.22075/jrce.2016.369" },
       { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:d1gkVwhDpl0C" },
     ],
     // Verbatim published abstract. Open access (DOAJ).
