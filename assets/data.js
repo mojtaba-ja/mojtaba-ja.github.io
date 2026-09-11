@@ -71,6 +71,22 @@ const interests = [
    group         -> which section the entry appears under, keyed to pubSections
                     below. Mirrors the CV: peer-reviewed archival work first,
                     then anything not yet through review.
+   links         -> ORDER MATTERS, and not only visually: the entry's TITLE
+                    links to links[0], so the first one is where a click on the
+                    title lands. Always:
+                      1. DOI            the permanent identifier. It is what a
+                                        citation resolves to and it does not rot.
+                      2. publisher/repo ONLY if it goes somewhere the DOI does
+                                        not. Check first: every DOI here
+                                        redirects straight to the publisher
+                                        page, so a separate IEEE Xplore or SSRN
+                                        link was two buttons to one destination.
+                      3. Scholar        an aggregator and a profile view, not the
+                                        paper. Always last.
+                    EXCEPTION: when a paper has no working DOI, the best stable
+                    record takes slot 1 instead. grey-system-two-stage is the one
+                    case - its DOI (10.22075/jrce.2016.369) points at a journal
+                    server that is offline, so DOAJ leads.
    status        -> colored badge: "published" | "review" | "preprint" | "prep"
    slug          -> the permalink, e.g. /pub/sipt-multi-agent/
    abstract      -> VERBATIM published abstract, or null. Kept as a record only:
@@ -100,7 +116,6 @@ const publications = [
     // matter already know the venue.
     links: [
       { label: "DOI", url: "https://doi.org/10.1109/OJITS.2025.3640002" },
-      { label: "IEEE Xplore", url: "https://ieeexplore.ieee.org/document/11277286/" },
       { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:Tyk-4Ss8FVUC" },
     ],
     // Verbatim published abstract. Open access (CC BY).
@@ -133,8 +148,8 @@ const publications = [
     slug: "modal-residual-gwo",
     group: "peer-reviewed",
     title: "Baseline updating method for structural damage identification using modal residual force and grey wolf optimization",
-    authors: "A. Zare Hosseinzadeh, G. Ghodrati Amiri, <strong>M. Jafarian Abyaneh</strong>, A. Ghadimi Hamzehkolaei",
-    venues: ["Engineering Optimization, Vol. 52, No. 4 — 2020"],
+    authors: "A. Zare Hosseinzadeh, G. Ghodrati Amiri, <strong>M. Jafarian Abyaneh</strong>, S. A. Seyed Razzaghi, A. Ghadimi Hamzehkolaei",
+    venues: ["Engineering Optimization, Vol. 52, No. 4, pp. 549–566 — 2020"],
     status: "published",
     links: [
       { label: "DOI", url: "https://doi.org/10.1080/0305215X.2019.1593400" },
@@ -245,7 +260,6 @@ const publications = [
     venues: ["SSRN Working Paper No. 5801889 — 2025"],
     status: "preprint",
     links: [
-      { label: "SSRN", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5801889" },
       { label: "DOI", url: "https://doi.org/10.2139/ssrn.5801889" },
       { label: "Scholar", url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=VOvMEmIAAAAJ&citation_for_view=VOvMEmIAAAAJ:IjCSPb-OGe4C" },
     ],
