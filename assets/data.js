@@ -256,7 +256,7 @@ const publications = [
   {
     slug: "hurricane-wind-voxel",
     group: "working",
-    title: "What Simplified City Models Miss: Hurricane Pedestrian Wind Hazard from Voxelized Photorealistic Urban Geometry",
+    title: "Simplified city models are not a safe shortcut for coastal hurricane wind hazard",
     // Four authors — the two undergraduate researchers are on the manuscript.
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, D. Smith, J. Lalla",
     venues: ["In preparation — 2026"],
