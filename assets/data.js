@@ -271,7 +271,7 @@ const publications = [
   {
     slug: "hurricane-wind-voxel",
     group: "working",
-    title: "Simplified city models are not a safe shortcut for coastal hurricane wind hazard",
+    title: "The Impact of Building Geometry Fidelity on Hurricane Pedestrian Wind Hazard Across Inflow Conditions",
     // Four authors — the two undergraduate researchers are on the manuscript.
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, D. Smith, J. Lalla",
     venues: ["In preparation — 2026"],
