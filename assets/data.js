@@ -629,6 +629,15 @@ const mentoring = [
    folded into a research role's job title. */
 const teaching = [
   {
+    role: "Guest Lecturer",
+    org: "Florida Atlantic University",
+    location: "Boca Raton, FL",
+    dates: "Sep. 2026",
+    points: [
+      "<strong>CES 3102C Analysis of Structures</strong> (undergraduate, Dr. Jinwoo Jang) — shear force and bending moment diagrams by the method of sections.",
+    ],
+  },
+  {
     role: "Graduate Teaching Assistant",
     org: "University of New Brunswick",
     location: "Fredericton, NB, Canada",
