@@ -634,7 +634,7 @@ const teaching = [
     location: "Boca Raton, FL",
     dates: "Sep. 2026",
     points: [
-      "<strong>CES 3102C Analysis of Structures</strong> (undergraduate, Dr. Jinwoo Jang) — shear force and bending moment diagrams by the method of sections.",
+      "<strong>CES 3102C Analysis of Structures</strong> (undergraduate, Dr. Jinwoo Jang) — shear force and bending moment diagrams.",
     ],
   },
   {
