@@ -634,7 +634,7 @@ const teaching = [
     location: "Boca Raton, FL",
     dates: "Sep. 2026",
     points: [
-      "<strong>CES 3102C Analysis of Structures</strong> (undergraduate, Dr. Jinwoo Jang) — shear force and bending moment diagrams, with my <a href=\"https://mojtaba-ja.github.io/interactive-2d-beam-solver/\" target=\"_blank\" rel=\"noopener\">Interactive 2D Beam Solver</a>.",
+      "<strong>CES 3102C Analysis of Structures</strong> — shear force and bending moment diagrams, with my <a href=\"https://mojtaba-ja.github.io/interactive-2d-beam-solver/\" target=\"_blank\" rel=\"noopener\">Interactive 2D Beam Solver</a>.",
     ],
   },
   {
