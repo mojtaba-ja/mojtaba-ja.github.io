@@ -368,10 +368,10 @@ const talkSections = [
    them here only pushed the papers further down the page. */
 const news = [
   { date: "2026-09-25", text: `Paper on geometry-aware trajectory forecasting at urban intersections accepted for presentation at the <strong>TRB 106th Annual Meeting</strong>.` },
+  { date: "2026-04-22", text: `Awarded the <strong>ASCE Palm Beach Branch Scholarship</strong>.` },
   { date: "2026-02-01", text: `Competed in the <strong>Perfect Pitch Competition</strong> and presented SIPT at the <strong>CS3 Innovation Summit</strong>, Columbia University.` },
   { date: "2026-01-15", text: `Began mentoring 12 undergraduates across two groups in FAU's <strong>Vertically Integrated Projects</strong> program.` },
   { date: "2026-01-10", text: `Presented bike-sharing O–D flow prediction at the <strong>TRB 105th Annual Meeting</strong>, Washington, DC.` },
-  { date: "2026-01-05", text: `Awarded the <strong>ASCE Palm Beach Branch Scholarship</strong>.` },
   { date: "2025-12-01", text: `Paper <em>Transformer-Based Trajectory Prediction Using LiDAR Data</em> published in <strong>IEEE OJ-ITS</strong>.` },
   { date: "2024-08-01", text: `Started my PhD at <strong>Florida Atlantic University</strong> in the I-SENSE Lab.` },
 ];
@@ -598,7 +598,7 @@ const education = [
 ];
 
 const awards = [
-  "ASCE Palm Beach Branch Scholarship (2026) — $1,000 competitive award",
+  "ASCE Palm Beach Branch Scholarship (Apr. 2026) — $1,000 competitive award",
   "Esterbauer Civil Engineering Graduate Award, University of New Brunswick (2018–2020)",
   "New Brunswick Innovation Foundation (NBIF) Graduate Award (2018–2019)",
 ];
