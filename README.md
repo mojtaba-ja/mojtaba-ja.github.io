@@ -167,7 +167,8 @@ bash publish.sh "Group papers the way the CV does"
 | `--check` | also test every link (slower, needs network) |
 
 The site publishes **one** document: `assets/cv.pdf`, built from
-`cv-typst/cv-typst.typ`. The resumes in `resume-typst/` still compile and still
+`cv-typst/cv-typst.typ` as a public build (`--input public=1`) that hides the
+phone number. Your own copy, `cv-typst/cv-typst.pdf`, keeps it. The resumes in `resume-typst/` still compile and still
 get pushed to their own repo — they are what you attach to an application — but
 they are not served here. A recruiter offered both reads them as synonyms and
 has to pick; a resume is tailored per application anyway, so one fixed public
