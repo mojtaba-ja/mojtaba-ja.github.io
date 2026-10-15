@@ -143,7 +143,7 @@ Sorts newest-first on its own.
 
 ## New CV or resume PDF
 
-Edit the `.typ` file, then from `G:\My Drive\CV, Resume and Transcripts`:
+Edit the `.typ` file, then from `G:\My Drive\CV-Resume-Transcripts`:
 
 ```
 bash publish.sh
