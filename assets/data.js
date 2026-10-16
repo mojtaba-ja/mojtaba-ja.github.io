@@ -367,6 +367,7 @@ const talkSections = [
    a reader would want dated. Poster sessions live under Presentations; repeating
    them here only pushed the papers further down the page. */
 const news = [
+  { date: "2026-10-16", text: `Awarded the <strong>FAU Graduate Fellowship for Academic Excellence</strong> for 2026–2027.` },
   { date: "2026-09-25", text: `Paper on geometry-aware trajectory forecasting at urban intersections accepted for presentation at the <strong>TRB 106th Annual Meeting</strong>.` },
   { date: "2026-04-22", text: `Awarded the <strong>ASCE Palm Beach Branch Scholarship</strong>.` },
   { date: "2026-02-01", text: `Competed in the <strong>Perfect Pitch Competition</strong> and presented SIPT at the <strong>CS3 Innovation Summit</strong>, Columbia University.` },
@@ -598,6 +599,7 @@ const education = [
 ];
 
 const awards = [
+  "FAU Graduate Fellowship for Academic Excellence (Oct. 2026) — $5,000 competitive award, 2026–2027",
   "ASCE Palm Beach Branch Scholarship (Apr. 2026) — $1,000 competitive award",
   "Esterbauer Civil Engineering Graduate Award, University of New Brunswick (2018–2020)",
   "New Brunswick Innovation Foundation (NBIF) Graduate Award (2018–2019)",
