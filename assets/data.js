@@ -310,7 +310,15 @@ const presentations = [
   },
   {
     type: "workshop",
-    title: "Predicting the Crowd: Spatially-Informed Transformers for Urban Traffic Agents",
+    title: "Neighbor-Aware Forecasting of Pedestrian and Vehicle Movement for Safer Intersections",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    venue: "2026 Infrastructure Night, Department of Civil, Environmental and Geomatics Engineering, Florida Atlantic University, Boca Raton, FL",
+    date: "Nov. 2026",
+    note: "Poster presentation (accepted)",
+  },
+  {
+    type: "workshop",
+    title: "Predicting the Crowd:Spatially-Informed Transformers for Urban Traffic Agents",
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
     venue: "CS3 NSF Renewal Site Visit, Columbia Engineering Innovation Hub — CS3 HQ, New York, NY",
     date: "May 2026",
