@@ -311,7 +311,7 @@ const presentations = [
   {
     type: "workshop",
     title: "Neighbor-Aware Forecasting of Pedestrian and Vehicle Movement for Safer Intersections",
-    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
+    authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, A. W. Smyth, M. K. Turkcan",
     venue: "2026 Infrastructure Night, Department of Civil, Environmental and Geomatics Engineering, Florida Atlantic University, Boca Raton, FL",
     date: "Nov. 2026",
     note: "Poster presentation (accepted)",
