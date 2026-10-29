@@ -6,7 +6,7 @@
 
 const profile = {
   name: "Mojtaba Jafarian Abyaneh",
-  title: "PhD Candidate, Transportation Engineering",
+  title: "Ph.D. Candidate, Transportation Engineering",
   // Shown beside the title and handed to search engines. Someone reading a
   // search result wants to know where you are before almost anything else.
   location: "Boca Raton, Florida",
@@ -15,7 +15,7 @@ const profile = {
   // about your own plan, and it is a forecast sitting in a paragraph that is
   // otherwise all fact. Anyone who needs it asks; the Education entry carries
   // the start date, which is what a reader actually scans for.
-  bio: `I am a PhD candidate and Graduate Research Assistant at
+  bio: `I am a Ph.D. candidate and Graduate Research Assistant at
         <strong>Florida Atlantic University</strong>, working in the
         <a href="https://www.fau.edu/smart/" target="_blank" rel="noopener">I-SENSE Lab</a>
         with Dr. Jinwoo Jang. My work is funded by the <strong>NSF</strong> and
@@ -382,7 +382,7 @@ const news = [
   { date: "2026-01-15", text: `Began mentoring 11 undergraduates across two groups in FAU's <strong>Vertically Integrated Projects</strong> program.` },
   { date: "2026-01-10", text: `Presented bike-sharing O–D flow prediction at the <strong>TRB 105th Annual Meeting</strong>, Washington, DC.` },
   { date: "2025-12-01", text: `Paper <em>Transformer-Based Trajectory Prediction Using LiDAR Data</em> published in <strong>IEEE OJ-ITS</strong>.` },
-  { date: "2024-08-01", text: `Started my PhD at <strong>Florida Atlantic University</strong> in the I-SENSE Lab.` },
+  { date: "2024-08-01", text: `Started my Ph.D. at <strong>Florida Atlantic University</strong> in the I-SENSE Lab.` },
 ];
 
 /* ---- Selected research -------------------------------------------------
