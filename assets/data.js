@@ -109,7 +109,7 @@ const publications = [
     // first went online. Both are right; they measure different things.
     // Do NOT edit the year in your Scholar profile to match — Scholar disables
     // automatic citation updates for any article you manually edit.
-    venues: ["IEEE Open Journal of Intelligent Transportation Systems, Vol. 7, pp. 16–28 — 2026"],
+    venues: ["IEEE Open Journal of Intelligent Transportation Systems, Vol. 7, pp. 16–28, 2026"],
     status: "published",
     // The journal's impact factor deliberately does NOT appear here. On a CV it
     // is normal; on a personal site it reads as selling, and the people who
@@ -149,7 +149,7 @@ const publications = [
     group: "peer-reviewed",
     title: "Baseline updating method for structural damage identification using modal residual force and grey wolf optimization",
     authors: "A. Zare Hosseinzadeh, G. Ghodrati Amiri, <strong>M. Jafarian Abyaneh</strong>, S. A. Seyed Razzaghi, A. Ghadimi Hamzehkolaei",
-    venues: ["Engineering Optimization, Vol. 52, No. 4, pp. 549–566 — 2020"],
+    venues: ["Engineering Optimization, Vol. 52, No. 4, pp. 549–566, 2020"],
     status: "published",
     links: [
       { label: "DOI", url: "https://doi.org/10.1080/0305215X.2019.1593400" },
@@ -179,7 +179,7 @@ const publications = [
     group: "peer-reviewed",
     title: "Model Updating-Based Approach for Damage Prognosis in Frames via Modal Residual Force",
     authors: "G. Ghodrati Amiri, <strong>M. Jafarian Abyaneh</strong>, A. Zare Hosseinzadeh",
-    venues: ["Int. J. of Civil, Environmental, Structural, Construction and Architectural Engineering, Vol. 10, No. 8 — 2016"],
+    venues: ["Int. J. of Civil, Environmental, Structural, Construction and Architectural Engineering, Vol. 10, No. 8, 2016"],
     status: "published",
     links: [
       { label: "DOI", url: "https://doi.org/10.5281/zenodo.1125800" },
@@ -207,7 +207,7 @@ const publications = [
     group: "peer-reviewed",
     title: "A new two-stage method for damage identification in linear-shaped structures via Grey System Theory and optimization algorithm",
     authors: "G. Ghodrati Amiri, A. Zare Hosseinzadeh, <strong>M. Jafarian Abyaneh</strong>",
-    venues: ["Journal of Rehabilitation in Civil Engineering, Vol. 3, No. 2, pp. 45–58 — 2015"],
+    venues: ["Journal of Rehabilitation in Civil Engineering, Vol. 3, No. 2, pp. 45–58, 2015"],
     status: "published",
     // The journal server was offline when this entry was written, so DOAJ stood
     // in. Rechecked 2026-09-10: the DOI resolves again, to the journal's own
@@ -243,7 +243,7 @@ const publications = [
     group: "working",
     title: "Spatial Interaction Pooling Transformer (SIPT) for Multi-Agent Trajectory Prediction in Urban Streetscapes",
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, A. W. Smyth, M. K. Turkcan",
-    venues: ["IEEE Transactions on Intelligent Transportation Systems — 2026"],
+    venues: ["IEEE Transactions on Intelligent Transportation Systems, 2026"],
     // "revision" while the manuscript is with us between submissions;
     // switch back to "review" on the day it goes back to the editor.
     status: "revision",
@@ -258,7 +258,7 @@ const publications = [
     group: "working",
     title: "Spatial Graph Convolutional Network for Predicting Bike-Sharing Origin–Destination Spatiotemporal Flows",
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, E. I. Kaisar",
-    venues: ["SSRN Working Paper No. 5801889 — 2025"],
+    venues: ["SSRN Working Paper No. 5801889, 2025"],
     status: "preprint",
     links: [
       { label: "DOI", url: "https://doi.org/10.2139/ssrn.5801889" },
@@ -274,7 +274,7 @@ const publications = [
     title: "The Impact of Building Geometry Fidelity on Hurricane Pedestrian Wind Hazard Across Inflow Conditions",
     // Four authors — the two undergraduate researchers are on the manuscript.
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, D. Smith, J. Lalla",
-    venues: ["In preparation — 2026"],
+    venues: ["In preparation, 2026"],
     status: "prep",
     links: [],
     // In preparation — nothing published to quote yet.
@@ -320,7 +320,7 @@ const presentations = [
     type: "workshop",
     title: "Predicting the Crowd:Spatially-Informed Transformers for Urban Traffic Agents",
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
-    venue: "CS3 NSF Renewal Site Visit, Columbia Engineering Innovation Hub — CS3 HQ, New York, NY",
+    venue: "CS3 NSF Renewal Site Visit, Columbia Engineering Innovation Hub, CS3 HQ, New York, NY",
     date: "May 2026",
     note: "Poster presentation",
   },
@@ -328,7 +328,7 @@ const presentations = [
     type: "workshop",
     title: "Voxelized High-Fidelity 3D Models for City-scale Wind Simulations",
     authors: "D. K. Smith, <strong>M. Jafarian Abyaneh</strong>, J. Jang",
-    venue: "CS3 NSF Renewal Site Visit, Columbia Engineering Innovation Hub — CS3 HQ, New York, NY",
+    venue: "CS3 NSF Renewal Site Visit, Columbia Engineering Innovation Hub, CS3 HQ, New York, NY",
     date: "May 2026",
     note: "Poster presentation",
   },
@@ -404,7 +404,7 @@ const research = [
     status: "published",
     hook: "Where is that pedestrian about to step? A Transformer answers it from raw LiDAR.",
     points: [
-      "12,390+ real trajectories — vehicles, pedestrians, cyclists — from one Ouster OS1 LiDAR at a West Palm Beach intersection.",
+      "12,390+ real trajectories of vehicles, pedestrians and cyclists, from one Ouster OS1 LiDAR at a West Palm Beach intersection.",
       "<strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.",
       "Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.",
     ],
@@ -437,8 +437,8 @@ const research = [
     ],
     // Not public yet — no figures until the paper is out.
     stats: [
-      { value: "0.76 m", label: "Average displacement error" },
-      { value: "26.2%", label: "Better than Social LSTM" },
+      { value: "0.72 m", label: "Average displacement error" },
+      { value: "30.1%", label: "Better than Social LSTM" },
       { value: "64,000+", label: "Trajectories evaluated" },
     ],
     links: [],
@@ -447,10 +447,10 @@ const research = [
     id: "bike-od",
     title: "Forecasting bike-share demand a year ahead",
     status: "preprint",
-    hook: "Cyclist risk concentrates where riding concentrates — but the numbers usually arrive after the crash.",
+    hook: "Cyclist risk concentrates where riding concentrates. But the numbers usually arrive after the crash.",
     points: [
       "Predicts station-to-station demand <strong>a year ahead</strong> with a spatial graph convolutional network.",
-      "Public data only — trip records, census, OpenStreetMap — so an agency with no data budget can run it.",
+      "Public data only (trip records, census, OpenStreetMap), so an agency with no data budget can run it.",
       "Predicted flow approximates exposure: it points to the corridors and hours where protection pays off.",
     ],
     image: {
@@ -473,9 +473,9 @@ const research = [
     status: "prep",
     hook: "Wind studies model cities as flat blocks, because that geometry is easy to get. Does the shortcut change where the dangerous air goes?",
     points: [
-      "A pipeline turns Google's photogrammetric 3D city tiles — full of holes and overlaps — into watertight solids a CFD solver can actually use.",
+      "A pipeline turns Google's photogrammetric 3D city tiles, full of holes and overlaps, into watertight solids a CFD solver can actually use.",
       "Same Miami high-rise corridor, two geometries, Category 5 forcing.",
-      "Flat blocks fire sharp corner jets; the detailed geometry spreads them out — and how much that matters depends on the inflow profile.",
+      "Flat blocks fire sharp corner jets, and the detailed geometry spreads them out. How much that matters depends on the inflow profile.",
     ],
     links: [],
   },
@@ -494,7 +494,7 @@ const code = [
       title: "Interactive 2D Beam Solver",
       hook: "Drag supports and loads onto a beam. Shear, moment and deflection update live.",
       // Three lines, three jobs: what it does, who it is for, how it ships.
-      note: "A teaching tool for structural analysis — indeterminate beams, 7 support types, 14 worked examples.",
+      note: "A teaching tool for structural analysis: indeterminate beams, 7 support types, 14 worked examples.",
       meta: "One HTML file &middot; no dependencies &middot; works offline",
       video: {
         src: "assets/img/beam-solver-demo.mp4",
@@ -517,7 +517,7 @@ const code = [
     featured: {
       title: "FluidX3D Urban Wind Simulation Guide",
       hook: "GPU lattice-Boltzmann wind flow over real city geometry, start to finish.",
-      note: "Written so the next person can reproduce the run — setup, physics defines, ParaView.",
+      note: "Written so the next person can reproduce the run: setup, physics defines, ParaView.",
       meta: "Workflow guide + two reference docs &middot; C++/OpenCL &middot; ParaView",
       // The animation is the one already published in the repo's own README.
       video: {
@@ -536,24 +536,24 @@ const code = [
     name: "transformer-eth-wpbl",
     url: "https://github.com/mojtaba-ja/transformer-eth-wpbl",
     lang: "Python",
-    detail: "LSTM vs. Transformer trajectory prediction on LiDAR and ETH/UCY — the code behind the IEEE OJ-ITS paper.",
+    detail: "LSTM vs. Transformer trajectory prediction on LiDAR and ETH/UCY, the code behind the IEEE OJ-ITS paper.",
   },
   {
     name: "beam-segmentation-dataset-pipeline",
     url: "https://github.com/mojtaba-ja/beam-segmentation-dataset-pipeline",
     lang: "Python",
-    detail: "Turns beam experiment photos into annotated ML datasets — calibration, segmentation, perspective correction.",
+    detail: "Turns beam experiment photos into annotated ML datasets: calibration, segmentation, perspective correction.",
   },
 ];
 
 const experience = [
   {
     role: "Doctoral Research Assistant",
-    org: "Florida Atlantic University — I-SENSE Lab",
+    org: "Florida Atlantic University (I-SENSE Lab)",
     location: "Boca Raton, FL",
     dates: "Aug. 2024 – Present",
     points: [
-      "Developed <strong>SIPT</strong> for multi-agent trajectory prediction: ADE 0.76 m, 26.2% better than Social LSTM, 49% lower collision rate.",
+      "Developed <strong>SIPT</strong> for multi-agent trajectory prediction: ADE 0.72 m, 30.1% better than Social LSTM, 49% lower collision rate than a standard Transformer.",
       "Transformer prediction on real-world LiDAR: 15.2% lower ADE than LSTM; published in <em>IEEE OJ-ITS</em>.",
       "Manage the NIH longitudinal dataset (R01AG068472): 750 older drivers, 12 waves over 3 years.",
       "Run OpenFOAM CFD on HPC: hurricane pedestrian wind hazard for downtown Miami.",
@@ -607,16 +607,16 @@ const education = [
 ];
 
 const awards = [
-  "FAU Graduate Fellowship for Academic Excellence (Oct. 2026) — $5,000 competitive award, 2026–2027",
-  "ASCE Palm Beach Branch Scholarship (Apr. 2026) — $1,000 competitive award",
+  "FAU Graduate Fellowship for Academic Excellence (Oct. 2026), $5,000 competitive award, 2026–2027",
+  "ASCE Palm Beach Branch Scholarship (Apr. 2026), $1,000 competitive award",
   "Esterbauer Civil Engineering Graduate Award, University of New Brunswick (2018–2020)",
   "New Brunswick Innovation Foundation (NBIF) Graduate Award (2018–2019)",
 ];
 
 const funding = [
-  "<strong>NSF</strong> Engineering Research Center for Smart Streetscapes (CS3), Award No. EEC-2133516 — Graduate Researcher",
-  "<strong>NIH</strong> In-Vehicle Sensors to Detect Cognitive Change in Older Drivers, Award No. R01AG068472 — Graduate Researcher",
-  "<strong>FAU</strong> Vertically Integrated Projects: Smart Sensors and AI for Coastal Destination Resilience — Graduate Research Mentor",
+  "<strong>NSF</strong> Engineering Research Center for Smart Streetscapes (CS3), Award No. EEC-2133516 (Graduate Researcher)",
+  "<strong>NIH</strong> In-Vehicle Sensors to Detect Cognitive Change in Older Drivers, Award No. R01AG068472 (Graduate Researcher)",
+  "<strong>FAU</strong> Vertically Integrated Projects: Smart Sensors and AI for Coastal Destination Resilience (Graduate Research Mentor)",
 ];
 
 /* Undergraduates I mentor, grouped by the program that funds the work —
@@ -624,17 +624,17 @@ const funding = [
    detail is its roster, which keeps eleven students to two readable lines. */
 const mentoring = [
   {
-    program: "NSF CS3 (EEC-2133516) — Digital Twins for Smart Streetscapes, FAU",
+    program: "NSF CS3 (EEC-2133516), Digital Twins for Smart Streetscapes, FAU",
     dates: "Jan. 2026 – Present",
     entries: [
-      { name: "Dana K. Smith", detail: "Civil Eng., FAU — voxelization &amp; CFD-ready digital twin pipelines" },
-      { name: "Jonathan Lalla", detail: "CS, FAU — voxelization &amp; CFD-ready digital twin pipelines" },
-      { name: "Cyrus Khan", detail: "CS, UC Riverside (NSF REU) — GPS-to-behavior-metric pipeline, Fast Map Matching" },
-      { name: "Vedant Sundriyal", detail: `CS, Lehman College (NSF REU) — QuASAR: watertight 3D city reconstruction (<a href="https://github.com/Vedant-Sundriyal/quasar-urban-geometry-reconstruction" target="_blank" rel="noopener">GitHub</a>)` },
+      { name: "Dana K. Smith", detail: "Civil Eng., FAU &middot; voxelization &amp; CFD-ready digital twin pipelines" },
+      { name: "Jonathan Lalla", detail: "CS, FAU &middot; voxelization &amp; CFD-ready digital twin pipelines" },
+      { name: "Cyrus Khan", detail: "CS, UC Riverside (NSF REU) &middot; GPS-to-behavior-metric pipeline, Fast Map Matching" },
+      { name: "Vedant Sundriyal", detail: `CS, Lehman College (NSF REU) &middot; QuASAR, watertight 3D city reconstruction (<a href="https://github.com/Vedant-Sundriyal/quasar-urban-geometry-reconstruction" target="_blank" rel="noopener">GitHub</a>)` },
     ],
   },
   {
-    program: "FAU VIP Program — Smart Sensors and AI for Coastal Destination Resilience",
+    program: "FAU VIP Program, Smart Sensors and AI for Coastal Destination Resilience",
     dates: "Jan. 2026 – Present",
     entries: [
       { name: "Environment &amp; Sustainability", detail: "Dana K. Smith, Iris York, Felicia Phan, James Kane, Dana Urbano Prieto, Sammie Chamberlain (FAU)" },
@@ -653,7 +653,7 @@ const teaching = [
     location: "Boca Raton, FL",
     dates: "Sep. 2026",
     points: [
-      "<strong>CES 3102C Analysis of Structures</strong> — shear force and bending moment diagrams, with my <a href=\"https://mojtaba-ja.github.io/interactive-2d-beam-solver/\" target=\"_blank\" rel=\"noopener\">Interactive 2D Beam Solver</a>.",
+      "<strong>CES 3102C Analysis of Structures</strong>: shear force and bending moment diagrams, with my <a href=\"https://mojtaba-ja.github.io/interactive-2d-beam-solver/\" target=\"_blank\" rel=\"noopener\">Interactive 2D Beam Solver</a>.",
     ],
   },
   {
@@ -662,8 +662,8 @@ const teaching = [
     location: "Fredericton, NB, Canada",
     dates: "Jan. 2019 – Apr. 2020",
     points: [
-      "<strong>Mechanics of Materials Experimental Lab</strong> (2019) — tensile, compression and torsion testing; lab safety and data quality.",
-      "<strong>Statics Computational Lab</strong> (2020) — force analysis, moment calculation, structural equilibrium.",
+      "<strong>Mechanics of Materials Experimental Lab</strong> (2019): tensile, compression and torsion testing; lab safety and data quality.",
+      "<strong>Statics Computational Lab</strong> (2020): force analysis, moment calculation, structural equilibrium.",
     ],
   },
 ];

@@ -282,7 +282,7 @@ const mentoring = () =>
           <span class="entry-when">${g.dates}</span>
         </div>
         <ul class="roster">${g.entries
-          .map((m) => `<li><strong>${m.name}</strong> &mdash; ${m.detail}</li>`)
+          .map((m) => `<li><strong>${m.name}</strong> &middot; ${m.detail}</li>`)
           .join("")}</ul>
       </div>`
     )
@@ -582,7 +582,7 @@ const homeDescription = collapse(D.profile.bio).slice(0, 300);
 fs.writeFileSync(
   path.join(__dirname, "index.html"),
   page({
-    title: `${D.profile.name} — ${D.profile.title}`,
+    title: `${D.profile.name} | ${D.profile.title}`,
     description: homeDescription,
     canonical: SITE_URL + "/",
     base: "",
@@ -590,7 +590,7 @@ fs.writeFileSync(
     body: (() => {
       const sections = homeSections("");
       const cta = `
-    <p class="cta"><a href="projects/">Projects &mdash; selected research and
+    <p class="cta"><a href="projects/">Projects: selected research and
       open-source tools &rarr;</a></p>`;
       return [
         masthead(""),
@@ -613,7 +613,7 @@ fs.mkdirSync(projectsDir, { recursive: true });
 fs.writeFileSync(
   path.join(projectsDir, "index.html"),
   page({
-    title: `Projects — ${D.profile.name}`,
+    title: `Projects | ${D.profile.name}`,
     description: `Research projects and open-source tools by ${D.profile.name}: trajectory prediction from LiDAR, bike-share demand forecasting, urban wind simulation, and an interactive structural analysis solver.`,
     canonical: SITE_URL + "/projects/",
     base: "../",
@@ -644,7 +644,7 @@ fs.writeFileSync(
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CV — ${D.profile.name}</title>
+    <title>CV | ${D.profile.name}</title>
     <link rel="canonical" href="${SITE_URL}/" />
     <meta name="robots" content="noindex, follow" />
     <meta http-equiv="refresh" content="0; url=${SITE_URL}/" />
