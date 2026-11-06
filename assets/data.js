@@ -246,7 +246,7 @@ const publications = [
     venues: ["IEEE Transactions on Intelligent Transportation Systems, 2026"],
     // "revision" while the manuscript is with us between submissions;
     // switch back to "review" on the day it goes back to the editor.
-    status: "revision",
+    status: "review",
     links: [],
     // Under review — no public abstract exists yet. Paste your manuscript's own
     // abstract here (in backticks) once you're comfortable sharing it, and a page
