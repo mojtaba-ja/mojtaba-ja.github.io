@@ -314,7 +314,7 @@ const presentations = [
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang, A. W. Smyth, M. K. Turkcan",
     venue: "2026 Infrastructure Night, Department of Civil, Environmental and Geomatics Engineering, Florida Atlantic University, Boca Raton, FL",
     date: "Nov. 2026",
-    note: "Poster presentation (accepted)",
+    note: "Poster presentation",
   },
   {
     type: "workshop",
