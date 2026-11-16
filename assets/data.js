@@ -375,6 +375,7 @@ const talkSections = [
    a reader would want dated. Poster sessions live under Presentations; repeating
    them here only pushed the papers further down the page. */
 const news = [
+  { date: "2026-11-11", text: `Began mentoring FAU's <strong>Student Steel Bridge</strong> team for the 2027 AISC/ASCE competition, with Dr. Jinwoo Jang.` },
   { date: "2026-10-16", text: `Awarded the <strong>FAU Graduate Fellowship for Academic Excellence</strong> for 2026–2027.` },
   { date: "2026-09-25", text: `Paper on geometry-aware trajectory forecasting at urban intersections accepted for presentation at the <strong>TRB 106th Annual Meeting</strong>.` },
   { date: "2026-04-22", text: `Awarded the <strong>ASCE Palm Beach Branch Scholarship</strong>.` },
@@ -569,6 +570,16 @@ const experience = [
     ],
   },
   {
+    role: "Graduate Mentor",
+    org: "ASCE Student Steel Bridge Team, FAU",
+    location: "Boca Raton, FL",
+    dates: "Nov. 2026 – Present",
+    points: [
+      "Mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, on the 2027 AISC/ASCE Student Steel Bridge Competition.",
+      "Set the team's analysis software workflow, condensed the 61-page rulebook into a 2-page guide, and review their STAAD.Pro models.",
+    ],
+  },
+  {
     role: "Data Analyst",
     org: "Freelance",
     location: "Fredericton, NB, Canada",
@@ -639,6 +650,14 @@ const mentoring = [
     entries: [
       { name: "Environment &amp; Sustainability", detail: "Dana K. Smith, Iris York, Felicia Phan, James Kane, Dana Urbano Prieto, Sammie Chamberlain (FAU)" },
       { name: "Safety &amp; Security", detail: "Jonathan Lalla, Mykyta Garkusha, Mohammed Mered, Howard Lowe, Nicolette Madrazo (FAU)" },
+    ],
+  },
+  {
+    program: "AISC/ASCE Student Steel Bridge Competition 2027, FAU Steel Bridge Team",
+    dates: "Nov. 2026 – Present",
+    entries: [
+      { name: "Design lead", detail: "Grace Cavin (FAU)" },
+      { name: "Team", detail: "Shawn Clarke, Ruth Alvarenga, Adriana Daroch, Fox Turso, Daniel Zelaya (FAU)" },
     ],
   },
 ];
