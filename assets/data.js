@@ -429,10 +429,10 @@ const research = [
     // contribution. Remove this line then; everything else is ready to go.
     hidden: true,
     title: "SIPT: giving a Transformer a sense of the crowd",
-    status: "revision",
+    status: "review",
     hook: "Road users react to each other. Most models still predict each one alone.",
     points: [
-      "SIPT pools an agent's neighbours inside a <em>learned</em> spatial radius, before attention.",
+      "SIPT pools an agent's neighbors inside a <em>learned</em> spatial radius, before attention.",
       "Every forecast is conditioned on the crowd immediately around that agent.",
       "Evaluated on the COSMOS instrumented intersection in New York.",
     ],
