@@ -576,6 +576,7 @@ const experience = [
     dates: "Nov. 2026 – Present",
     points: [
       "Mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, on the 2027 AISC/ASCE Student Steel Bridge Competition.",
+      "Prepare the team for the Southeast regional at the 2027 ASCE Southeast Student Symposium, FIU, Miami (Mar. 2027).",
       "Set the team's analysis software workflow, condensed the 61-page rulebook into a 2-page guide, and review their STAAD.Pro models.",
     ],
   },
@@ -653,7 +654,7 @@ const mentoring = [
     ],
   },
   {
-    program: "AISC/ASCE Student Steel Bridge Competition 2027, FAU Steel Bridge Team",
+    program: "AISC/ASCE Student Steel Bridge Competition 2027 (Southeast regional, FIU, Miami), FAU Steel Bridge Team",
     dates: "Nov. 2026 – Present",
     entries: [
       { name: "Design lead", detail: "Grace Cavin (FAU)" },
