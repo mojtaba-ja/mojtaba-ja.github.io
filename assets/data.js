@@ -557,7 +557,7 @@ const experience = [
       "Developed <strong>SIPT</strong> for multi-agent trajectory prediction: ADE 0.72 m, 30.1% better than Social LSTM, 49% lower collision rate than a standard Transformer.",
       "Transformer prediction on real-world LiDAR: 15.2% lower ADE than LSTM; published in <em>IEEE OJ-ITS</em>.",
       "Manage the NIH longitudinal dataset (R01AG068472): 750 older drivers, 12 waves over 3 years.",
-      "Run OpenFOAM CFD on HPC: hurricane pedestrian wind hazard for downtown Miami.",
+      "Lead a study of how building geometry detail changes hurricane pedestrian wind hazard in downtown Miami, with OpenFOAM CFD on HPC.",
     ],
   },
   {
@@ -566,7 +566,7 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Jan. 2026 – Present",
     points: [
-      "Oversee 11 undergraduates in two groups building AI smart-sensor applications for coastal resilience.",
+      "Lead two research teams of 11 undergraduates on AI smart sensors for coastal resilience, guiding each team's project direction and methods.",
     ],
   },
   {
@@ -575,9 +575,9 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Nov. 2026 – Present",
     points: [
-      "Mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, on the 2027 AISC/ASCE Student Steel Bridge Competition.",
-      "Prepare the team for the Southeast regional at the 2027 ASCE Southeast Student Symposium, FIU, Miami (Mar. 2027).",
-      "Set the team's analysis software workflow, condensed the 61-page rulebook into a 2-page guide, and review their STAAD.Pro models.",
+      "Mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, through the design of FAU's bridge for the 2027 AISC/ASCE Student Steel Bridge Competition (Southeast regional, FIU, Miami, Mar. 2027).",
+      "Guide the structural design, from competition rules to design criteria, frame analysis and deflection checks in STAAD.Pro, and CAD in SolidWorks.",
+      "Train students in structural modeling and review their bridge models against the design criteria.",
     ],
   },
   {
@@ -596,7 +596,7 @@ const experience = [
     location: "Fredericton, NB, Canada",
     dates: "Sep. 2018 – Oct. 2020",
     points: [
-      "Modeled reinforced concrete beams under sustained and cyclic loading in ABAQUS; accelerometer vibration testing.",
+      "Studied how cracking under sustained and cyclic loading changes the stiffness and vibration of reinforced concrete beams, through accelerometer tests and ABAQUS models.",
       "Evaluated deflection, natural frequencies and mode shapes against ACI 318-19 and CSA A23.3.",
     ],
   },
@@ -606,7 +606,7 @@ const experience = [
     location: "Tehran, Iran",
     dates: "Sep. 2014 – Apr. 2017",
     points: [
-      "Structural health monitoring and damage detection via optimization algorithms (grey wolf, genetic).",
+      "Developed structural damage detection methods based on finite element model updating and optimization (grey wolf, genetic), published in three journal papers (2015–2020).",
     ],
   },
 ];
@@ -682,8 +682,8 @@ const teaching = [
     location: "Fredericton, NB, Canada",
     dates: "Jan. 2019 – Apr. 2020",
     points: [
-      "<strong>Mechanics of Materials Experimental Lab</strong> (2019): tensile, compression and torsion testing; lab safety and data quality.",
-      "<strong>Statics Computational Lab</strong> (2020): force analysis, moment calculation, structural equilibrium.",
+      "<strong>Mechanics of Materials Experimental Lab</strong> (2019): led undergraduate lab sections in tension, compression and torsion testing, responsible for safe procedures and reliable data.",
+      "<strong>Statics Computational Lab</strong> (2020): taught equilibrium, force and moment analysis through computational problem solving.",
     ],
   },
 ];
