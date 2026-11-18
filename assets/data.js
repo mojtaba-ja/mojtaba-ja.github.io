@@ -29,8 +29,8 @@ const profile = {
   researchTitle: `Current research`,
   researchPoints: [
     `<strong>Trajectory prediction:</strong> Transformer models for road users, from LiDAR`,
-    `<strong>Spatial graph networks:</strong> origin–destination flow in mobility networks`,
-    `<strong>Urban digital twins:</strong> city-scale CFD for hurricane pedestrian wind`,
+    `<strong>Travel demand:</strong> bike-share trip flows forecast with graph networks`,
+    `<strong>Hurricane wind:</strong> city-scale CFD of wind hazard for pedestrians`,
   ],
 };
 
@@ -554,10 +554,12 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Aug. 2024 – Present",
     points: [
-      "Developed <strong>SIPT</strong> for multi-agent trajectory prediction: ADE 0.72 m, 30.1% better than Social LSTM, 49% lower collision rate than a standard Transformer.",
-      "Transformer prediction on real-world LiDAR: 15.2% lower ADE than LSTM; published in <em>IEEE OJ-ITS</em>.",
-      "Manage the NIH longitudinal dataset (R01AG068472): 750 older drivers, 12 waves over 3 years.",
-      "Lead a study of how building geometry detail changes hurricane pedestrian wind hazard in downtown Miami, with OpenFOAM CFD on HPC.",
+      "<strong>Interaction-aware prediction (SIPT):</strong> a Transformer that forecasts pedestrian and vehicle paths while accounting for how nearby road users influence each other. Average displacement error (ADE) 0.72 m on 64,000+ New York City trajectories, 30.1% lower than Social LSTM, with 49% fewer predicted collisions than a standard Transformer.",
+      "<strong>LiDAR trajectory prediction:</strong> built the pipeline from roadside LiDAR to 12,390+ geo-referenced trajectories at a West Palm Beach intersection. A Transformer cut ADE 15.2% vs. an LSTM baseline (<em>IEEE OJ-ITS</em>, 2026).",
+      "<strong>Bike-share demand:</strong> forecast year-ahead station-to-station trips with a spatial graph network and mapped the flows by land-use zone (TRB 2026 poster).",
+      "<strong>Hurricane wind:</strong> lead a study of how building geometry detail changes wind hazard for pedestrians in downtown Miami, with OpenFOAM CFD on HPC.",
+      "<strong>Older-driver data (NIH):</strong> manage the dataset of an NIH longitudinal study (R01AG068472): 750 older drivers, 12 waves over 3 years.",
+      "<strong>Mentoring:</strong> co-mentor four NSF CS3 undergraduates, work that led to two student posters (2026).",
     ],
   },
   {
@@ -575,9 +577,9 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Nov. 2026 – Present",
     points: [
-      "Mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, through the design of FAU's bridge for the 2027 AISC/ASCE Student Steel Bridge Competition (Southeast regional, FIU, Miami, Mar. 2027).",
-      "Guide the structural design, from competition rules to design criteria, frame analysis and deflection checks in STAAD.Pro, and CAD in SolidWorks.",
-      "Train students in structural modeling and review their bridge models against the design criteria.",
+      "<strong>Team:</strong> mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, through the design of FAU's bridge for the 2027 AISC/ASCE Student Steel Bridge Competition (Southeast regional, FIU, Miami, Mar. 2027).",
+      "<strong>Design:</strong> guide the team from the competition rules to design criteria, frame analysis and deflection checks in STAAD.Pro, and CAD in SolidWorks.",
+      "<strong>Training:</strong> teach structural modeling and review each bridge model against the design criteria.",
     ],
   },
   {
@@ -586,8 +588,8 @@ const experience = [
     location: "Fredericton, NB, Canada",
     dates: "Nov. 2022 – Jul. 2024",
     points: [
-      "Analyzed import/export data for trade compliance and logistics optimization.",
-      "Built import-volume forecasting models and Tableau dashboards.",
+      "<strong>Forecasting:</strong> built import-volume forecasting models and Tableau dashboards on shipment costs and supplier metrics.",
+      "<strong>Trade data:</strong> analyzed import and export data for trade compliance and logistics optimization.",
     ],
   },
   {
@@ -596,8 +598,8 @@ const experience = [
     location: "Fredericton, NB, Canada",
     dates: "Sep. 2018 – Oct. 2020",
     points: [
-      "Studied how cracking under sustained and cyclic loading changes the stiffness and vibration of reinforced concrete beams, through accelerometer tests and ABAQUS models.",
-      "Evaluated deflection, natural frequencies and mode shapes against ACI 318-19 and CSA A23.3.",
+      "<strong>Thesis research:</strong> studied how cracking under sustained and cyclic loading changes the stiffness and vibration of reinforced concrete beams, through accelerometer tests and ABAQUS models.",
+      "<strong>Code checks:</strong> evaluated deflection, natural frequencies and mode shapes with ACI 318-19 and CSA A23.3.",
     ],
   },
   {
@@ -639,10 +641,10 @@ const mentoring = [
     program: "NSF CS3 (EEC-2133516), Digital Twins for Smart Streetscapes, FAU",
     dates: "Jan. 2026 – Present",
     entries: [
-      { name: "Dana K. Smith", detail: "Civil Eng., FAU &middot; voxelization &amp; CFD-ready digital twin pipelines" },
-      { name: "Jonathan Lalla", detail: "CS, FAU &middot; voxelization &amp; CFD-ready digital twin pipelines" },
-      { name: "Cyrus Khan", detail: "CS, UC Riverside (NSF REU) &middot; GPS-to-behavior-metric pipeline, Fast Map Matching" },
-      { name: "Vedant Sundriyal", detail: `CS, Lehman College (NSF REU) &middot; QuASAR, watertight 3D city reconstruction (<a href="https://github.com/Vedant-Sundriyal/quasar-urban-geometry-reconstruction" target="_blank" rel="noopener">GitHub</a>)` },
+      { name: "Dana K. Smith", detail: "Civil Eng., FAU &middot; turning 3D city models into CFD-ready digital twins" },
+      { name: "Jonathan Lalla", detail: "CS, FAU &middot; turning 3D city models into CFD-ready digital twins" },
+      { name: "Cyrus Khan", detail: "CS, UC Riverside (NSF REU) &middot; matching GPS traces to road networks to measure driver behavior" },
+      { name: "Vedant Sundriyal", detail: `CS, Lehman College (NSF REU) &middot; watertight 3D city reconstruction with QuASAR (<a href="https://github.com/Vedant-Sundriyal/quasar-urban-geometry-reconstruction" target="_blank" rel="noopener">GitHub</a>)` },
     ],
   },
   {
@@ -657,8 +659,7 @@ const mentoring = [
     program: "AISC/ASCE Student Steel Bridge Competition 2027 (Southeast regional, FIU, Miami), FAU Steel Bridge Team",
     dates: "Nov. 2026 – Present",
     entries: [
-      { name: "Design lead", detail: "Grace Cavin (FAU)" },
-      { name: "Team", detail: "Shawn Clarke, Ruth Alvarenga, Adriana Daroch, Fox Turso, Daniel Zelaya (FAU)" },
+      { name: "Team", detail: "Ruth Alvarenga, Grace Cavin, Shawn Clarke, Adriana Daroch, Fox Turso, Daniel Zelaya (FAU)" },
     ],
   },
 ];

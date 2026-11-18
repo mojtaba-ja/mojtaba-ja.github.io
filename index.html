@@ -108,7 +108,7 @@
         the <strong>NIH</strong>.</p>
         
         <div class="lede-title">Current research</div>
-        <ul class="lede-points"><li><strong>Trajectory prediction:</strong> Transformer models for road users, from LiDAR</li><li><strong>Spatial graph networks:</strong> origin–destination flow in mobility networks</li><li><strong>Urban digital twins:</strong> city-scale CFD for hurricane pedestrian wind</li></ul>
+        <ul class="lede-points"><li><strong>Trajectory prediction:</strong> Transformer models for road users, from LiDAR</li><li><strong>Travel demand:</strong> bike-share trip flows forecast with graph networks</li><li><strong>Hurricane wind:</strong> city-scale CFD of wind hazard for pedestrians</li></ul>
         <div class="linkrow"><a href="mailto:mjafarianaby2023@fau.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>Email</a><span class="sep">&middot;</span><a href="https://scholar.google.com/citations?user=VOvMEmIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 2 9l10 5 10-5-10-5Z"/><path d="M6 11.5V17c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5.5"/></svg>Scholar</a><span class="sep">&middot;</span><a href="https://github.com/mojtaba-ja" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub</a><span class="sep">&middot;</span><a href="https://linkedin.com/in/mojjafarian" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.22 8.98h4.56V24H.22V8.98Zm7.9 0h4.37v2.05h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7V24h-4.56v-7.38c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.92-2.83 3.9V24H8.12V8.98Z"/></svg>LinkedIn</a><span class="sep">&middot;</span><a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>CV</a></div>
       </div>
     </header>
@@ -213,7 +213,7 @@
           <span class="entry-when">Aug. 2024 – Present</span>
         </div>
         <div class="entry-org">Florida Atlantic University (I-SENSE Lab) &middot; Boca Raton, FL</div>
-        <ul><li>Developed <strong>SIPT</strong> for multi-agent trajectory prediction: ADE 0.72 m, 30.1% better than Social LSTM, 49% lower collision rate than a standard Transformer.</li><li>Transformer prediction on real-world LiDAR: 15.2% lower ADE than LSTM; published in <em>IEEE OJ-ITS</em>.</li><li>Manage the NIH longitudinal dataset (R01AG068472): 750 older drivers, 12 waves over 3 years.</li><li>Lead a study of how building geometry detail changes hurricane pedestrian wind hazard in downtown Miami, with OpenFOAM CFD on HPC.</li></ul>
+        <ul><li><strong>Interaction-aware prediction (SIPT):</strong> a Transformer that forecasts pedestrian and vehicle paths while accounting for how nearby road users influence each other. Average displacement error (ADE) 0.72 m on 64,000+ New York City trajectories, 30.1% lower than Social LSTM, with 49% fewer predicted collisions than a standard Transformer.</li><li><strong>LiDAR trajectory prediction:</strong> built the pipeline from roadside LiDAR to 12,390+ geo-referenced trajectories at a West Palm Beach intersection. A Transformer cut ADE 15.2% vs. an LSTM baseline (<em>IEEE OJ-ITS</em>, 2026).</li><li><strong>Bike-share demand:</strong> forecast year-ahead station-to-station trips with a spatial graph network and mapped the flows by land-use zone (TRB 2026 poster).</li><li><strong>Hurricane wind:</strong> lead a study of how building geometry detail changes wind hazard for pedestrians in downtown Miami, with OpenFOAM CFD on HPC.</li><li><strong>Older-driver data (NIH):</strong> manage the dataset of an NIH longitudinal study (R01AG068472): 750 older drivers, 12 waves over 3 years.</li><li><strong>Mentoring:</strong> co-mentor four NSF CS3 undergraduates, work that led to two student posters (2026).</li></ul>
       </div>
       <div class="entry">
         <div class="entry-head">
@@ -229,7 +229,7 @@
           <span class="entry-when">Nov. 2026 – Present</span>
         </div>
         <div class="entry-org">ASCE Student Steel Bridge Team, FAU &middot; Boca Raton, FL</div>
-        <ul><li>Mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, through the design of FAU's bridge for the 2027 AISC/ASCE Student Steel Bridge Competition (Southeast regional, FIU, Miami, Mar. 2027).</li><li>Guide the structural design, from competition rules to design criteria, frame analysis and deflection checks in STAAD.Pro, and CAD in SolidWorks.</li><li>Train students in structural modeling and review their bridge models against the design criteria.</li></ul>
+        <ul><li><strong>Team:</strong> mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, through the design of FAU's bridge for the 2027 AISC/ASCE Student Steel Bridge Competition (Southeast regional, FIU, Miami, Mar. 2027).</li><li><strong>Design:</strong> guide the team from the competition rules to design criteria, frame analysis and deflection checks in STAAD.Pro, and CAD in SolidWorks.</li><li><strong>Training:</strong> teach structural modeling and review each bridge model against the design criteria.</li></ul>
       </div>
       <div class="entry">
         <div class="entry-head">
@@ -237,7 +237,7 @@
           <span class="entry-when">Nov. 2022 – Jul. 2024</span>
         </div>
         <div class="entry-org">Freelance &middot; Fredericton, NB, Canada</div>
-        <ul><li>Analyzed import/export data for trade compliance and logistics optimization.</li><li>Built import-volume forecasting models and Tableau dashboards.</li></ul>
+        <ul><li><strong>Forecasting:</strong> built import-volume forecasting models and Tableau dashboards on shipment costs and supplier metrics.</li><li><strong>Trade data:</strong> analyzed import and export data for trade compliance and logistics optimization.</li></ul>
       </div>
       <div class="entry">
         <div class="entry-head">
@@ -245,7 +245,7 @@
           <span class="entry-when">Sep. 2018 – Oct. 2020</span>
         </div>
         <div class="entry-org">University of New Brunswick &middot; Fredericton, NB, Canada</div>
-        <ul><li>Studied how cracking under sustained and cyclic loading changes the stiffness and vibration of reinforced concrete beams, through accelerometer tests and ABAQUS models.</li><li>Evaluated deflection, natural frequencies and mode shapes against ACI 318-19 and CSA A23.3.</li></ul>
+        <ul><li><strong>Thesis research:</strong> studied how cracking under sustained and cyclic loading changes the stiffness and vibration of reinforced concrete beams, through accelerometer tests and ABAQUS models.</li><li><strong>Code checks:</strong> evaluated deflection, natural frequencies and mode shapes with ACI 318-19 and CSA A23.3.</li></ul>
       </div>
       <div class="entry">
         <div class="entry-head">
@@ -308,7 +308,7 @@
           <span class="entry-role">NSF CS3 (EEC-2133516), Digital Twins for Smart Streetscapes, FAU</span>
           <span class="entry-when">Jan. 2026 – Present</span>
         </div>
-        <ul class="roster"><li><strong>Dana K. Smith</strong> &middot; Civil Eng., FAU &middot; voxelization &amp; CFD-ready digital twin pipelines</li><li><strong>Jonathan Lalla</strong> &middot; CS, FAU &middot; voxelization &amp; CFD-ready digital twin pipelines</li><li><strong>Cyrus Khan</strong> &middot; CS, UC Riverside (NSF REU) &middot; GPS-to-behavior-metric pipeline, Fast Map Matching</li><li><strong>Vedant Sundriyal</strong> &middot; CS, Lehman College (NSF REU) &middot; QuASAR, watertight 3D city reconstruction (<a href="https://github.com/Vedant-Sundriyal/quasar-urban-geometry-reconstruction" target="_blank" rel="noopener">GitHub</a>)</li></ul>
+        <ul class="roster"><li><strong>Dana K. Smith</strong> &middot; Civil Eng., FAU &middot; turning 3D city models into CFD-ready digital twins</li><li><strong>Jonathan Lalla</strong> &middot; CS, FAU &middot; turning 3D city models into CFD-ready digital twins</li><li><strong>Cyrus Khan</strong> &middot; CS, UC Riverside (NSF REU) &middot; matching GPS traces to road networks to measure driver behavior</li><li><strong>Vedant Sundriyal</strong> &middot; CS, Lehman College (NSF REU) &middot; watertight 3D city reconstruction with QuASAR (<a href="https://github.com/Vedant-Sundriyal/quasar-urban-geometry-reconstruction" target="_blank" rel="noopener">GitHub</a>)</li></ul>
       </div>
       <div class="entry">
         <div class="entry-head">
@@ -322,7 +322,7 @@
           <span class="entry-role">AISC/ASCE Student Steel Bridge Competition 2027 (Southeast regional, FIU, Miami), FAU Steel Bridge Team</span>
           <span class="entry-when">Nov. 2026 – Present</span>
         </div>
-        <ul class="roster"><li><strong>Design lead</strong> &middot; Grace Cavin (FAU)</li><li><strong>Team</strong> &middot; Shawn Clarke, Ruth Alvarenga, Adriana Daroch, Fox Turso, Daniel Zelaya (FAU)</li></ul>
+        <ul class="roster"><li><strong>Team</strong> &middot; Ruth Alvarenga, Grace Cavin, Shawn Clarke, Adriana Daroch, Fox Turso, Daniel Zelaya (FAU)</li></ul>
       </div></section>
 <section id="awards"><h2>Awards</h2><ul><li>FAU Graduate Fellowship for Academic Excellence (Oct. 2026), $5,000 competitive award, 2026–2027</li><li>ASCE Palm Beach Branch Scholarship (Apr. 2026), $1,000 competitive award</li><li>Esterbauer Civil Engineering Graduate Award, University of New Brunswick (2018–2020)</li><li>New Brunswick Innovation Foundation (NBIF) Graduate Award (2018–2019)</li></ul></section>
 <section id="skills"><h2>Technical Skills</h2><div class="skill-row"><span class="skill-group">Programming &amp; Tools:</span> Python, MATLAB, LaTeX, Typst, Git, Tableau</div><div class="skill-row"><span class="skill-group">AI &amp; Machine Learning:</span> PyTorch, TensorFlow, Keras</div><div class="skill-row"><span class="skill-group">Data Science:</span> Pandas, NumPy, Scikit-learn, GeoPandas, ArcGIS</div><div class="skill-row"><span class="skill-group">Engineering Software:</span> ABAQUS, OpenFOAM (HPC), ParaView, SAP2000, ETABS, SAFE, Synchro, Civil 3D, MicroStation, AutoCAD</div></section>
