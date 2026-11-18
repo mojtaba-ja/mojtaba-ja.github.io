@@ -106,11 +106,11 @@
 <section id="research"><h2>Selected Research</h2>
       <article class="project">
         <h3>Predicting where people and cars go next, from raw LiDAR<span class="badge badge-published">Published</span></h3>
-        <p class="hook">Where is that pedestrian about to step? A Transformer answers it from raw LiDAR.</p>
-        <ul class="points"><li>12,390+ real trajectories of vehicles, pedestrians and cyclists, from one Ouster OS1 LiDAR at a West Palm Beach intersection.</li><li><strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.</li><li>Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.</li></ul>
+        <p class="hook">A Transformer trained on roadside LiDAR forecasts the next few seconds of movement for every road user at an intersection.</p>
+        <ul class="points"><li>12,390+ trajectories of vehicles, pedestrians and cyclists, from one Ouster OS1 LiDAR at a West Palm Beach intersection.</li><li><strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.</li><li>Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.</li></ul>
         
         <figure class="fig">
-          <img src="../assets/img/lidar-trajectory-prediction.jpg" alt="Aerial map of Clematis Street, West Palm Beach, with a pedestrian's observed path, the ground-truth continuation, and the Transformer and LSTM predicted paths drawn as coloured tracks." width="1765" height="909" loading="lazy" decoding="async">
+          <img src="../assets/img/lidar-trajectory-prediction.jpg" alt="Aerial map of Clematis Street, West Palm Beach, with a pedestrian's observed path, the ground-truth continuation, and the Transformer and LSTM predicted paths drawn as colored tracks." width="1765" height="909" loading="lazy" decoding="async">
           <figcaption>Observed path, ground truth, and Transformer vs. LSTM predictions for one
         pedestrian outside the Mandel Public Library. Figure from the paper, published open
         access in <em>IEEE OJ-ITS</em> (CC BY).</figcaption>
@@ -119,13 +119,13 @@
       </article>
       <article class="project">
         <h3>Forecasting bike-share demand a year ahead<span class="badge badge-preprint">Preprint</span></h3>
-        <p class="hook">Cyclist risk concentrates where riding concentrates. But the numbers usually arrive after the crash.</p>
-        <ul class="points"><li>Predicts station-to-station demand <strong>a year ahead</strong> with a spatial graph convolutional network.</li><li>Public data only (trip records, census, OpenStreetMap), so an agency with no data budget can run it.</li><li>Predicted flow approximates exposure: it points to the corridors and hours where protection pays off.</li></ul>
+        <p class="hook">A graph network forecasts next year's bike-share trips between stations, from public data.</p>
+        <ul class="points"><li>Predicts station-to-station demand <strong>a year ahead</strong> with a spatial graph convolutional network.</li><li>Public data only (trip records, census, OpenStreetMap), so an agency with no data budget can run it.</li><li>Morning-peak flows mapped by land-use zone in GIS for the Jersey City Citi Bike network.</li></ul>
         
         <figure class="fig">
-          <img src="../assets/img/bikeshare-od-flows.jpg" alt="Map of Jersey City and Hoboken with curved lines between bike-share stations, thickness and colour showing the strength of morning-peak origin–destination flows." width="1375" height="978" loading="lazy" decoding="async">
+          <img src="../assets/img/bikeshare-od-flows.jpg" alt="Map of Jersey City and Hoboken with curved lines between bike-share stations, thickness and color showing the strength of morning-peak origin–destination flows." width="1375" height="978" loading="lazy" decoding="async">
           <figcaption>Morning-peak origin–destination flows across the Jersey City Citi Bike network,
-        with stations coloured by land-use zone.</figcaption>
+        with stations colored by land-use zone.</figcaption>
         </figure>
         <div class="pub-links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5801889" target="_blank" rel="noopener noreferrer">SSRN preprint</a></div>
       </article></section>
@@ -149,7 +149,7 @@
         <div class="pub-venue">Workflow guide + two reference docs &middot; C++/OpenCL &middot; ParaView</div>
         <figure class="fig">
           <video class="demo" src="../assets/img/urban-wind-demo.mp4" poster="../assets/img/urban-wind-poster.jpg"
-            width="904" height="684" aria-label="Simulated wind speed at pedestrian level around a building in West Palm Beach: fast flow at the edges of the domain, a slow wake trailing downwind of the block, with a colour bar from 0 to 70 metres per second."
+            width="904" height="684" aria-label="Simulated wind speed at pedestrian level around a building in West Palm Beach: fast flow at the edges of the domain, a slow wake trailing downwind of the block, with a color bar from 0 to 70 meters per second."
             autoplay muted loop playsinline preload="metadata"></video>
         </figure>
         <div class="pub-links"><a href="https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide" target="_blank" rel="noopener noreferrer">GitHub</a></div>

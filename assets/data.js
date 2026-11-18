@@ -30,7 +30,7 @@ const profile = {
   researchPoints: [
     `<strong>Trajectory prediction:</strong> Transformer models for road users, from LiDAR`,
     `<strong>Travel demand:</strong> bike-share trip flows forecast with graph networks`,
-    `<strong>Hurricane wind:</strong> city-scale CFD of wind hazard for pedestrians`,
+    `<strong>Hurricane wind:</strong> computational fluid dynamics (CFD) of pedestrian wind hazard`,
   ],
 };
 
@@ -298,7 +298,7 @@ const presentations = [
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
     venue: "106th Transportation Research Board (TRB) Annual Meeting, Washington, DC",
     date: "Jan. 2027",
-    note: "Poster presentation (accepted)",
+    note: "Accepted poster presentation",
   },
   {
     type: "conference",
@@ -318,7 +318,7 @@ const presentations = [
   },
   {
     type: "workshop",
-    title: "Predicting the Crowd:Spatially-Informed Transformers for Urban Traffic Agents",
+    title: "Predicting the Crowd: Spatially-Informed Transformers for Urban Traffic Agents",
     authors: "<strong>M. Jafarian Abyaneh</strong>, J. Jang",
     venue: "CS3 NSF Renewal Site Visit, Columbia Engineering Innovation Hub, CS3 HQ, New York, NY",
     date: "May 2026",
@@ -379,9 +379,9 @@ const news = [
   { date: "2026-10-16", text: `Awarded the <strong>FAU Graduate Fellowship for Academic Excellence</strong> for 2026–2027.` },
   { date: "2026-09-25", text: `Paper on geometry-aware trajectory forecasting at urban intersections accepted for presentation at the <strong>TRB 106th Annual Meeting</strong>.` },
   { date: "2026-04-22", text: `Awarded the <strong>ASCE Palm Beach Branch Scholarship</strong>.` },
-  { date: "2026-02-01", text: `Competed in the <strong>Perfect Pitch Competition</strong> and presented SIPT at the <strong>CS3 Innovation Summit</strong>, Columbia University.` },
+  { date: "2026-02-01", text: `Gave a 90-second <strong>Perfect Pitch</strong> talk and presented my trajectory prediction model (SIPT) at the <strong>CS3 Innovation Summit</strong>, Columbia University.` },
   { date: "2026-01-15", text: `Began mentoring 11 undergraduates across two groups in FAU's <strong>Vertically Integrated Projects</strong> program.` },
-  { date: "2026-01-10", text: `Presented bike-sharing O–D flow prediction at the <strong>TRB 105th Annual Meeting</strong>, Washington, DC.` },
+  { date: "2026-01-10", text: `Presented bike-share demand forecasting at the <strong>TRB 105th Annual Meeting</strong>, Washington, DC.` },
   { date: "2025-12-01", text: `Paper <em>Transformer-Based Trajectory Prediction Using LiDAR Data</em> published in <strong>IEEE OJ-ITS</strong>.` },
   { date: "2024-08-01", text: `Started my Ph.D. at <strong>Florida Atlantic University</strong> in the I-SENSE Lab.` },
 ];
@@ -403,9 +403,9 @@ const research = [
     id: "lidar-transformer",
     title: "Predicting where people and cars go next, from raw LiDAR",
     status: "published",
-    hook: "Where is that pedestrian about to step? A Transformer answers it from raw LiDAR.",
+    hook: "A Transformer trained on roadside LiDAR forecasts the next few seconds of movement for every road user at an intersection.",
     points: [
-      "12,390+ real trajectories of vehicles, pedestrians and cyclists, from one Ouster OS1 LiDAR at a West Palm Beach intersection.",
+      "12,390+ trajectories of vehicles, pedestrians and cyclists, from one Ouster OS1 LiDAR at a West Palm Beach intersection.",
       "<strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.",
       "Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.",
     ],
@@ -413,7 +413,7 @@ const research = [
       src: "assets/img/lidar-trajectory-prediction.jpg",
       width: 1765,
       height: 909,
-      alt: "Aerial map of Clematis Street, West Palm Beach, with a pedestrian's observed path, the ground-truth continuation, and the Transformer and LSTM predicted paths drawn as coloured tracks.",
+      alt: "Aerial map of Clematis Street, West Palm Beach, with a pedestrian's observed path, the ground-truth continuation, and the Transformer and LSTM predicted paths drawn as colored tracks.",
       caption: `Observed path, ground truth, and Transformer vs. LSTM predictions for one
         pedestrian outside the Mandel Public Library. Figure from the paper, published open
         access in <em>IEEE OJ-ITS</em> (CC BY).`,
@@ -448,19 +448,19 @@ const research = [
     id: "bike-od",
     title: "Forecasting bike-share demand a year ahead",
     status: "preprint",
-    hook: "Cyclist risk concentrates where riding concentrates. But the numbers usually arrive after the crash.",
+    hook: "A graph network forecasts next year's bike-share trips between stations, from public data.",
     points: [
       "Predicts station-to-station demand <strong>a year ahead</strong> with a spatial graph convolutional network.",
       "Public data only (trip records, census, OpenStreetMap), so an agency with no data budget can run it.",
-      "Predicted flow approximates exposure: it points to the corridors and hours where protection pays off.",
+      "Morning-peak flows mapped by land-use zone in GIS for the Jersey City Citi Bike network.",
     ],
     image: {
       src: "assets/img/bikeshare-od-flows.jpg",
       width: 1375,
       height: 978,
-      alt: "Map of Jersey City and Hoboken with curved lines between bike-share stations, thickness and colour showing the strength of morning-peak origin–destination flows.",
+      alt: "Map of Jersey City and Hoboken with curved lines between bike-share stations, thickness and color showing the strength of morning-peak origin–destination flows.",
       caption: `Morning-peak origin–destination flows across the Jersey City Citi Bike network,
-        with stations coloured by land-use zone.`,
+        with stations colored by land-use zone.`,
     },
     links: [
       { label: "SSRN preprint", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5801889" },
@@ -526,7 +526,7 @@ const code = [
         poster: "assets/img/urban-wind-poster.jpg",
         width: 904,
         height: 684,
-        alt: "Simulated wind speed at pedestrian level around a building in West Palm Beach: fast flow at the edges of the domain, a slow wake trailing downwind of the block, with a colour bar from 0 to 70 metres per second.",
+        alt: "Simulated wind speed at pedestrian level around a building in West Palm Beach: fast flow at the edges of the domain, a slow wake trailing downwind of the block, with a color bar from 0 to 70 meters per second.",
       },
       links: [
         { label: "GitHub", url: "https://github.com/mojtaba-ja/fluidx3d-wind-simulation-guide" },
@@ -554,12 +554,12 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Aug. 2024 – Present",
     points: [
-      "<strong>Interaction-aware prediction (SIPT):</strong> a Transformer that forecasts pedestrian and vehicle paths while accounting for how nearby road users influence each other. Average displacement error (ADE) 0.72 m on 64,000+ New York City trajectories, 30.1% lower than Social LSTM, with 49% fewer predicted collisions than a standard Transformer.",
-      "<strong>LiDAR trajectory prediction:</strong> built the pipeline from roadside LiDAR to 12,390+ geo-referenced trajectories at a West Palm Beach intersection. A Transformer cut ADE 15.2% vs. an LSTM baseline (<em>IEEE OJ-ITS</em>, 2026).",
+      "<strong>Interaction-aware prediction (SIPT):</strong> a Transformer that forecasts pedestrian and vehicle paths while accounting for how nearby road users influence each other. Average displacement error (ADE) 0.72 m on 64,000+ New York City trajectories, 30.1% lower than Social LSTM. Its forecasts contain 49% fewer collisions than a standard Transformer's (5.7% to 2.9%).",
+      "<strong>LiDAR trajectory prediction:</strong> built the pipeline from roadside LiDAR to 12,390+ geo-referenced trajectories at a West Palm Beach intersection. A Transformer cut ADE 15.24% vs. an LSTM baseline (<em>IEEE OJ-ITS</em>, 2026).",
       "<strong>Bike-share demand:</strong> forecast year-ahead station-to-station trips with a spatial graph network and mapped the flows by land-use zone (TRB 2026 poster).",
-      "<strong>Hurricane wind:</strong> lead a study of how building geometry detail changes wind hazard for pedestrians in downtown Miami, with OpenFOAM CFD on HPC.",
-      "<strong>Older-driver data (NIH):</strong> manage the dataset of an NIH longitudinal study (R01AG068472): 750 older drivers, 12 waves over 3 years.",
-      "<strong>Mentoring:</strong> co-mentor four NSF CS3 undergraduates, work that led to two student posters (2026).",
+      "<strong>Hurricane wind:</strong> lead a study of how building geometry detail changes wind hazard for pedestrians in downtown Miami, with OpenFOAM simulations on high-performance computing.",
+      "<strong>Older-driver data (NIH):</strong> manage the dataset of an NIH longitudinal study (R01AG068472), covering 750 older drivers over 12 waves and 3 years.",
+      "<strong>Mentoring:</strong> co-mentor four NSF CS3 undergraduates on urban digital twins and GPS-based driver behavior, work that led to two student posters (2026).",
     ],
   },
   {

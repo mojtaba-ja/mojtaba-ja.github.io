@@ -320,7 +320,7 @@ const researchLinks = (r, base) =>
 
 /* Three headline numbers, for the project that has results but no public figure.
    Plain text in the page's own ink — a number is not a series, so it gets no
-   colour of its own. */
+   color of its own. */
 const statRow = (stats) =>
   `<div class="stats">${stats
     .map(
