@@ -578,7 +578,7 @@ const experience = [
     dates: "Nov. 2026 – Present",
     points: [
       "<strong>Team:</strong> mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, through the design of FAU's bridge for the 2027 AISC/ASCE Student Steel Bridge Competition (Southeast regional, FIU, Miami, Mar. 2027).",
-      "<strong>Design:</strong> guide the team from the competition rules to design criteria, frame analysis and deflection checks in STAAD.Pro, and CAD in SolidWorks.",
+      "<strong>Design:</strong> guide the team from the competition rules to STAAD.Pro analysis, connection design and SolidWorks shop drawings.",
       "<strong>Training:</strong> teach structural modeling and review each bridge model against the design criteria.",
     ],
   },
