@@ -407,7 +407,7 @@ const research = [
     points: [
       "12,390+ trajectories of vehicles, pedestrians and cyclists, from one Ouster OS1 LiDAR at a West Palm Beach intersection.",
       "<strong>15.24% lower displacement error</strong> than an LSTM baseline, and it converges faster.",
-      "Full pipeline: point cloud &rarr; object detection &rarr; curation &rarr; geo-referenced prediction.",
+      "One pipeline from raw point cloud to object detection, curation and geo-referenced prediction.",
     ],
     image: {
       src: "assets/img/lidar-trajectory-prediction.jpg",
@@ -554,11 +554,11 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Aug. 2024 – Present",
     points: [
-      "<strong>Interaction-aware prediction (SIPT):</strong> a Transformer that forecasts pedestrian and vehicle paths while accounting for how nearby road users influence each other. Average displacement error (ADE) 0.72 m on 64,000+ New York City trajectories, 30.1% lower than Social LSTM. Its forecasts contain 49% fewer collisions than a standard Transformer's (5.7% to 2.9%).",
-      "<strong>LiDAR trajectory prediction:</strong> built the pipeline from roadside LiDAR to 12,390+ geo-referenced trajectories at a West Palm Beach intersection. A Transformer cut ADE 15.24% vs. an LSTM baseline (<em>IEEE OJ-ITS</em>, 2026).",
-      "<strong>Bike-share demand:</strong> forecast year-ahead station-to-station trips with a spatial graph network and mapped the flows by land-use zone (TRB 2026 poster).",
-      "<strong>Hurricane wind:</strong> lead a study of how building geometry detail changes wind hazard for pedestrians in downtown Miami, with OpenFOAM simulations on high-performance computing.",
-      "<strong>Older-driver data (NIH):</strong> manage the dataset of an NIH longitudinal study (R01AG068472), covering 750 older drivers over 12 waves and 3 years.",
+      "<strong>Interaction-aware prediction (SIPT):</strong> cut predicted collisions 49% vs. a standard Transformer, with a model of how road users react to each other (<em>IEEE T-ITS</em>, under review).",
+      "<strong>LiDAR trajectory prediction:</strong> turned roadside LiDAR into 12,390+ trajectories at a West Palm Beach intersection. A Transformer cut path error 15.24% vs. an LSTM (<em>IEEE OJ-ITS</em>, 2026).",
+      "<strong>Bike-share demand:</strong> forecast bike-share trips a year ahead with a graph network and mapped the flows in GIS (TRB 2026 poster).",
+      "<strong>Hurricane wind:</strong> lead a study of how building detail changes hurricane wind for pedestrians in downtown Miami (OpenFOAM, high-performance computing).",
+      "<strong>Older-driver data (NIH):</strong> manage the dataset and its quality control for an NIH in-vehicle sensor study of 750 older drivers.",
       "<strong>Mentoring:</strong> co-mentor four NSF CS3 undergraduates on urban digital twins and GPS-based driver behavior, work that led to two student posters (2026).",
     ],
   },
@@ -577,7 +577,7 @@ const experience = [
     location: "Boca Raton, FL",
     dates: "Nov. 2026 – Present",
     points: [
-      "<strong>Team:</strong> mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, through the design of FAU's bridge for the 2027 AISC/ASCE Student Steel Bridge Competition (Southeast regional, FIU, Miami, Mar. 2027).",
+      "<strong>Team:</strong> mentor six undergraduates, with faculty mentor Dr. Jinwoo Jang, through the design of FAU's bridge for the 2027 AISC/ASCE Student Steel Bridge Competition.",
       "<strong>Design:</strong> guide the team from the competition rules to STAAD.Pro analysis, connection design and SolidWorks shop drawings.",
       "<strong>Training:</strong> teach structural modeling and review each bridge model against the design criteria.",
     ],
@@ -598,7 +598,7 @@ const experience = [
     location: "Fredericton, NB, Canada",
     dates: "Sep. 2018 – Oct. 2020",
     points: [
-      "<strong>Thesis research:</strong> studied how cracking under sustained and cyclic loading changes the stiffness and vibration of reinforced concrete beams, through accelerometer tests and ABAQUS models.",
+      "<strong>Thesis research:</strong> studied how cracking under sustained and cyclic loading changes the stiffness and vibration of reinforced concrete beams (accelerometer tests, ABAQUS).",
       "<strong>Code checks:</strong> evaluated deflection, natural frequencies and mode shapes with ACI 318-19 and CSA A23.3.",
     ],
   },
