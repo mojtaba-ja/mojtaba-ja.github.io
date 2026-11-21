@@ -683,7 +683,7 @@ const teaching = [
     location: "Fredericton, NB, Canada",
     dates: "Jan. 2019 – Apr. 2020",
     points: [
-      "<strong>Mechanics of Materials Experimental Lab</strong> (2019): led undergraduate lab sections in tension, compression and torsion testing, responsible for safe procedures and reliable data.",
+      "<strong>Mechanics of Materials Experimental Lab</strong> (2019): led undergraduate lab sections in tension, compression and torsion testing, keeping procedures safe and data reliable.",
       "<strong>Statics Computational Lab</strong> (2020): taught equilibrium, force and moment analysis through computational problem solving.",
     ],
   },
