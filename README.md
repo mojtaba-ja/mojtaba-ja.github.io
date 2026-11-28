@@ -191,4 +191,4 @@ copy helps nobody. `publish.sh` carries the note on how to undo this.
 - Repo is public because GitHub Pages only serves public repos on the free plan.
 - `index.html`, `projects/`, `cv/`, `sitemap.xml` and `robots.txt` are generated.
   Don't hand-edit them; `node build.js` overwrites them.
-- Dark mode (`al-folio #1c1c1d`, `#29a9cf` cyan accent) is the default with a crisp Light Mode (`#ffffff`, `#0066cc`) toggle top-right; `assets/favicon.png` is the circular headshot icon from `assets/profile.jpg`.
+- Dark mode (`al-folio #1c1c1d`, `#29a9cf` cyan accent) is the default with a soft Light Mode (`Neutral Soft Stone #eaeae8`, `#0056a3`, ~82% white brightness) toggle top-right; `assets/favicon.png` is the circular headshot icon from `assets/profile.jpg`.
