@@ -38,7 +38,7 @@ const links = [
   { name: "Email",    url: "mailto:mjafarianaby2023@fau.edu" },
   { name: "Scholar",  url: "https://scholar.google.com/citations?user=VOvMEmIAAAAJ&hl=en" },
   { name: "GitHub",   url: "https://github.com/mojtaba-ja" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/mojjafarian" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/mojtaba-ja" },
   // ONE document, and clicking it gives you that document. A recruiter
   // clicking "CV" wants the file — to read, print or attach — not a web page
   // they then have to find a download button on. The whole CV is on this page
