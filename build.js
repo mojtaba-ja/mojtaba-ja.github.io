@@ -47,7 +47,7 @@ const assetHash = (rel) => {
 };
 const CSS_V = assetHash("assets/style.css");
 const JS_V = assetHash("assets/site.js");
-const ICON_V = assetHash("assets/favicon.svg");
+const ICON_V = assetHash("assets/favicon.png");
 
 /* ---- Load data.js as the single source of truth ----------- */
 const src = fs.readFileSync(path.join(__dirname, "assets", "data.js"), "utf8");
@@ -544,7 +544,8 @@ ${
     <meta name="twitter:description" content="${attr(description)}" />
     <meta name="twitter:image" content="${SITE_URL}/${D.profile.image}" />
 
-    <link rel="icon" type="image/svg+xml" href="${base}assets/favicon.svg?v=${ICON_V}" />
+    <link rel="icon" type="image/png" sizes="192x192" href="${base}assets/favicon.png?v=${ICON_V}" />
+    <link rel="apple-touch-icon" href="${base}assets/favicon.png?v=${ICON_V}" />
     <link rel="stylesheet" href="${base}assets/style.css?v=${CSS_V}" />
 
     <script type="application/ld+json">

@@ -191,4 +191,4 @@ copy helps nobody. `publish.sh` carries the note on how to undo this.
 - Repo is public because GitHub Pages only serves public repos on the free plan.
 - `index.html`, `projects/`, `cv/`, `sitemap.xml` and `robots.txt` are generated.
   Don't hand-edit them; `node build.js` overwrites them.
-- Dark mode (`Hugo PaperMod #1d1e20` obsidian) is the default with a crisp Light Mode (`#ffffff`) toggle top-right; `assets/favicon.svg` holds the Navy `MJ` monogram icon.
+- Dark mode (`Hugo PaperMod #1d1e20` obsidian) is the default with a crisp Light Mode (`#ffffff`) toggle top-right; `assets/favicon.png` is the circular headshot icon from `assets/profile.jpg`.
