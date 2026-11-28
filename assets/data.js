@@ -17,7 +17,7 @@ const profile = {
   // the start date, which is what a reader actually scans for.
   bio: `I am a Ph.D. candidate and Graduate Research Assistant at
         <strong>Florida Atlantic University</strong>, working in the
-        <a href="https://www.fau.edu/smart/" target="_blank" rel="noopener">I-SENSE Lab</a>
+        <a href="https://www.fau.edu/research/smart/" target="_blank" rel="noopener">I-SENSE Lab</a>
         with Dr. Jinwoo Jang. My work is funded by the <strong>NSF</strong> and
         the <strong>NIH</strong>.`,
   // A paragraph here restated the Research Interests tags further down in
