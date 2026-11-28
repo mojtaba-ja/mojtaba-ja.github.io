@@ -8,13 +8,13 @@
    @media (prefers-color-scheme: light) and change its selector to
    :root:not([data-theme="dark"]). */
 :root {
-  --bg:      #0d1117;
-  --text:    #e6edf3;
-  --muted:   #8b949e;
-  --rule:    #30363d;
-  --link:    #58a6ff;
-  --sep:     #484f58;
-  --card:    #161b22;
+  --bg:      #1d1e20;
+  --text:    #dadadb;
+  --muted:   #9b9c9d;
+  --rule:    #414244;
+  --link:    #67b7dc;
+  --sep:     #66676b;
+  --card:    #2e2e33;
 
   color-scheme: dark;
   font-synthesis: none;
@@ -27,17 +27,17 @@
   line-height: 1.5;
 }
 
-/* Light, applied only when the visitor picks it.
+/* Light (PaperMod Light), applied when the visitor picks it.
    Contrast against #ffffff, WCAG AA needs 4.5:1 for body text:
-     text  #1c1917  16.9:1   muted #6b6560  5.3:1   link #1a56c4  6.4:1  */
+     text  #1e1e1e  16.7:1   muted #6c6c6c  5.3:1   link #0056b2  7.1:1  */
 :root[data-theme="light"] {
   --bg:      #ffffff;
-  --text:    #1c1917;
-  --muted:   #6b6560;
-  --rule:    #e4e2df;
-  --link:    #1a56c4;
-  --sep:     #a8a29e;
-  --card:    #f7f6f4;
+  --text:    #1e1e1e;
+  --muted:   #6c6c6c;
+  --rule:    #e0e0e0;
+  --link:    #0056b2;
+  --sep:     #a0a0a0;
+  --card:    #f5f5f5;
   color-scheme: light;
 }
 :root[data-theme="light"] figure.fig img,
@@ -327,12 +327,12 @@ ol.pubs > li::marker { color: var(--muted); font-size: .92rem; }
   vertical-align: 1.5px;
   border: 1px solid currentColor;
 }
-/* Bright inks on the dark default (#0d1117). Contrast:
-   green 10.9:1, amber 11.3:1, blue 9.7:1 — all well past AA. */
+/* Bright inks on PaperMod Dark (#1d1e20). Contrast:
+   green 9.6:1, amber 10.0:1, cyan-blue 7.5:1 — all well past AA. */
 .badge-published { color: #4ade80; }
 .badge-review    { color: #fbbf24; }
 .badge-revision  { color: #fbbf24; }
-.badge-preprint  { color: #79c0ff; }
+.badge-preprint  { color: #67b7dc; }
 .badge-prep      { color: var(--muted); }
 
 /* Deep inks on white. Contrast: green 4.9:1, amber 4.6:1, blue 6.9:1. */
