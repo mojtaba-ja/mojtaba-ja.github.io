@@ -8,13 +8,13 @@
    @media (prefers-color-scheme: light) and change its selector to
    :root:not([data-theme="dark"]). */
 :root {
-  --bg:      #111111;
-  --text:    #e8e6e3;
-  --muted:   #a8a29e;
-  --rule:    #333333;
-  --link:    #4a9eff;
-  --sep:     #666666;
-  --card:    #191919;
+  --bg:      #0d1117;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --rule:    #30363d;
+  --link:    #58a6ff;
+  --sep:     #484f58;
+  --card:    #161b22;
 
   color-scheme: dark;
   font-synthesis: none;
@@ -39,6 +39,11 @@
   --sep:     #a8a29e;
   --card:    #f7f6f4;
   color-scheme: light;
+}
+:root[data-theme="light"] figure.fig img,
+:root[data-theme="light"] .stat,
+:root[data-theme="light"] video.demo {
+  box-shadow: none;
 }
 
 * { box-sizing: border-box; }
@@ -102,7 +107,7 @@ figure.fig figcaption {
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-h1, h2, h3, h4 { color: var(--text); font-weight: 700; }
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; letter-spacing: -.015em; }
 
 h2 {
   font-size: 1.25rem;
@@ -129,6 +134,7 @@ header.masthead img.avatar {
   height: 375px;         /* 2:3, the source photo's own ratio */
   object-fit: cover;
   object-position: 50% 22%;
+  border: 1px solid var(--rule);
   border-radius: 8px;
   flex-shrink: 0;
 }
@@ -321,12 +327,12 @@ ol.pubs > li::marker { color: var(--muted); font-size: .92rem; }
   vertical-align: 1.5px;
   border: 1px solid currentColor;
 }
-/* Bright inks on the dark default. Contrast against #111:
-   green 9.7:1, amber 11.4:1, blue 6.3:1 — all well past AA. */
+/* Bright inks on the dark default (#0d1117). Contrast:
+   green 10.9:1, amber 11.3:1, blue 9.7:1 — all well past AA. */
 .badge-published { color: #4ade80; }
 .badge-review    { color: #fbbf24; }
 .badge-revision  { color: #fbbf24; }
-.badge-preprint  { color: #60a5fa; }
+.badge-preprint  { color: #79c0ff; }
 .badge-prep      { color: var(--muted); }
 
 /* Deep inks on white. Contrast: green 4.9:1, amber 4.6:1, blue 6.9:1. */
@@ -365,6 +371,7 @@ figure.fig img {
   border: 1px solid var(--rule);
   border-radius: 6px;
   background: var(--card);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .28);
 }
 figure.fig figcaption {
   color: var(--muted);
@@ -401,6 +408,7 @@ ul.points li {
   border: 1px solid var(--rule);
   border-radius: 6px;
   background: var(--card);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .28);
   padding: .55rem .75rem;
 }
 .stat-value { font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
@@ -431,6 +439,7 @@ video.demo {
   border: 1px solid var(--rule);
   border-radius: 6px;
   background: var(--card);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .28);
 }
 
 /* ---------- Code ---------- */
